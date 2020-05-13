@@ -1,0 +1,11 @@
+/composer.lock
+/composer.phar
+*.DS_Store
+*~
+Thumbs.db
+/vendor
+/bin
+/.settings/
+/.idea
+/var/
+/web/keosu/export/cordova/

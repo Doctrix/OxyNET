@@ -1,0 +1,22 @@
+
+
+<div class="calendar">
+	<div ng-show="!showDetail">
+		<div ui-calendar="uiConfig.calendar" class="span8" ng-model="eventSources" calendar="agenda"></div>
+
+		<div ng-click="showCalendarView('listMonth')">Show List</div>
+		<div ng-click="showCalendarView('month')">Show Calendar</div>
+	</div>
+
+	<div ng-show="showDetail">
+		<h1 ng-bind-html="eventToDisplay.title"></h1>
+		<img ng-src="{{eventToDisplay.webPath}}"/>
+		Start at <span ng-bind-html="eventToDisplay.startDisplay"></span><br/>
+		Stop at <span ng-bind-html="eventToDisplay.endDisplay"></span><br/>
+		<span ng-bind-html="eventToDisplay.location"></span><br/>
+		<div>
+			<span ng-bind-html="eventToDisplay.description"></span>
+		</div>
+	</div>
+
+</div>

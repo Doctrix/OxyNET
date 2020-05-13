@@ -1,0 +1,15 @@
+keosu_event_viewlist:
+    path:  /content/event
+    defaults: { _controller: KeosuDataModelEventModelBundle:View:view }
+    
+keosu_event_delete:
+    path:  /content/event/delete/{id}
+    defaults: { _controller: KeosuDataModelEventModelBundle:Edit:delete }
+    
+keosu_event_edit:
+    path:  /content/event/edit/{id}
+    defaults: { _controller: KeosuDataModelEventModelBundle:Edit:edit }
+    
+keosu_event_add:
+    path:  /content/event/add
+    defaults: { _controller: KeosuDataModelEventModelBundle:Edit:add }

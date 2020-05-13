@@ -1,0 +1,4 @@
+/bundles/*
+/app_local.php
+.DS_Store
+/bundles

@@ -1,0 +1,3 @@
+keosu_gadget_comment_service:
+    path:  /service/gadget/comment/{dataModelObjectName}/{idDataModel}
+    defaults: { _controller: KeosuGadgetCommentGadgetBundle:Service:comment }

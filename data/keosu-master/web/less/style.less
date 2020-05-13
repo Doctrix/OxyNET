@@ -1,0 +1,585 @@
+// General settings
+
+//GENERAL
+.menu-link-pos {
+  padding: 7px 25px;
+}
+
+//END GENERAL
+
+@font-face {
+  font-family: "lato-regular";
+  src: url('../fonts/lato/lato-regular.eot') format('eot'),
+  url('../fonts/lato/lato-regular.woff') format('woff'),
+  url('../fonts/lato/lato-regular.ttf') format('truetype'),
+  url('../fonts/lato/lato-regular.svg') format('svg');
+}
+
+body {
+  background-color: @body-background !important;
+  font-family: "lato-regular";
+}
+
+body, html {
+  padding: 0;
+}
+
+a {
+  &:hover, &:active, &:focus {
+    color: @link-state !important;
+    text-decoration: none !important;
+  }
+}
+
+h2 {
+  margin-bottom: 36px;
+}
+
+h3 {
+  margin-top: 5px !important;
+  margin-bottom: 25px;
+}
+
+li {
+  list-style-type: none;
+}
+
+#body {
+  margin-top: 40px;
+}
+
+#main-content {
+  height: 100%;
+  background-color: @body-background;
+}
+
+.panel {
+  background-color: @body-background !important;
+  box-shadow: none;
+  legend {
+    display: none;
+  }
+}
+
+.clear {
+  clear: both;
+}
+
+.hidden {
+  display: none;
+}
+
+.glyphicon {
+  color: @icon;
+  padding-right: 8px;
+
+}
+
+//LEFT MENU
+#left-menu {
+  padding-left: 0;
+  width: 215px;
+
+  .dropdown {
+    .menu-link-pos;
+    background-color: @nav-background-state;
+    .dropdown-menu {
+      border-radius: 0;
+      margin-left: 195px;
+      margin-top: -36px;
+      background-color: @nav-background;
+      a {
+        &:hover {
+          background-color: @nav-background-state;
+        }
+      }
+    }
+  }
+
+  .sidebar {
+    background-color: @nav-background;
+
+    .sidemenu {
+      font-size: 16px;
+
+      .logowrapper {
+        padding: 20px 0;
+        img {
+          display: block;
+          width: 70px;
+          margin: auto;
+        }
+      }
+
+      .sidebartitle {
+        margin-top: 14px;
+        text-transform: uppercase !important;
+      }
+
+      a {
+        color: @body-background;
+        div {
+          .menu-link-pos;
+          min-height: 38px !important;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        &:hover {
+          div {
+            color: @link-state;
+            background-color: @nav-background-state !important;
+            .glyphicon {
+              color: @link-state !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//END LEFT MENU
+
+.logotop .login-page{
+    text-align: center !important;
+}
+
+#login-container {
+  min-width: 220px;
+  max-width: 400px;
+  min-height: 220px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
+  box-shadow: 0 1px 3px rgba(0,0,0,.13);
+  .logotop {
+    text-align: center;
+    img {
+      max-width: 70px;
+    }
+  }
+}
+
+.wellcustom {
+  background-image: none;
+  background-color: #fefefe;
+  overflow: hidden;
+  margin-bottom: 20px;
+  min-height: 280px;
+  padding: 19px;
+  position: relative;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
+  box-shadow: 0 1px 3px rgba(0,0,0,.13);
+ /* -moz-box-shadow: 0px 1px 2px 0px #e5e5e5;
+  -webkit-box-shadow: 0px 1px 2px 0px #e5e5e5;
+  -o-box-shadow: 0px 1px 2px 0px #e5e5e5;
+  box-shadow: 0px 1px 2px 0px #e5e5e5;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color=#e5e5e5, Direction=180, Strength=2);*/
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  h3 {
+    height: 65px;
+  }
+  p {
+    height: 100px;
+  }
+}
+
+.logincontainer input{
+    margin-bottom: 14px;
+}
+
+.icon-success {
+  color: #fff !important;
+  margin-right: 6px;
+}
+
+
+
+/*Well tooltip*/
+
+/*Left side bar */
+
+.maintitle {
+  font-size: 30px;
+  color: @fontcolor;
+}
+
+//NEW
+
+//END NEW
+
+.sidebarlogout {
+  font-style: italic;
+  color: @sidebarfontcolor;
+}
+
+.sidebarlink .a:hover {
+  color: #00b9eb !important;
+  text-decoration: none;
+
+}
+
+.separator {
+  display: block;
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: 1px;
+  line-height: 2px;
+  margin-top: 10px;
+}
+
+.logininfo {
+  border-bottom: 1px @sidebarbackground solid;
+}
+
+.sidebar {
+  //	margin-top:-72px;
+  z-index: 100;
+}
+
+.right-button {
+  line-height: 70px;
+}
+
+.logo {
+  width: 100%;
+  float: none;
+  margin: 0 auto;
+}
+
+.icon-publish {
+  width: 24px;
+  height: 24px;
+}
+
+// Customs
+// Login
+
+// Table options
+.table-actions-column {
+  padding-left: 19px;
+  padding-right: 19px;
+}
+
+// Dashboard
+div.dashboard {
+  div {
+    margin-left: 0;
+    div.well {
+      background-color: @piGray;
+      .box-shadow(0 1px 10px @black);
+      .border-top-radius(@baseBorderTopRadius);
+      .border-bottom-radius(@baseBorderBottomRadius);
+      .border-right-radius(@baseBorderRightRadius);
+      .border-left-radius(@baseBorderLeftRadius);
+    }
+    div.well:hover {
+      background-color: white;
+    }
+  }
+}
+
+.templatepreview {
+  height: 480px;
+  width: 320px;
+  border: 8px solid #777777;
+  border-radius: 18px;
+  margin: 0 auto;
+
+}
+
+.zone {
+  height: auto;
+  border-top: 1px solid #777777;
+}
+.edit-gadget {
+  margin-left: 15px;
+}
+
+.remove-gadget {
+  color: #888;
+  font-size: 20px;
+  position: relative;
+  top: 5px;
+  margin-left: 2px;
+}
+
+.remove-gadget:hover span {
+  color: #444 !important;
+}
+
+.form_config_page_form_group label a {
+  margin-left: 10px;
+}
+
+.zone h4 {
+  margin-left: 15px;
+}
+
+.zone .btn-group {
+  margin-left: 15px;
+}
+
+.pageinfo {
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.table {
+  background-color: white;
+  border-radius: 5px;
+}
+
+#articleform .btn-default {
+  display: none;
+}
+
+.pagelist .btn-default {
+  display: none;
+}
+
+.logincontainer {
+  width: 320px;
+    label{
+        color:grey !important;
+        font-weight:100;
+    }
+}
+
+.row {
+}
+
+.container-fluid {
+  height: 100%;
+}
+
+#content {
+  padding: 10px;
+  margin-right: 5%;
+}
+
+fieldset {
+  border: 0 !important;
+}
+
+.form-control:focus {
+  border-color: @piOrange;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px @piOrange;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px @piOrange;
+}
+
+.control-label {
+  height: 36px;
+  line-height: 36px;
+  clear: both;
+}
+
+.panel-footer {
+  color: @sidebarfontcolor;
+  font-weight: bold;
+  background-color: @topbarcolor;
+  margin-top: -40px;
+}
+
+.badge {
+  float: right;
+  background-color: transparent;
+  span {
+    color: @basic-btn;
+    padding-right: 0;
+    &:hover {
+      columns: @basic-btn-state;
+    }
+  }
+}
+
+.picture-edit {
+  img {
+    max-width: 300px;
+    max-height: 300px;
+  }
+  .picture-upload {
+    margin-top: 15px;
+  }
+}
+
+.picture-edit-list {
+  td {
+    vertical-align: middle !important;
+  }
+
+  img {
+    height: auto;
+    width: auto;
+    max-width: 100px;
+    max-height: 100px;
+  }
+}
+
+#articleform {
+  .image-collection-entry {
+    label {
+      display: none;
+    }
+  }
+}
+
+.article-images {
+  clear: both;
+  margin-top: 15px;
+}
+
+//Modal popin
+.ui-widget-header {
+  background-color: @sidebarbackground;
+  color: @sidebarfontcolor;
+
+}
+
+//Edit reader form
+
+//Theme radio button
+.img-theme .radio {
+  display: inline;
+  padding-left: 0;
+  padding-right: 10px;
+}
+
+.img-theme img {
+  height: 250px;
+}
+
+.img-theme .radio input[type="radio"] {
+  display: none;
+}
+
+//Template radio button
+.imgTemplate .radio {
+  height: 150px;
+  display: inline;
+
+}
+
+.imgTemplate .radio input[type="radio"] {
+  float: none;
+  clear: both;
+  margin-left: 0;
+}
+
+.imgTemplate .radio input[type="radio"] {
+  display: none;
+}
+
+.form_allowupdate_form_group > .col-lg-9 {
+  width: 20px;
+}
+
+.allowupdate {
+  height: 40px;
+}
+
+.allowupdatelabel {
+  height: 40px;
+  line-height: 40px;
+}
+
+.configurelabel {
+  height: 40px;
+  line-height: 40px;
+  padding-top: 5px;
+  font-weight: bold;
+}
+
+.templateimg {
+  float: left;
+  .radio {
+    padding: 15px;
+    float: left;
+    margin-top: 0;
+  }
+
+  img {
+    margin-left: 5px;
+    height: 150px;
+    width: 100px;
+  }
+}
+
+#form_icon .radio {
+  padding: 15px;
+  float: left;
+  margin-top: 0;
+  width: 50px;
+}
+
+#form_gadgetTemplate {
+  float: left;
+  .radio {
+    padding: 15px;
+    float: left;
+    margin-top: 0;
+  }
+
+  img {
+    margin-left: 5px;
+    height: 150px;
+    width: 100px;
+  }
+}
+
+// Contact us gadget's config
+#form_config_presentation, #form_config_address {
+  margin-bottom: 6px;
+}
+
+#checklayout, .pageinfo {
+  .dropdown-toggle {
+    color: @black !important;
+  }
+}
+
+/*button*/
+.btn {
+  color: @white !important;
+  padding-right: 10px;
+  margin: 5px;
+  &:hover, &:active {
+    color: @white !important;
+  }
+}
+
+.btn-default, .btn-store, .btn-login, .btn-info, .btn-primary {
+  background-color: @basic-btn !important;
+  border-color: @basic-btn-border !important;
+  &:hover {
+    background-color: @basic-btn-state !important;
+  }
+}
+
+.btn-default {
+  position: absolute;
+}
+
+.btn-store {
+  margin-bottom: 25px;
+  margin-left: 25px;
+}
+
+.btn-login {
+  width: 100%;
+}
+
+.btn-primary {
+  margin: 0;
+}
+div.version{
+  color: white;
+}

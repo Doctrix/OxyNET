@@ -1,0 +1,22 @@
+{
+    "name" : "keosu-map",
+    "description" : "display a map",
+    "version" : "0.1",
+    "type" : "gadget",
+    "param" : [
+        { "name" : "poiId", "type":"number"},
+    	{ "name" : "zoom", "type" : "number"},
+        { "name" : "cache", "type" : "number", "options": {
+            "label": "Cache in minute",
+            "data": 10}},
+        { "name" : "timeout", "type" : "number", "options": {
+            "label": "Timeout in seconde",
+            "data": 10}}
+    ],
+    "libJs" : ["https://maps.googleapis.com/maps/api/js?sensor=false"],
+    "require" : [
+        { "name" : "keosu-base" , "version" : ">=0.1" },
+        { "name" : "keosu-comments" , "version" : ">=0.1" },
+        { "name" : "lib-js" , "version" : ">=0.1" }
+    ]
+}

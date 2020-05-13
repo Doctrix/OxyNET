@@ -1,0 +1,96 @@
+/***************************
+   LIST
+***************************/
+.list {
+	margin: 0px 5px !important;
+	padding: 5px !important;
+	background-color: #ffffff !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.list h6{
+	font-size: 14px;
+}
+
+.list-content {
+	border: none !important;
+}
+
+.list-elements {
+	margin: 0 auto;
+	padding: 0px !important;
+}
+
+.list-title > .ng-scope > h6, h6.title.ng-binding {
+	height:50px;
+	word-wrap: break-word;
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+}
+
+.list-elem-right {
+	color: #bdc3c7 !important;
+}
+
+.list-elem-left {
+}
+
+.list-articles button:first-child {
+    float: left;
+}
+
+.list-articles button:last-child {
+    float: right;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none !important;
+}
+
+.img-min-list {
+    position:relative  !important;
+    margin-left: auto;
+    margin-right: auto;
+    max-height:64px  !important;
+    max-width:128px  !important;
+    overflow:hidden  !important;
+}
+
+.img-min {
+    min-width: 170px;
+    left: -20;
+    height: auto;
+    position:absolute  !important;
+}
+
+img.center, .img-min {
+    width: 100%;
+}
+
+.img-list {
+    list-style-type: none !important;
+    margin: auto 0 !important;
+    padding: 5px !important;
+}
+
+.one-article img, .one-article iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+.one-article h4 {
+    text-align: center;
+}
+
+.next_btn {
+    float: right;
+    diplay: inline;
+}
+
+.prev_btn {
+    float: left;
+    diplay: inline;
+}

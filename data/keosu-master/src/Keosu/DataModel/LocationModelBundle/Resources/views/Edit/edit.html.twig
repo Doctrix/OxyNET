@@ -1,0 +1,197 @@
+	{# 	
+	Keosu is an open source CMS for mobile app
+	Copyright (C) 2016  Pockeit
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    #}
+
+{% extends 'KeosuCoreBundle:MainViews:content.html.twig' %}
+
+{% block title %}
+Edit point of interest
+{% endblock %}
+
+{% block content %}
+{{ tinymce_init() }}
+<style>
+	.map-canvas{
+        height: 500px;
+        width: 500px;
+        margin-left: auto;
+    	margin-right: auto;
+      }
+    .alert{
+    	text-align: center;
+    	display:none;
+	}
+</style>
+
+<script type="text/javascript">
+
+///// TAGS /////
+	$(document).ready(function() {
+	 var liste = new Array();
+		{% for tag in tagsList %}
+			liste.push("{{tag}}");
+		{% endfor %}
+		var $tagContainer = $('.tags');
+		
+		function add_tag(){
+			index = $tagContainer.children().length;
+			prototype='<div class="image-collection-entry">';
+			prototype+='<a class="badge remove-button">';
+			prototype+='<span class="glyphicon glyphicon-remove"></span></a>';
+			prototype+='<span class="clear">&nbsp;</span>';
+			widget=$tagContainer.attr('data-prototype').replace(/__name__/g, index);
+			prototype+=widget;
+			$tagContainer.append($(prototype));
+			
+			//Autocompletion
+			$('.tags input').each(function(){
+				$(this).autocomplete({
+			    	source : liste
+				});
+			});
+		}
+		$('#add_tag').click(function(){
+			add_tag();
+			return false;
+		});
+		$('.tags input').each(function(){
+				$(this).autocomplete({
+			    	source : liste
+				});
+		});
+		$(document).on("click",'.remove-button',function() {
+		      $(this).parent().remove(); 
+		      $(this).remove();
+		      return false;
+		 });
+		});
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+<script>
+		var place;
+		function initialize() {
+			var mapOptions = {
+			    center: new google.maps.LatLng({{poi.lat}}, {{poi.lng}}),
+			    zoom: 13
+			};
+			var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+		
+            var input = document.getElementById('search');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.bindTo('bounds', map);
+            
+            var infowindow = new google.maps.InfoWindow();
+            var marker = new google.maps.Marker({
+			    map: map,
+			    anchorPoint: new google.maps.Point(0, -29)
+			});
+			
+			marker.setPosition(mapOptions.center);
+			marker.setVisible(true);
+			
+			google.maps.event.addListener(autocomplete, 'place_changed', function() {
+				infowindow.close();
+			    marker.setVisible(false);
+			    document.getElementById('warning').style.display="none";
+			    place = autocomplete.getPlace();
+			    if (!place.geometry) { 
+			    	console.log("test");
+			    	document.getElementById('warning').style.display="block";
+			    	
+			    	console.log(document.getElementById('warning'));
+			      	return;
+			    }
+			
+			    // If the place has a geometry, then present it on a map.
+			    if (place.geometry.viewport) {
+			      map.fitBounds(place.geometry.viewport);
+			    } else {
+			      map.setCenter(place.geometry.location);
+			    }
+			    marker.setPosition(place.geometry.location);
+			    marker.setVisible(true);
+				console.log(place.geometry.location=="undefined");
+			    var address = '';
+			    if (place.address_components) {
+			      address = [
+			        (place.address_components[0] && place.address_components[0].short_name || ''),
+			        (place.address_components[1] && place.address_components[1].short_name || ''),
+			        (place.address_components[2] && place.address_components[2].short_name || '')
+			      ].join(' ');
+			    }
+			
+			    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+			    infowindow.open(map, marker);
+			  });
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+        
+        function setLocation(){
+        	lat=document.getElementById('form_lat');
+            lng=document.getElementById('form_lng');
+            lat.value = place.geometry.location.lat();
+            lng.value = place.geometry.location.lng();
+        }
+</script>
+
+<div id="locationform">
+	{{ form_start(form) }}
+		{{ form_errors(form) }}
+		{{ form_row(form.name) }}
+		{{ form_row(form.description) }}
+		{{ form_row(form.lat) }}
+		{{ form_row(form.lng) }}
+		{{ form_row(form.enableComments) }}`
+
+		<br class="clear"/>
+		<h4>Search a location</h4>
+		<div class="row">
+			<label class="control-label col-sm-3">Search</label>
+			<div class="col-sm-7">
+				<input type="text" id="search" placeholder="Enter a location" class="form-control">
+			</div>
+			<button type="button" class="btn btn-primary col-sm-2" onClick="setLocation()">Add this location</button>
+		</div>
+		<div id="warning" class="alert alert-warning" role="alert">
+			<strong>Warning!</strong> Google doesn't found latitude or longitude of this point.<br />
+			Enter a nearby adress or search on internet.
+		</div>
+		<br class="clear"/>
+		<div id="map-canvas" class="map-canvas"></div>
+		
+		<!-- TAG -->
+		<a href="#" id="add_tag" class="btn btn-info">Add a tag</a>
+	    <div class="tags" data-prototype="{{ form_widget(form.tags.vars.prototype)|e }}">
+	        {% for tag in form.tags %}
+	        	<div class="image-collection-entry">
+		        	<a class="badge remove-button">
+						<span class="glyphicon glyphicon-remove"></span>
+					</a>
+					<span class="clear"/>
+			      {{ form_widget(tag) }}
+		    	</div>
+	        {% endfor %}
+	    </div>
+    
+		<br class="clear"/>
+		<br class="clear"/>
+		<input type="submit" class="btn btn-success" /><span>&nbsp;</span>
+		<a class="confirmModal" href="javascript:history.go(-1);" ><button type="button" class="btn btn-danger">Cancel</button></a>
+	{{ form_end(form) }}
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{
+   "name" : "keosu-comments",
+   "description" : "Create a form to comments items",
+   "version" : "0.1",
+   "type" : "plugin",
+   "param" : [
+      {"objectId" : "integer"},
+      {"dataModelObjectName" : "string"},
+      {"enableComments" : "boolean"},
+      {"templateName" : "string"}
+   ],
+   "require" : [
+      { "name" : "keosu-base" , "version" : ">=0.1" }
+   ]
+}

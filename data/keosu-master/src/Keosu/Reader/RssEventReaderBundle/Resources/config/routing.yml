@@ -1,0 +1,11 @@
+keosu_ReaderManager_RssEventReader_add:
+    path:  /content/reader/manage/add/eventrss
+    defaults: { _controller: KeosuReaderRssEventReaderBundle:Edit:add }
+    
+keosu_ReaderManager_RssEventReader_edit:
+    path:  /content/reader/manage/edit/eventrss/{id}
+    defaults: { _controller: KeosuReaderRssEventReaderBundle:Edit:edit }
+    
+keosu_ReaderManager_RssEventReader_sync:
+    path:  /content/reader/sync/eventrss/{id}
+    defaults: { _controller: KeosuReaderRssEventReaderBundle:Sync:sync }

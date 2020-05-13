@@ -1,0 +1,29 @@
+<div ng-bind-html="error"></div>
+<ul rn-carousel rn-carousel-index="indexSlide" class="animated fadeIn">
+	<li ng-repeat="image in images">
+		<img class="thumbs" ng-src="{{image.thumbpath}}" />
+	</li>
+</ul>
+
+<div class="gallery" ng-swipe-left="next()" ng-swipe-right="previous()">
+	<li ng-class="{active: activePage.page == $index,  inactive: activePage.page != $index}" ng-repeat="page in pages track by $index">
+		<div class="row-fluid">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 gallery">
+				<div ng-repeat="apage in page" class="animated {{slidePage}}">
+					<div class="picture-gallery center " >
+						<img ng-src="{{ apage.path }}" alt="" ng-click="open(apage)" class="thumb" ng-class="{'is-active': (apage.id==indexSlide+1),'is-not-active': (apage.id!=indexSlide+1) }"/>
+					</div>
+				</div>
+			</div>
+		</div> <br>
+		<hr>
+		<div class="row-fluid animated fadeIn">
+			<button ng-show="pages[$index - 1]" ng-click="previous()"
+				class="previous btn btn-default btn-page">Previous</button>
+			<button ng-show="pages[$index + 1]" ng-click="next()"
+				class="next btn btn-default btn-page pull-right">Next</button>
+		</div>
+	</li>
+</div>
+
+<keosu-comments object-id="image.id" object-name="image.dataModelObjectName" enable-comments="image.enableComments" ></keosu-comments>

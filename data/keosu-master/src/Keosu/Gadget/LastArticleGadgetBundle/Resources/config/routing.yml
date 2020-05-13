@@ -1,0 +1,11 @@
+keosu_gadget_last_article_gadget_add:
+    path:  /views/page/gadget/lastarticlegadget/add/{page}/{zone}
+    defaults: { _controller: KeosuGadgetLastArticleGadgetBundle:Edit:add }
+    
+keosu_gadget_last_article_gadget_edit:
+    path:  /views/page/gadget/lastarticlegadget/edit/{page}/{zone}
+    defaults: { _controller: KeosuGadgetLastArticleGadgetBundle:Edit:edit }
+    
+keosu_gadget_last_article_service:
+    path:  /service/gadget/lastarticle/{gadgetId}/{page}/{format}/
+    defaults: { _controller: KeosuGadgetLastArticleGadgetBundle:Service:viewList }
