@@ -35,6 +35,24 @@ text-align: center;
 color: #dd3c10;
 text-shadow: 0px 2px 6px #333333;
 }
+.game {
+    font: bold 35px/30px Helvetica, Arial, Sans-serif;
+    text-align: center;
+    color: #000000;
+    text-shadow: 0px 2px 6px #333333;
+}
+.game-win {
+    font: bold 35px/30px Helvetica, Arial, Sans-serif;
+    text-align: center;
+    color: #00fd00;
+    text-shadow: 0px 2px 6px #333333;
+}
+.game-lose {
+    font: bold 35px/30px Helvetica, Arial, Sans-serif;
+    text-align: center;
+    color: #860101;
+    text-shadow: 0px 2px 6px #333333;
+}
 h1 small {
 font-size: 20px;
 text-transform: uppercase;
@@ -86,44 +104,36 @@ clear: both;
 width: auto;
 margin: 50px auto 50px;
 }
-
 /* CONTENT */
 #content {
 width: 100%;
 margin: 0 auto;
 }
-
 #content p {
 margin-bottom: 20px;
 color: #eceff6;
 }
-
 #content p a {
 color: #3b5998;
 text-decoration: none;
 }
-
 #content p a:hover {
     text-decoration: underline;
 }
-
 #content .reference {
 text-align: justify;
 }
-
 #content h3 {
 color: #e2c822;
 margin: 10px 0;
 text-align: justify;
 }
-
 /* FACEBOOK LOADER */
 .loader {
 width: 32px;
 height: 32px;
 margin: 0 auto;
 }
-
 /* Initial state */
 .bar {
 background-color: #99aaca;
@@ -138,61 +148,50 @@ animation-duration: 1s;
 animation-iteration-count: infinite;
 animation-name: loadingbar;
 }
-
 .loader .bar:last-child {
 margin-right: 0px;
 }
-
 /* Delay both the second and third bar at the start */
 .loader .bar:nth-child(2) {
 animation-delay: 0.1s;
 }
-
 .loader .bar:nth-child(3) {
 animation-delay: 0.2s;
 }
-
 /* The actual animation */
 @keyframes loadingbar {
 0% {
 }
-
 10% {
 margin-top: 5px;
 height: 22px;
 border-color: #d1d8e6;
 background-color: #bac5db;
 }
-
 20% {
 margin-top: 0px;
 height: 32px;
 border-color: #d1d7e2;
 background-color: #c6ccda;
 }
-
 30% {
 margin-top: 1px;
 height: 30px;
 border-color: #d1d8e6;
 background-color: #bac5db;
 }
-
 40% {
 margin-top: 3px;
 height: 26px;
 }
-
 50% {
 margin-top: 5px;
 height: 22px;
 }
-
 60% {
 margin-top: 6px;
 height: 18px;
 }
-
 70% {
 }
 /* Missing frames will cause the extra delay */
@@ -350,20 +349,15 @@ margin: 0 0 5px 15px;
 .playlist li.active {
 font-weight: bold;
 }
-
 /* SOCIAL ICONS - GENERAL */
 .social {
 list-style: none;
 margin: 0px 52px;
-
 }
-
 .social li {
 display: inline;
-float: left;
 background-repeat: no-repeat;
 }
-
 .social li a {
 display: block;
 width: 48px;
@@ -373,7 +367,6 @@ padding-top: 6px;
 position: relative;
 text-decoration: none;
 }
-
 .social li a strong {
     font-weight: normal;
     position: absolute;
@@ -391,51 +384,40 @@ text-decoration: none;
     border-radius: 3px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
-
 li.delicious {
 background-image: url("../images/icones/delicious.png");
 }
-
 li.digg {
-background-image: url("../images/icones/digg.png");
+background-image: url("/data/images/icones/digg.png");
 }
-
 li.facebook {
-background-image: url("../images/icones/facebook.png");
+background-image: url("/data/images/icones/facebook.png");
 }
-
 li.flickr {
-background-image: url("../images/icones/flickr.png");
+background-image: url("/data/images/icones/flickr.png");
 }
-
 li.linkedin {
-background-image: url("../images/icones/linkedin.png");
+background-image: url("/data/images/icones/linkedin.png");
 }
-
 li.reddit {
-background-image: url("../images/icones/reddit.png");
+background-image: url("/data/images/icones/reddit.png");
 }
-
 li.rss {
-background-image: url("../images/icones/rss.png");
+background-image: url("/data/images/icones/rss.png");
 }
-
 li.twitter {
-background-image: url("../images/icones/twitter.png");
+background-image: url("/data/images/icones/twitter.png");
 }
-
 /* SOCIAL ICONS - CSS3 */
 #css3:hover li {
 opacity: 0.2;
 }
-
 #css3 li {
 -webkit-transition-property: opacity;
 -webkit-transition-duration: 500ms;
 -moz-transition-property: opacity;
 -moz-transition-duration: 500ms;
 }
-
 #css3 li a strong {
 opacity: 0;
 -webkit-transition-property: opacity, top;
@@ -443,14 +425,10 @@ opacity: 0;
 -moz-transition-property: opacity, top;
 -moz-transition-duration: 300ms;
 }
-
 #css3 li:hover {
 opacity: 1;
 }
-
 #css3 li:hover a strong {
 opacity: 1;
 top: -10px;
 }
-
-

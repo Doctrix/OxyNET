@@ -1,6 +1,6 @@
 <!-- formulaire mailto -->
 <div align="center">
-        <form action="mailto:contact@mifaconcept.fr" Method=post name="mon_form" onSubmit="return validation(this.form)">
+        <form action="mailto:contact@mifaconcept.fr" Method="post" name="mon_form" onSubmit="return validation(this.form)">
             <font face="Tahoma" size="2" color="#000080">
                 <table border="0" align="center" cellspacing="1" summary="">
                     <tr>

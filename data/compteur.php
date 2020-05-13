@@ -5,4 +5,4 @@
  fseek($monfichier, 0);
  fputs($monfichier, $pages_vues);
  fclose($monfichier);
- echo '<h2><p>Cette page a été vue '.$pages_vues.' fois!</p></h2>';
+ echo '<p>Le site a été vue '.$pages_vues.' fois depuis sa création 13/05/2020</p>';
