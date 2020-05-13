@@ -415,15 +415,15 @@ opacity: 0.2;
 #css3 li {
 -webkit-transition-property: opacity;
 -webkit-transition-duration: 500ms;
--moz-transition-property: opacity;
--moz-transition-duration: 500ms;
+transition-property: opacity;
+transition-duration: 500ms;
 }
 #css3 li a strong {
 opacity: 0;
 -webkit-transition-property: opacity, top;
 -webkit-transition-duration: 300ms;
--moz-transition-property: opacity, top;
--moz-transition-duration: 300ms;
+transition-property: opacity, top;
+transition-duration: 300ms;
 }
 #css3 li:hover {
 opacity: 1;
