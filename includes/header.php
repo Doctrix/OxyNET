@@ -1,5 +1,5 @@
 <?php
-require_once 'fonctions.php';
+require_once 'includes/fonctions.php';
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
           "http://www.w3.org/TR/html4/loose.dtd">
@@ -20,7 +20,7 @@ require_once 'fonctions.php';
     <meta name="abstract" content="Ce site présente les nouveautées developper par Oxy">
     <meta name="identifier-url" content="https://server.oxygames.fr/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="icon" href="data/images/ico/favicon.ico">   
+    <link rel="icon" href="includes/images/ico/favicon.ico">   
     <title>
         <?php if (isset($title)): ?>
             <?= $title ?>
@@ -28,14 +28,14 @@ require_once 'fonctions.php';
             Oxy
         <?php endif ?>
     </title>
-    <link type="text/css" href="/data/css/styles.css" rel="stylesheet"/>
-    <link type="text/css" href="/data/css/bootstrap.min.css" rel="stylesheet"/>
+    <link type="text/css" href="includes/css/styles.css" rel="stylesheet"/>
+    <link type="text/css" href="includes/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- script -->
-    <script type="text/javascript" src="/data/js/script.js"></script>
-    <script type="text/javascript" src="/data/js/jquery.js"></script>
-    <script type="text/javascript" src="/data/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/data/js/compteur.js"></script>
-    <script type="text/javascript" src="/data/js/animChargement.js"></script>
+    <script type="text/javascript" src="includes/js/script.js"></script>
+    <script type="text/javascript" src="includes/js/jquery.js"></script>
+    <script type="text/javascript" src="includes/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="includes/js/compteur.js"></script>
+    <script type="text/javascript" src="includes/js/animChargement.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 </head>
 <body>

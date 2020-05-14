@@ -16,7 +16,7 @@ if (isset($_POST['chiffre'])) {
     }
 }
 
-require 'header.php';
+require 'includes/header.php';
 ?>
 
 <?php if ($erreur):?>
@@ -29,7 +29,7 @@ require 'header.php';
 </div>
 <?php endif ?>
 <br>
-<form class="formfull" action="/game.php" method="POST">
+<form class="formfull" action="game.php" method="POST">
 <div class="form-group">
     <input class="form-control" type="number" name="chiffre" placeholder="entre 0 et 360" value="<?php $value ?>">
 </div>
@@ -37,5 +37,5 @@ require 'header.php';
 </formulaire>
 
 
-<?php require 'footer.php';?>
+<?php require 'includes/footer.php';?>
 

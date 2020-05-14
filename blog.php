@@ -1,7 +1,7 @@
 <?php 
 $title = 'Blog';
 
-require 'header.php'; 
+require 'includes/header.php'; 
 ?>
 
-<?php require 'footer.php';?>
+<?php require 'includes/footer.php';?>

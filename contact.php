@@ -1,8 +1,8 @@
 <?php 
 $title = 'Contact';
-require 'header.php'; 
+require 'includes/header.php'; 
 ?>
 
-<?php require 'templates/formulaire-email.php';?>
+<?php require 'includes/formulaire-email.php';?>
 
-<?php require 'footer.php';?>
+<?php require 'includes/footer.php';?>

@@ -1,12 +1,13 @@
 ﻿<?php 
 $title = 'Oxy Server';
-require 'header.php'; 
+require 'includes/header.php'; 
 ?>
 
 
 <?php 
-require 'footer.php';
-require 'templates/btn-reseau.php';
-require 'templates/compteur.php'; 
+require 'includes/footer.php';
+require 'includes/btn-reseau.php';
+require 'includes/compteur.php'; 
+require 'includes/compteur-visiteur.php'; 
 ?>
 

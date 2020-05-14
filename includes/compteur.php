@@ -1,3 +1,11 @@
-<div style="clear: both"></div>
-<div id="Compteur_Visite"></div>
-<div><p>par <img src="http://www.mon-compteur.fr/html_c02genv2-65405-6" border="0" /> VISITEUR</p></div>
+﻿<?php
+ $monfichier = fopen(dirname(__DIR__)
+
+ . DIRECTORY_SEPARATOR . 'data'
+ . DIRECTORY_SEPARATOR . 'compteur.txt', 'r+');
+ $pages_vues = fgets($monfichier);
+ $pages_vues ++;
+ fseek($monfichier, 0);
+ fputs($monfichier, $pages_vues);
+ fclose($monfichier);
+ echo '<p>Le site a été vue '.$pages_vues.' fois depuis sa création 13/05/2020</p>';

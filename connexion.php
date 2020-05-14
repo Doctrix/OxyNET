@@ -1,7 +1,7 @@
 ﻿<?php 
 $title = 'Connexion';
-require 'header.php';
+require 'includes/header.php';
 ?>
 
-<?php require 'templates/formulaire-connexion.php';
-require 'footer.php';?>
+<?php require 'includes/formulaire-connexion.php';
+require 'includes/footer.php';?>
