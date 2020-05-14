@@ -1,4 +1,4 @@
-# Oxy Server
+# OxyServer
 Oxy Server is a website.
 
 ## Installation
