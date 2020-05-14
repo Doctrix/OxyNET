@@ -23,4 +23,3 @@ function nav_menu (string $linkClass = ''): string
     nav_item('/contact.php', 'Contact', $linkClass);
 }
 
-?>

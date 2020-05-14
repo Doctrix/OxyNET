@@ -385,7 +385,7 @@ text-decoration: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 li.delicious {
-background-image: url("../images/icones/delicious.png");
+background-image: url("/data/images/icones/delicious.png");
 }
 li.digg {
 background-image: url("/data/images/icones/digg.png");
@@ -413,17 +413,15 @@ background-image: url("/data/images/icones/twitter.png");
 opacity: 0.2;
 }
 #css3 li {
--webkit-transition-property: opacity;
--webkit-transition-duration: 500ms;
 transition-property: opacity;
 transition-duration: 500ms;
+
 }
 #css3 li a strong {
 opacity: 0;
--webkit-transition-property: opacity, top;
--webkit-transition-duration: 300ms;
 transition-property: opacity, top;
 transition-duration: 300ms;
+
 }
 #css3 li:hover {
 opacity: 1;
@@ -431,4 +429,54 @@ opacity: 1;
 #css3 li:hover a strong {
 opacity: 1;
 top: -10px;
+}
+
+/* formulaire de connexion */
+
+/* body{
+    background: #67BE4B;
+} */
+#container{
+    width:400px;
+    margin:0 auto;
+    margin-top:10%;
+}
+/* Bordered form */
+.formfull {
+    width:100%;
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+#container h1{
+    width: 38%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+input[type=submit] {
+    background-color: #53af57;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+input[type=submit]:hover {
+    background-color: white;
+    color: #53af57;
+    border: 1px solid #53af57;
 }
