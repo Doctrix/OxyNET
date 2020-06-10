@@ -1,6 +1,6 @@
 <?php
 use App\{ConnexionServeur,ObjectHelper,Auth};
-use App\Table\ArticleTable;
+use App\Table\{ArticleTable,CategorieTable};
 use App\HTML\Form;
 use App\Validators\ArticleValidator;
 use App\Model\Article;
@@ -9,15 +9,20 @@ Auth::Verifier();
 
 $errors = [];
 $article = new Article();
+$pdo = ConnexionServeur::obtenirPDO();
+$categorieTable = new CategorieTable($pdo);
+$categories = $categorieTable->list();
 $article->definirDateDeCreation(date('Y-m-d H:i:s'));
 
 if (!empty($_POST)) {
-    $pdo = ConnexionServeur::obtenirPDO();
     $articleTable = new ArticleTable($pdo);
-    $v = new ArticleValidator($_POST,$articleTable,$article->obtenirID());
+    $v = new ArticleValidator($_POST,$articleTable,$article->obtenirID(),$categories);
     ObjectHelper::hydrate($article, $_POST, ['titre','contenu','slug','date_de_creation','extrait','lien']);
     if($v->validate()) {
+        $pdo->beginTransaction();
         $articleTable->CreerArticle($article);
+        $articleTable->attachCategories($article->obtenirID(), $_POST['categories_ids']);
+        $pdo->commit();
         header('Location:' . $router->url('admin_article', ['id' => $article->obtenirID()]).'?creer=1');
         exit();
     } else {

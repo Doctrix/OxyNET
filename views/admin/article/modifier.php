@@ -16,10 +16,14 @@ $success = false;
 $errors = [];
 
 if (!empty($_POST)) {
-    $v = new ArticleValidator($_POST,$articleTable,$article->obtenirID());
+    $v = new ArticleValidator($_POST, $articleTable, $article->obtenirID(), $categories);
     ObjectHelper::hydrate($article, $_POST, ['titre','contenu','slug','date_de_creation','extrait','lien']);
     if($v->validate()) {
+        $pdo->beginTransaction();
         $articleTable->MajArticle($article);
+        $articleTable->attachCategories($article->obtenirID(), $_POST['categories_ids']);
+        $pdo->commit();
+        $categorieTable->hydrateArticles([$article]);
         $success = true;
     } else {
         $errors = $v->errors();

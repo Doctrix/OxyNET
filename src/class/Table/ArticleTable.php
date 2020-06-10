@@ -19,6 +19,7 @@ final class ArticleTable extends Table {
             'lien' => $article->obtenirLien(),
             'date_de_creation' => $article->obtenirDateDeCreation()->format('Y-m-d H:i:s')
         ], $article->obtenirID());
+
     }
 
     public function CreerArticle (Article $article): void
@@ -32,6 +33,15 @@ final class ArticleTable extends Table {
             'date_de_creation' => $article->obtenirDateDeCreation()->format('Y-m-d H:i:s')
         ]);
         $article->definirID($id);
+    }
+
+    public function attachCategories (int $id, array $categories)
+    {
+        $this->pdo->exec('DELETE FROM article_categorie WHERE article_id = ' . $id);
+        $query = $this->pdo->prepare('INSERT INTO article_categorie SET article_id = ?, categorie_id = ?');
+        foreach($categories as $categorie) {
+            $query->execute([$id, $categorie]);
+        }
     }
 
     public function trouverPaginer () 

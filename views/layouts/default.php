@@ -48,7 +48,7 @@
     </div> 
 <footer class="bg-dark py-4 footer mt-auto">
     <div class="container">
-        <strong class="">O</strong>xy<strong class="">G</strong>ène<strong class="">S</strong>tudio <a href="//oxygames.fr" target="_blank">[O.G.S]</a> en partenariat avec : <a href="//mifaconcept.fr" target="_blank">Mifa Concept</a> | Crée avec Oxy v1.0
+        <strong class="">O</strong>xy<strong class="">G</strong>ène<strong class="">S</strong>tudio <a href="//oxygames.fr" target="_blank">[O.G.S]</a> en partenariat avec : <a href="//mifaconcept.fr" target="_blank">Mifa Concept</a> | Crée avec <a href="https://github.com/Doctrix/OxyNET" target="_blank">OxyNET</a> v1.0
     </div>
 </footer>
 <!-- script -->

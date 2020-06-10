@@ -115,6 +115,11 @@ class Article {
         return $this->categories;
     }
 
+    public function definirCategories (array $categories): self
+    {
+        $this->categories = $categories;
+        return $this;
+    }
     public function obtenirCategoriesIds (): array
     {
         $ids = [];

@@ -46,7 +46,7 @@ HTML;
         return <<<HTML
         <div class="form-group">
             <label for="field{$key}"><b>{$label}</b></label>
-            <select id="field{$key}" class="{$this->obtenirInputClass($key)}" name="{$key}" required multiple>{$optionsHTML}</select>
+            <select id="field{$key}" class="{$this->obtenirInputClass($key)}" name="{$key}[]" required multiple>{$optionsHTML}</select>
             {$this->obtenirErrorFeedback($key)}
         </div>
 HTML;

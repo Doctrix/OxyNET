@@ -16,6 +16,7 @@ final class CategorieTable extends Table {
     {
         $articlesByID = [];
         foreach($articles as $article) {
+            $article->definirCategories([]);
             $articlesByID[$article->obtenirID()] = $article;
         }
         $categories = $this->pdo
