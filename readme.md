@@ -1,8 +1,8 @@
-# OxyServer
-Oxy Server is a website.
+# OxyNET
+Oxy NET is a website.
 
 ## Installation
-Use the package manager [Git](https://github.com/Doctrix/OxyServer.git).
+Use the package manager [Git](https://github.com/Doctrix/OxyNET.git).
 
 ## Usage
 
@@ -15,4 +15,4 @@ Please make sure to update tests as appropriate.
 ## License
 
 ## Site internet
-OxyServer : [OxyServer](https://serveur.oxygames.fr).
+OxyNET : [OxyNET](https://serveur.oxygames.fr).
