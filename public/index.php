@@ -4,12 +4,12 @@ require dirname(__DIR__) . DS .'vendor/autoload.php';
 
 /* require LIB.DS.'debug.php'; */
 
-if(isset($_GET['page']) && $_GET['page'] === '1') {
+if (isset($_GET['page']) && $_GET['page'] === '1') {
     $uri = explode('?', $_SERVER['REQUEST_URI'])[0];
     $get = $_GET;
     unset($get['page']);
     $query = http_build_query($get);
-    if(!empty($query)){
+    if (!empty($query)) {
         $uri = $uri . '?' . $query;
     }
     http_response_code(301);
@@ -18,10 +18,10 @@ if(isset($_GET['page']) && $_GET['page'] === '1') {
 }
 $router = new App\Router(dirname(__DIR__) . DS . 'views');
 $router
-    ->obtenir('/','article/index','home')
-    ->obtenir('/blog/categorie/[*:slug]-[i:id]','categorie/show','categorie')
-    ->obtenir('/blog/[*:slug]-[i:id]','article/show','article')
-    ->match('/login','auth/login','login')
+    ->obtenir('/', 'article/index', 'home')
+    ->obtenir('/blog/categorie/[*:slug]-[i:id]', 'categorie/show', 'categorie')
+    ->obtenir('/blog/[*:slug]-[i:id]', 'article/show', 'article')
+    ->match('/login','auth/login', 'login')
     ->post('/logout','auth/logout','logout')
     // ADMIN
     ->obtenir('/admin','admin/dashboard','dashboard')

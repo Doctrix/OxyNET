@@ -1,10 +1,11 @@
 <?php
+
 namespace App;
 
 use App\Security\ForbiddenException;
 
-class Router {  
-
+class Router
+{
     /**
      * @var string
      */
@@ -42,7 +43,8 @@ class Router {
         return $this;
     }
  
-    public function url(string $titre, array $params = []) {
+    public function url(string $titre, array $params = [])
+    {
         return $this->router->generate($titre, $params);
     }
  
@@ -52,14 +54,14 @@ class Router {
         $view = $match['target'] ?: 'e404';
         $params = $match['params'];
         $router = $this;
-        $isAdmin = strpos($view,'admin/') !== false;
+        $isAdmin = strpos($view, 'admin/') !== false;
         $isUser = strpos($view, 'user/') !== false;
-        if ($isAdmin){
+        if ($isAdmin) {
             $layout = $isAdmin ? 'admin/layouts/default' : 'layouts/default';
         } else {
             $layout = $isUser ? 'user/layouts/default' : 'layouts/default';
         }
-        try{
+        try {
             ob_start();
             require $this->viewPath . DIRECTORY_SEPARATOR . $view . '.php';
             $contenu = ob_get_clean();
@@ -71,3 +73,5 @@ class Router {
         return $this;
     }
 }
+
+/* ROUTER */
