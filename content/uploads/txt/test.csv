@@ -1,0 +1,10 @@
+0 EMAIL,FIRSTNAME,PHONE,CREATION_DATE,GENDER
+1 junie@example.com,Junie,0682145672,2019-01-15,1
+2 john@example.com,John,0745632109,2019-03-10,2
+3 marc@example.com,Marc,0675489125,2019-08-22,1
+4 FollowFollowFollowFollowFollowFollowFollow
+FollowL,FIRSTNAME,PHONE,CREATION_DATE,GENDER
+1 junie@example.com,Junie,0682145672,2019-01-15,1
+Follow@example.com,John,0745632109,2019-03-10,2
+3 marc@example.com,Marc,0675489125,2019-08-22,1
+4 FollowFollowFollowFollowFollowFollowFollow

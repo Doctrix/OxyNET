@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/fonctions.php';
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'includes/fonctions.php';
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
           "http://www.w3.org/TR/html4/loose.dtd">

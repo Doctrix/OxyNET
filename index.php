@@ -6,8 +6,8 @@ require 'includes/header.php';
 
 <?php 
 require 'includes/footer.php';
-require 'includes/btn-reseau.php';
-require 'includes/compteur.php'; 
-require 'includes/compteur-visiteur.php'; 
+require 'elements/btn-reseau.php';
+require 'elements/compteur.php'; 
+require 'elements/compteur-visiteur.php'; 
 ?>
 

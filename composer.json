@@ -1,0 +1,15 @@
+{
+    "autoload": {
+        "files":["src/fonctions/helpers.php"],
+        "psr-4": {
+            "App\\": "src/class/"
+        }
+    },
+    "require": {
+        "altorouter/altorouter": "1.2.0",
+        "symfony/var-dumper": "^5.1",
+        "filp/whoops": "2.3.1",
+        "fzaninotto/faker": "1.8.0",
+        "vlucas/valitron": "1.4.7"
+    }
+}
