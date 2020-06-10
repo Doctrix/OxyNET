@@ -1,4 +1,0 @@
-{
-    "php.memoryLimit": "4095M",
-    "git.enableCommitSigning": true
-}

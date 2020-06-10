@@ -1,3 +1,0 @@
-keosu_gadget_map_gadget_service_view:
-    path:  /service/gadget/mapgadget/{gadgetId}/{format}
-    defaults: { _controller: KeosuGadgetMapGadgetBundle:Service:viewOne }

@@ -1,1 +1,0 @@
-/**Fake JS file to avoid error on simulato**/

@@ -1,3 +1,0 @@
-keosu_gadget_aroundme_service:
-    path:  /service/gadget/aroundme/{gadgetId}/{lat}/{lng}/{offset}/{limit}/{format}
-    defaults: { _controller: KeosuGadgetAroundMeGadgetBundle:Service:viewList}

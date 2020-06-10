@@ -1,4 +1,0 @@
-keosu_gadget_picture_service:
-    path:  /service/gadget/picture/{gadgetId}
-    defaults: { _controller: KeosuGadgetPictureGadgetBundle:Service:viewOne }
-
