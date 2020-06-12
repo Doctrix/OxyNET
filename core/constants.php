@@ -9,8 +9,6 @@ define('PUB',ROOT.DS.'public');
 define('SRC',ROOT.DS.'src');
 define('VENDOR',ROOT.DS.'vendor');
 define('VIEWS',ROOT.DS.'views');
-
-
 define('DEBUG_TIME', microtime(true));
 
 /* - CORE */

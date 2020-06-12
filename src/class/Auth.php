@@ -15,4 +15,14 @@ class Auth {
             throw new ForbiddenException();
         } 
     }
+
+    public static function roleUSer()
+    {
+        if(isset($_SESSION['auth']->slug)){
+            return $_SESSION['auth']->slug;
+
+        } else {
+            return false;
+        }
+    }
 }

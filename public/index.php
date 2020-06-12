@@ -24,6 +24,7 @@ $router
     ->obtenir('/blog/[*:slug]-[i:id]', 'article/show', 'article')
     ->match('/login','auth/login', 'login')
     ->match('/logout','auth/logout','logout')
+    ->match('/message','public/msg','message')
     // ADMIN
     ->obtenir('/admin','admin/dashboard','dashboard')
     ->obtenir('/editeur','editeur/index','editeur')
@@ -40,6 +41,7 @@ $router
     ->match('/admin/categorie/nouveau','admin/categorie/nouveau','admin_categorie_nouveau')
     // USER user
     ->obtenir('/user','user/index','user')
+    ->obtenir('/profil','user/profil','profil')
     ->obtenir('/user/dashboard','user/dashboard','user_dashboard')
     ->obtenir('/user/article','user/article/index','user_articles')
     ->match('/user/article/[i:id]','user/article/modifier','user_article')

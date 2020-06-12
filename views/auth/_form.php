@@ -10,10 +10,10 @@
         <div class="text-center"><button class="btn btn-primary" type="submit">Se connecter</button></div>
     </div>
 </form>
-<!-- <div class="text-center"> -->
-<!-- script facebook -->
-<!-- <div id="fb-root"></div>
-<?php /* require_once INC.DS.'js/facebookConnect.js'; */ ?>
+<div class="text-center">
+script facebook
+<div id="fb-root"></div>
+<?php require_once INC.DS.'js/facebookConnect.js'; ?>
 <div class="fb-login-button" 
 data-size="large" 
 data-button-type="continue_with" 
@@ -21,5 +21,5 @@ data-layout="default"
 data-auto-logout-link="false" 
 data-use-continue-as="false"
 data-width="">
-</div> -->
-<!-- </div> -->
+</div>
+</div>

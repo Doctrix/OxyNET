@@ -18,6 +18,11 @@ class User {
      */
     private $password;
 
+        /**
+     * @var int
+     */
+    private $role;
+
     public function obtenirUsername(): ?string
     {
         return $this->username;
@@ -50,6 +55,18 @@ class User {
     public function setId(int $id): self
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    public function getRole(): ?int
+    {
+        return $this->role;
+    }
+
+    public function setRole(int $role): self
+    {
+        $this->role = $role;
 
         return $this;
     }
