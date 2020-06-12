@@ -34,8 +34,7 @@
     </div> 
 <footer class="bg-dark py-4 footer mt-auto">
     <div class="container">
-        <strong class="">O</strong>xy<strong class="">G</strong>ène<strong class="">S</strong>tudio <a href="//oxygames.fr" target="_blank">[O.G.S]</a> - Template EDITEUR 
-        <p>Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME)) ?>ms</p> 
+        <strong class="">O</strong>xy<strong class="">G</strong>ène<strong class="">S</strong>tudio <a href="//oxygames.fr" target="_blank">[O.G.S]</a>
     </div>
 </footer>
 <!-- script -->

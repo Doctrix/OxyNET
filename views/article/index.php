@@ -1,15 +1,17 @@
 <?php
 use App\Table\ArticleTable;
-use App\{ConnexionServeur};
+use App\ConnexionServeur;
+
 
 $pdo = ConnexionServeur::obtenirPDO();
 $table = new ArticleTable($pdo);
 $link = $router->url('home');
 [$articles, $pagination] = $table->trouverPaginer();
 
-$titre_header = $titre_navBar = 'O.G.S';
+$titre_header = 'O.G.S';
+$titre_navBar = 'Accueil';
 ?>
-<h1><?= e($titre_header) ?></h1>
+<h1><?= e($titre_header); ?></h1>
 <div class="row">
     <?php foreach($articles as $article): ?>
     <div class="col-md-3">

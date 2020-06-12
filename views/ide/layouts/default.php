@@ -31,8 +31,7 @@
     </div> 
 <footer class="bg-dark py-4 footer mt-auto">
     <div class="container">
-        <strong class="">O</strong>xy<strong class="">G</strong>ène<strong class="">S</strong>tudio <a href="//oxygames.fr" target="_blank">[O.G.S]</a> - Template IDE 
-        <p>Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME)) ?>ms</p> 
+        <strong class="">O</strong>xy<strong class="">G</strong>ène<strong class="">S</strong>tudio <a href="//oxygames.fr" target="_blank">[O.G.S]</a>
     </div>
 </footer>
 <!-- script -->
@@ -42,6 +41,6 @@
 <script src="<?= INC.DS.'js'.DS; ?>script.js" type="text/javascript"></script>
 <script src="<?= INC.DS.'js'.DS; ?>jquery.js" type="text/javascript"></script>
 <script src="<?= INC.DS.'js'.DS; ?>bootstrap.js" type="text/javascript"></script>
-<?php if(isset($script)): ?><?= $script; ?><?php endif; ?>
+<?php if(isset($script)): ?><?= $script; ?><?php endif ?>
 </body>
 </html>

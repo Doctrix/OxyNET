@@ -51,8 +51,7 @@ if (isset($_POST["edition"])) {
         </div>
     </nav>             
     <div class="container mt-4">
-    Template admin default
-        <?= $contenu; ?>
+        <?= $contenu ?>
     </div> 
 <footer class="bg-dark py-4 footer mt-auto">
     <div class="container">
@@ -67,6 +66,6 @@ if (isset($_POST["edition"])) {
 <script src="<?= INC.DS.'js'.DS; ?>script.js" type="text/javascript"></script>
 <script src="<?= INC.DS.'js'.DS; ?>jquery.js" type="text/javascript"></script>
 <script src="<?= INC.DS.'js'.DS; ?>bootstrap.js" type="text/javascript"></script>
-<?php if(isset($script)): ?><?= $script; ?><?php endif; ?>
+<?php if(isset($script)): ?><?= $script; ?><?php endif ?>
 </body>
 </html>

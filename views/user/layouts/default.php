@@ -43,9 +43,7 @@
         </div>
     </nav>             
     <div class="container mt-4">
-        Template user
         <?= $contenu ?>
-        <p>Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME)) ?>ms</p> 
     </div> 
 <footer class="bg-dark py-4 footer mt-auto">
     <div class="container">

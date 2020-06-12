@@ -1,3 +1,7 @@
+<?php 
+use App\Compteur;
+Compteur::ajouterUneVue();
+$compteur = Compteur::nbrDeVues(); ?>
 <!DOCTYPE HTML>
 <html lang="fr" class="h-100">
 <head>
@@ -44,12 +48,12 @@
     </nav>             
     <div class="container mt-4">
         <?= $contenu ?>
-        Template default
-        <p>Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME)) ?>ms</p> 
     </div> 
 <footer class="bg-dark py-4 footer mt-auto">
     <div class="container">
-        <strong class="">O</strong>xy<strong class="">G</strong>ène<strong class="">S</strong>tudio <a href="//oxygames.fr" target="_blank">[O.G.S]</a> en partenariat avec : <a href="//mifaconcept.fr" target="_blank">Mifa Concept</a> | Crée avec <a href="https://github.com/Doctrix/OxyNET" target="_blank">OxyNET</a> v1.0
+    
+        <strong style="color:yellow">O</strong>xy<strong style="color:yellow">G</strong>ène<strong style="color:yellow">S</strong>tudio <a href="//oxygames.fr" target="_blank" style="color:yellow">[O.G.S]</a> en partenariat avec : <a href="//mifaconcept.fr" target="_blank" style="color:green">Mifa Concept</a> | Crée avec <a href="https://github.com/Doctrix/OxyNET" target="_blank" style="color:yellow">OxyNET</a> v1.0
+    <p style="color:white;">Il y a <strong style="color:green"><?= $compteur  ?></strong> visites sur le site</p>
     </div>
 </footer>
 <!-- script -->
