@@ -2,9 +2,6 @@
 
 namespace App;
 
-use App\Message;
-use DateTime;
-
 class GuestBook {
 
     private $fichier;
@@ -33,8 +30,7 @@ class GuestBook {
         $lignes = explode(PHP_EOL, $content);
         $messages = [];
         foreach ($lignes as $ligne) {
-            $donnees = json_decode($ligne, true);
-            $messages[] = new Message($donnees['username'], $donnees['message'], new DateTime("@" . $donnees['date']));
+            $messages[] = Message::fromJSON($ligne);
         }
         return array_reverse($messages); 
 

@@ -24,7 +24,7 @@ $router
     ->obtenir('/blog/[*:slug]-[i:id]', 'article/show', 'article')
     ->match('/login','auth/login', 'login')
     ->match('/logout','auth/logout','logout')
-    ->match('/message','public/msg','message')
+    ->match('/msg','public/msg','message')
     // ADMIN
     ->obtenir('/admin','admin/dashboard','dashboard')
     ->obtenir('/editeur','editeur/index','editeur')

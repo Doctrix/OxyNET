@@ -1,6 +1,8 @@
 <?php
 
-use App\{Auth, GuestBook,Message};
+use App\Auth;
+use App\GuestBook;
+use App\Message;
 
 Auth::Verifier();
 
@@ -52,7 +54,7 @@ $titre_navBar = "Ecris ton message";
     </form>
     <div class="formfull bg-light">
     <?php if (!empty($messages)): ?>
-        <h1 class="mt-4">Les messages</h1>
+        <h1 class="mt-4"><strong>✉️Les Messages</strong></h1>
     <?php foreach($messages as $message): ?>
     <?= $message->toHTML() ?>
     <?php endforeach ?>

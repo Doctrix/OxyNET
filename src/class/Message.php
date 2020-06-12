@@ -13,7 +13,14 @@ class Message {
     private $message;
     private $date;
 
-    public function __construct(string $username, string $message, DateTime $date = null) 
+
+    public static function fromJSON(string $json): Message
+    {
+        $donnees = json_decode($json, true);
+        return new self($donnees['username'], $donnees['message'], new DateTime("@" . $donnees['date']));
+    }
+
+    public function __construct(string $username, string $message, \DateTime $date = null) 
     {
         $this->username = $username;
         $this->message = $message;
@@ -45,12 +52,12 @@ class Message {
             ->setTimeZone(new DateTimeZone('Europe/Paris'))
             ->format('H:i');
         $date = $this->date->format('d/m/Y à H:i');
-        $message = e($this->message);
+        $message = br_e($this->message);
         return <<<HTML
-<p>
-<strong>{$username}</strong> <em>le {$date}</em><br>
-{$message}
-</p>
+        <p>
+            <strong>{$username}</strong> <em>le {$date}</em><br>
+            {$message}
+        </p>
 HTML;
     }
 
