@@ -52,18 +52,5 @@ $titre_navBar = "Modifier l'article n° {$params['id']}";
         L'article n'a pas pu être modifié, merci de corriger vos erreurs
     </div>
 <?php endif ?>
+
 <?php require('_form.php') ?>
-           
-<?php ob_start();?>
-<script src="<?= SITE_URL.DS.'src'.DS.'inc'.DS.'js'.DS.'tinymce'.DS; ?>tinymce.min.js" referrerpolicy="origin"></script>
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script>
-tinyMCE.init({
-        // General options
-        mode : "textareas",
-        plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
-});
-$(".selector").flatpickr(optional_config);
-</script>
-<?php $script = ob_get_clean(); ?>

@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 use App\Security\ForbiddenException;
@@ -55,11 +54,16 @@ class Router
         $params = $match['params'];
         $router = $this;
         $isAdmin = strpos($view, 'admin/') !== false;
+        $isEditor = strpos($view, 'editeur/') !== false;
+        $isIDE = strpos($view, 'ide/') !== false;
         $isUser = strpos($view, 'user/') !== false;
-        if ($isAdmin) {
-            $layout = $isAdmin ? 'admin/layouts/default' : 'layouts/default';
-        } else {
+        $layout = $isAdmin ? 'admin/layouts/default' : 'layouts/default';
+        if ($isUser) {
             $layout = $isUser ? 'user/layouts/default' : 'layouts/default';
+        } elseif ($isEditor) {
+            $layout = $isEditor ? 'editeur/layouts/default' : 'layouts/default';
+        } elseif ($isIDE) {
+            $layout = $isIDE ? 'ide/layouts/default' : 'layouts/default';
         }
         try {
             ob_start();

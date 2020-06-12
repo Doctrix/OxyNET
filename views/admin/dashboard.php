@@ -11,6 +11,8 @@ $titre_header = $titre_navBar = 'Tableau de bord';
 </th>
 <div class="container">
     <br/>
+    <a href="<?= $router->url('editeur') ?>" class="btn btn-dark">Editeur</a>
+
     <h2><ul>Informations de l'utilisateur</ul></h2>
     <hr/>
     <h2><ul>Informations du site</ul></h2>

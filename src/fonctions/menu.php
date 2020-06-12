@@ -29,7 +29,6 @@ function nav_menu_user(string $linkClass = '', string $linkClassUser = 'navbar-t
 
 function nav_menu_admin(string $linkClass = '', string $linkClassAdmin = 'navbar-toggler navbar-nav mt-2 mt-lg-1 navbar-collapse', string $style = 'background:transparent; border:none;'): string
 {
-    
     return
     nav_item('a', 'href', '/admin', 'Tableau de bord', $linkClassAdmin).
     nav_item('a', 'href', '/admin/articles', 'Articles', $linkClassAdmin).

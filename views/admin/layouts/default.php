@@ -1,3 +1,11 @@
+<?php 
+if (isset($_POST["edition"])) {
+    $fichier = VIEWS.DS.$_POST["f"];
+    $file = fopen($fichier,"w");
+    fwrite($file,stripslashes($_POST["edition"]));
+    fclose($file);
+}
+?>
 <!DOCTYPE HTML>
 <html lang="fr" class="h-100">
 <head>
@@ -43,12 +51,13 @@
         </div>
     </nav>             
     <div class="container mt-4">
-        <?= $contenu ?>
-        <p>Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME)) ?>ms</p> 
+    Template admin default
+        <?= $contenu; ?>
     </div> 
 <footer class="bg-dark py-4 footer mt-auto">
     <div class="container">
         <strong class="">O</strong>xy<strong class="">G</strong>ène<strong class="">S</strong>tudio <a href="//oxygames.fr" target="_blank">[O.G.S]</a> en partenariat avec : <a href="//mifaconcept.fr" target="_blank">Mifa Concept</a>
+        <p>Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME)) ?>ms</p> 
     </div>
 </footer>
 <!-- script -->

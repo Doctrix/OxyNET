@@ -19,7 +19,7 @@
     </button>
 </form>
 <?php ob_start();?>
-<script src="<?= SITE_URL.DS.'src'.DS.'inc'.DS.'js'.DS.'tinymce'.DS; ?>tinymce.min.js" referrerpolicy="origin"></script>
+<script src="<?= BASE_URL.DS.'src'.DS.'inc'.DS.'js'.DS.'tinymce'.DS; ?>tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>

@@ -16,15 +16,18 @@ if (isset($_GET['page']) && $_GET['page'] === '1') {
     header('Location: ' . $uri);
     exit();
 }
+
 $router = new App\Router(dirname(__DIR__) . DS . 'views');
 $router
     ->obtenir('/', 'article/index', 'home')
     ->obtenir('/blog/categorie/[*:slug]-[i:id]', 'categorie/show', 'categorie')
     ->obtenir('/blog/[*:slug]-[i:id]', 'article/show', 'article')
     ->match('/login','auth/login', 'login')
-    ->post('/logout','auth/logout','logout')
+    ->match('/logout','auth/logout','logout')
     // ADMIN
     ->obtenir('/admin','admin/dashboard','dashboard')
+    ->obtenir('/editeur','editeur/index','editeur')
+    ->obtenir('/ide','ide/index','ide')
     // Gestion des articles
     ->obtenir('/admin/articles','admin/article/index','admin_articles')
     ->match('/admin/article/[i:id]','admin/article/modifier','admin_article')
