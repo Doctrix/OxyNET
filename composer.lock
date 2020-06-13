@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a363bf6e6197a1a647ba7cf146a7d9fa",
+    "content-hash": "d6982f8c2053a6b6ecb04fb559516f03",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -242,6 +242,46 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "hamidsamak/pheditor",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hamidsamak/pheditor.git",
+                "reference": "394692d00e8fa3f820264eff7a1395b4cc1b8def"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hamidsamak/pheditor/zipball/394692d00e8fa3f820264eff7a1395b4cc1b8def",
+                "reference": "394692d00e8fa3f820264eff7a1395b4cc1b8def",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "project",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hamid Samak",
+                    "email": "me@hamidsamak.ir",
+                    "homepage": "http://hamidsamak.ir",
+                    "role": "Developer"
+                }
+            ],
+            "description": "php file editor",
+            "homepage": "https://github.com/hamidsamak/pheditor",
+            "keywords": [
+                "file editor",
+                "file manager",
+                "pheditor",
+                "php"
+            ],
+            "time": "2019-04-25T06:58:04+00:00"
         },
         {
             "name": "psr/http-message",

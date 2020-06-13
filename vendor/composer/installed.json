@@ -317,6 +317,48 @@
         ]
     },
     {
+        "name": "hamidsamak/pheditor",
+        "version": "2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hamidsamak/pheditor.git",
+            "reference": "394692d00e8fa3f820264eff7a1395b4cc1b8def"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/hamidsamak/pheditor/zipball/394692d00e8fa3f820264eff7a1395b4cc1b8def",
+            "reference": "394692d00e8fa3f820264eff7a1395b4cc1b8def",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2019-04-25T06:58:04+00:00",
+        "type": "project",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Hamid Samak",
+                "email": "me@hamidsamak.ir",
+                "homepage": "http://hamidsamak.ir",
+                "role": "Developer"
+            }
+        ],
+        "description": "php file editor",
+        "homepage": "https://github.com/hamidsamak/pheditor",
+        "keywords": [
+            "file editor",
+            "file manager",
+            "pheditor",
+            "php"
+        ]
+    },
+    {
         "name": "myclabs/deep-copy",
         "version": "1.9.5",
         "version_normalized": "1.9.5.0",

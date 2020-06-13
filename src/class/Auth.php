@@ -19,7 +19,7 @@ class Auth {
 
     public static function roleUSer()
     {
-        if(isset($_SESSION['auth']->slug)){
+        if(isset($_SESSION['auth']->slug)) {
             return $_SESSION['auth']->slug;
 
         } else {

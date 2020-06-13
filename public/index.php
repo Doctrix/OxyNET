@@ -22,12 +22,12 @@ $router
     ->obtenir('/', 'article/index', 'home')
     ->obtenir('/blog/categorie/[*:slug]-[i:id]', 'categorie/show', 'categorie')
     ->obtenir('/blog/[*:slug]-[i:id]', 'article/show', 'article')
-    ->match('/login','auth/login', 'login')
-    ->match('/logout','auth/logout','logout')
-    ->match('/msg','public/msg','message')
+    ->match('/login', 'auth/login', 'login')
+    ->match('/logout', 'auth/logout','logout')
+    ->match('/msg', 'public/msg', 'message')
     // ADMIN
-    ->obtenir('/admin','admin/dashboard','dashboard')
-    ->obtenir('/editeur','editeur/index','editeur')
+    ->obtenir('/admin','admin/dashboard', 'dashboard')
+    ->obtenir('/editeur','editeur/index', 'editeur')
     ->obtenir('/ide','ide/index','ide')
     // Gestion des articles
     ->obtenir('/admin/articles','admin/article/index','admin_articles')
@@ -42,7 +42,7 @@ $router
     // USER user
     ->obtenir('/user','user/index','user')
     ->obtenir('/profil','user/profil','profil')
-    ->obtenir('/user/dashboard','user/dashboard','user_dashboard')
+    ->obtenir('/voir_profil','user/voir_profil','user_profil')
     ->obtenir('/user/article','user/article/index','user_articles')
     ->match('/user/article/[i:id]','user/article/modifier','user_article')
     ->post('/user/article/[i:id]/supprimer','user/article/supprimer','user_article_supprimer')

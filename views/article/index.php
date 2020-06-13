@@ -1,7 +1,7 @@
 <?php
+
 use App\Table\ArticleTable;
 use App\ConnexionServeur;
-
 
 $pdo = ConnexionServeur::obtenirPDO();
 $table = new ArticleTable($pdo);

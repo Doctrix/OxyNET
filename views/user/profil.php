@@ -2,24 +2,30 @@
 use App\Auth;
 use App\ConnexionServeur;
 use App\Model\User;
-use App\Table\UserTable;
 
 Auth::Verifier();
-
-$titre_navBar = 'Mon Profil';
 
 $pdo = ConnexionServeur::obtenirPDO();
 
 $user = new User($pdo);
-//  à config
+
+$afficher_profil = $pdo->query("SELECT * 
+FROM utilisateur"
+);
+
+$afficher_profil = $afficher_profil->fetch();
+
+$titre_navBar = $afficher_profil['username'];
 ?>
 <th>
  
 </th>
-<h2><ul>Informations utilisateur</ul></h2>
-<hr/>
-<strong>Pages publier :</strong><br>
-<strong>Utilisateur inscrits :</strong><br>
-<strong>Utilisateur connectés :</strong><br>
-<strong>Totale de visite :</strong><br>
+<h2>Voici le profil de <?= $afficher_profil['nom'] . ' ' . $afficher_profil['prenom']; ?></h2>
+    <div>Quelques informations sur vous : </div>
+    <ul>
+    <li>Votre pseudo : <?= $afficher_profil['username'] ?></li>
+      <li>Votre id est : <?= $afficher_profil['id'] ?></li>
+      <li>Votre mail est : <?= $afficher_profil['email'] ?></li>
+      <li>Votre compte a été crée le : <?= $afficher_profil['date_creation_compte'] ?></li>
+    </ul>
 <hr/>
