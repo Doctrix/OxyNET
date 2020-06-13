@@ -1,11 +1,16 @@
 <?php
 
+use App\Auth;
 use App\ConnexionServeur;
 use App\HTML\Form;
 use App\Model\User;
 use App\Table\Exception\NotFoundException;
 use App\Table\UserTable;
 
+if ($_SESSION['auth']['id'] = true) {
+header('Location: ' . $router->url('dashboard'));
+exit();
+}
 
 
 $utilisateur = new User;
@@ -20,7 +25,7 @@ if(!empty($_POST)) {
             $u = $table->trouverParUsername($_POST['username']);
             if (password_verify($_POST['password'], $u->obtenirPassword()) === true) {
                 session_start();
-                $_SESSION['auth'] = $u->getId();
+                $_SESSION['auth']['id'] = $u->getId();
                 header('Location: ' . $router->url('dashboard'));
                 exit();
             }
