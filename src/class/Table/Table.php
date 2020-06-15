@@ -2,7 +2,8 @@
 namespace App\Table;
 
 use App\Table\Exception\NotFoundException;
-use \PDO;
+use Exception;
+use PDO;
 
 abstract class Table {
 
@@ -10,13 +11,13 @@ abstract class Table {
     protected $table = null;
     protected $class = null;
 
-    public function __construct(PDO $pdo)
+    public function __construct($pdo)
     {
         if($this->table === null){
-            throw new \Exception("La class ".get_class($this)." n'a pas de propriété \$table");
+            throw new Exception("La class ".get_class($this)." n'a pas de propriété \$table");
         }
         if($this->class === null){
-            throw new \Exception("La class ".get_class($this)." n'a pas de propriété \$class");
+            throw new Exception("La class ".get_class($this)." n'a pas de propriété \$class");
         }
         $this->pdo = $pdo;
     }
@@ -63,7 +64,7 @@ abstract class Table {
         $query = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = ?");
         $ok = $query->execute([$id]);
         if ($ok === false) {
-            throw new \Exception("Impossible de supprimer la donnée $id dans la table {$this->table}");
+            throw new Exception("Impossible de supprimer la donnée $id dans la table {$this->table}");
         }
     }
 
@@ -76,7 +77,7 @@ abstract class Table {
         $query = $this->pdo->prepare("INSERT INTO {$this->table} SET " . implode(', ', $sqlFields));
         $ok = $query->execute($data);
         if ($ok === false) {
-            throw new \Exception("Impossible de créer la donnée dans la table {$this->table}");
+            throw new Exception("Impossible de créer la donnée dans la table {$this->table}");
         }
         return (int)$this->pdo->lastInsertId();
     }
@@ -90,7 +91,7 @@ abstract class Table {
         $query = $this->pdo->prepare("UPDATE {$this->table} SET " . implode(', ', $sqlFields) . " WHERE id = :id");
         $ok = $query->execute(array_merge($data, ['id' => $id]));
         if ($ok === false) {
-            throw new \Exception("Impossible de modifier la donnée dans la table {$this->table}");
+            throw new Exception("Impossible de modifier la donnée dans la table {$this->table}");
         }
     }
 

@@ -1,9 +1,7 @@
 <?php
-
+use App\Server\{ConfigDB,ConnexionServeur};
 use App\Table\ArticleTable;
-use App\ConnexionServeur;
-
-$pdo = ConnexionServeur::obtenirPDO();
+$pdo = ConnexionServeur::obtenirPDO(ConfigDB::getDatabase());
 $table = new ArticleTable($pdo);
 $link = $router->url('home');
 [$articles, $pagination] = $table->trouverPaginer();

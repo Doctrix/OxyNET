@@ -62,7 +62,7 @@ class Router
         if ($isUser) {
             $layout = $isUser ? 'user/layouts/default' : 'layouts/default';
         } elseif ($isEditor) {
-            $layout = $isEditor ? 'editeur/layouts/default' : 'layouts/default';
+            $layout = $isEditor ? 'admin/editeur/layouts/default' : 'layouts/default';
         } elseif ($isIDE) {
             $layout = $isIDE ? 'ide/layouts/default' : 'layouts/default';
         }
@@ -76,6 +76,11 @@ class Router
             exit();
         }
         return $this;
+    }
+
+    static function redirect($page){
+        header("Location: Router::url($page)");
+        exit();
     }
 }
 

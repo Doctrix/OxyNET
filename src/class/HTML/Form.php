@@ -57,7 +57,7 @@ HTML;
         if(is_array($this->data)) {
             return $this->data[$key] ?? null;
         }
-        $method = 'obtenir' . str_replace(' ','', ucwords(str_replace('_',' ',$key)));
+        $method = 'obtenir' . str_replace(' ', '', ucwords(str_replace('_', ' ', $key)));
         $value = $this->data->$method();
         if($value instanceof \DateTimeInterface){
             return $value->format('Y-m-d H:i:s');

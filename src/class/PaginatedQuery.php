@@ -16,13 +16,13 @@ class PaginatedQuery {
     public function __construct(
         string $query,
         string $queryCount,
-        ?\PDO $pdo = null,
+        $pdo,
         int $perPage = 12
         )
     {
         $this->query = $query;
         $this->queryCount = $queryCount;
-        $this->pdo = $pdo ?: ConnexionServeur::obtenirPDO();
+        $this->pdo = $pdo;
         $this->perPage = $perPage;
     }
     public function obtenirItems(string $classMapping): array

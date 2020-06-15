@@ -155,7 +155,6 @@
     <script src="<?= INC.DS.'js'.DS; ?>script.js" type="text/javascript"></script>
     <script src="<?= INC.DS.'js'.DS; ?>jquery.js" type="text/javascript"></script>
     <script src="<?= INC.DS.'js'.DS; ?>bootstrap.js" type="text/javascript"></script>
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -831,7 +830,8 @@
     </div> 
 <footer class="bg-dark py-4 footer mt-auto">
     <div class="container">
-        <strong class="">O</strong>xy<strong class="">G</strong>ène<strong class="">S</strong>tudio <a href="//oxygames.fr" target="_blank">[O.G.S]</a>
+		<strong class="">O</strong>xy<strong class="">G</strong>ène<strong class="">S</strong>tudio <a href="//oxygames.fr" target="_blank">[O.G.S]</a><br>
+		1010100010101
     </div>
 </footer>
 </body>

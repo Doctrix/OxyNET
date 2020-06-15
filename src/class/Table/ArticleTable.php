@@ -64,8 +64,7 @@ final class ArticleTable extends Table {
                 JOIN article_categorie ac ON ac.article_id = a.id
                 WHERE ac.categorie_id = {$categorieID}
                 ORDER BY date_de_creation DESC",
-            "SELECT COUNT(categorie_id) FROM article_categorie WHERE categorie_id = {$categorieID}"
-        );
+            "SELECT COUNT(categorie_id) FROM article_categorie WHERE categorie_id = {$categorieID}");
         $articles = $paginatedQuery->obtenirItems(Article::class);
         (new CategorieTable($this->pdo))->hydrateArticles($articles);
         return [$articles, $paginatedQuery];

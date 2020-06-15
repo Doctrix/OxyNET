@@ -1,15 +1,17 @@
 <?php
 
-use App\Auth;
+
 use App\ConnexionServeur;
 use App\HTML\Form;
 use App\Model\User;
+use App\Server\ConfigDB;
 use App\Table\Exception\NotFoundException;
 use App\Table\UserTable;
 
-if ($_SESSION['auth']['id'] = true) {
-header('Location: ' . $router->url('dashboard'));
-exit();
+session_start();
+if(isset($_SESSION['auth'])) {
+    header('Location: ' . $router->url('dashboard'));
+    exit();
 }
 
 
@@ -20,7 +22,7 @@ if(!empty($_POST)) {
     $errors['password'] = 'Identifiant ou mot de passe incorrect';
 
     if (!empty($_POST['username']) && !empty($_POST['password'])) {
-        $table = new UserTable(ConnexionServeur::obtenirPDO());
+        $table = new UserTable(ConfigDB::getDatabase());
         try {
             $u = $table->trouverParUsername($_POST['username']);
             if (password_verify($_POST['password'], $u->obtenirPassword()) === true) {

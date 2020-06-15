@@ -2,10 +2,11 @@
 use App\Auth;
 use App\ConnexionServeur;
 use App\Model\User;
+use App\Server\ConfigDB;
 
 Auth::Verifier();
 
-$pdo = ConnexionServeur::obtenirPDO();
+$pdo = ConfigDB::getDatabase();
 
 $user = new User($pdo);
 
