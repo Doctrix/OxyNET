@@ -6,22 +6,22 @@ class User {
     /**
      * @var int
      */
-    private $id;
+    public $id;
     
     /**
      * @var string
      */
-    private $username;
+    public $username;
 
     /**
      * @var string
      */
-    private $password;
+    public $password;
 
-        /**
+    /**
      * @var int
      */
-    private $role;
+    public $role;
 
     public function obtenirUsername(): ?string
     {

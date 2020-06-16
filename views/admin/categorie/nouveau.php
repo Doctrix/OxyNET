@@ -1,9 +1,10 @@
 <?php
-use App\{ConnexionServeur,ObjectHelper,Auth};
+use App\{ObjectHelper,Auth};
 use App\Table\CategorieTable;
 use App\HTML\Form;
 use App\Validators\CategorieValidator;
 use App\Model\Categorie;
+use App\Server\ConfigDB;
 
 Auth::Verifier();
 
@@ -11,7 +12,7 @@ $errors = [];
 $item = new Categorie();
 
 if (!empty($_POST)) {
-    $pdo = ConnexionServeur::obtenirPDO();
+    $pdo = ConfigDB::getDatabase();
     $table = new CategorieTable($pdo);
 
     $v = new CategorieValidator($_POST,$table);

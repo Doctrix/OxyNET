@@ -1,9 +1,12 @@
 <?php
 use App\Auth;
-use App\Session;
 
 Auth::Verifier();
+
+$titre_header = $titre_navBar = 'Tableau de bord';
+
 require FONC . DS . 'compteur.php';
+
 $annee = (int)date('Y');
 $annee_selectionner = empty($_GET['annee']) ? null : (int)$_GET['annee'];
 $mois_selectionner = empty($_GET['mois']) ? null : $_GET['mois'];
@@ -27,8 +30,8 @@ $mois = [
     '11' => 'Novembre',
     '12' => 'Decembre'
 ];
-$titre_header = $titre_navBar = 'Tableau de bord';
-if(Session::getInstance()->getFlash()) :
+
+/* if(Session::getInstance()->getFlash()) :
     foreach(Session::getInstance()->getFlash() as $type => $message) :
         $message = <<<HTML
         <div class="alert arlet-<?= $type; ?>">
@@ -36,9 +39,11 @@ if(Session::getInstance()->getFlash()) :
         </div>
 HTML;
 endforeach;
-endif;
+endif; */
 ?>
-<?= $message; ?>
+
+<!-- $message; ?> -->
+
 <h2><ul>Membres</ul></h2>
 <strong>Inscris :</strong><br/>
 <strong>Connectés :</strong><br/>  

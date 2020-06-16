@@ -1,15 +1,16 @@
 <?php
-use App\{ConnexionServeur,ObjectHelper,Auth};
-use App\Table\{ArticleTable,CategorieTable};
+use App\{ObjectHelper, Auth};
+use App\Table\{ArticleTable, CategorieTable};
 use App\HTML\Form;
 use App\Validators\ArticleValidator;
 use App\Model\Article;
+use App\Server\ConfigDB;
 
 Auth::Verifier();
 
 $errors = [];
 $article = new Article();
-$pdo = ConnexionServeur::obtenirPDO();
+$pdo = ConfigDB::getDatabase();
 $categorieTable = new CategorieTable($pdo);
 $categories = $categorieTable->list();
 $article->definirDateDeCreation(date('Y-m-d H:i:s'));

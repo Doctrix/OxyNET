@@ -22,9 +22,9 @@ function nav_menu(string $linkClass = ''): string
 function nav_menu_user(string $linkClass = '', string $linkClassUser = 'navbar-toggler navbar-nav mt-2 mt-lg-1 navbar-collapse', string $style = 'background:transparent; border:none;'): string
 {
     return
-    nav_item('a', 'href', '/user', 'Mon Tableau de bord', $linkClassUser).
-    nav_item('a', 'href', '/logout', 'Mes Articles', $linkClassUser).
-    nav_item("form method='post'", 'action', 'logout', "<button type='submit' class='$linkClassUser' style='$style'>Déco</button>", $linkClass);
+    nav_item('a', 'href', '/profil', 'Mon profil', $linkClassUser).
+    nav_item('a', 'href', '/logout', 'Déconnexion', $linkClassUser);
+    /* nav_item("form method='post'", 'action', 'logout', "<button type='submit' class='$linkClassUser' style='$style'>Déco</button>", $linkClass); */
 }
 
 function nav_menu_admin(string $linkClass = '', string $linkClassAdmin = 'navbar-toggler navbar-nav mt-2 mt-lg-1 navbar-collapse', string $style = 'background:transparent; border:none;'): string

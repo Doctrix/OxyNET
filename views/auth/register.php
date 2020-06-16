@@ -14,13 +14,16 @@ if(!empty($_POST)) {
     $db =  ConfigDB::getDatabase();
     $validator = new Validator($_POST);
     $validator->isAlpha('username', "Votre pseudo n'est pas valide (alphanumérique)");
-    if($validator->isValid()){
+    
+    if ($validator->isValid()){
         $validator->isUniq('username', $db, 'utilisateur', 'Ce pseudo est déja pris');
     }
+
     $validator->isEmail('email', "Votre email n'est pas valide");
-    if($validator->isValid()){
+    if ($validator->isValid()){
         $validator->isUniq('email', $db, 'email', 'Cet email est déja utilisé pour un autre compte');
     }
+
     $validator->isConfirmed('password', 'Vous devez rentrer un mot de passse valide');
 
     echo '<pre>';
@@ -29,9 +32,9 @@ if(!empty($_POST)) {
     echo '</pre>';
     die();
 
-    if($validator->isValid()) {
+    if ($validator->isValid()) {
 
-        $auth = new Auth($db);
+        $auth = new Auth($db,'auth');
         $auth->register($db, $_POST['username'], $_POST['password'], $_POST['email'], $_POST['date_de_creation']);
         Session::getInstance()->setSuccess('Un email de confirmation vous a été envoyé pour valider votre compte');
         Router::redirect('login');

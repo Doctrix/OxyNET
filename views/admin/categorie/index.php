@@ -1,10 +1,11 @@
 <?php
-use App\{Auth,ConnexionServeur};
+use App\Auth;
+use App\Server\ConfigDB;
 use App\Table\CategorieTable;
 
 Auth::Verifier();
 
-$pdo = ConnexionServeur::obtenirPDO();
+$pdo = ConfigDB::getDatabase();
 $link = $router->url('admin_categories');
 $items = (new CategorieTable($pdo))->all();
 

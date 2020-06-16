@@ -20,11 +20,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="zoombox.css" />
     <link rel="stylesheet" type="text/css" href="/src/inc/css/zoombox.css" />
-    <title>
-
-use App\Session;
-
-<?= isset($titre_navBar) ? e($titre_navBar) : 'Administration'; ?></title> 
+    <title><?= isset($titre_navBar) ? e($titre_navBar) : 'Administration'; ?></title> 
 </head>
 <header>
     <h1 class="titre text-center"><b><?= isset($titre_header) ? e($titre_header): 'Oxy'; ?></b></h1>           

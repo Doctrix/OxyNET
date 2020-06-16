@@ -1,18 +1,20 @@
 <?php
-use App\{ConnexionServeur,ObjectHelper,Auth};
-use App\Table\{ArticleTable,CategorieTable};
+use App\{ObjectHelper, Auth};
+use App\Table\{ArticleTable, CategorieTable};
 use App\HTML\Form;
+use App\Server\ConfigDB;
 use App\Validators\ArticleValidator;
 
 Auth::Verifier();
 
-$pdo = ConnexionServeur::obtenirPDO();
+$pdo = ConfigDB::getDatabase();
 $articleTable = new ArticleTable($pdo);
 $categorieTable = new CategorieTable($pdo);
 $categories = $categorieTable->list();
 $article = $articleTable->trouver($params['id']);
 $categorieTable->hydrateArticles([$article]);
 $success = false;
+
 $errors = [];
 
 if (!empty($_POST)) {

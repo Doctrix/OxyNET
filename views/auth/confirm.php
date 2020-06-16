@@ -6,7 +6,7 @@ use App\Server\ConfigDB;
 $db = ConfigDB::getDatabase();
 $auth = new Auth($db);
 
-if($auth->confirm($db, $_GET['id'], $_GET['token'], Session::getInstance())){
+if($auth->confirm($db, $_GET['id'], $_GET['token'], Session::getInstance(), Router::redirect())){
     Session::getInstance()->setSuccess("Votre compte a bien été validé");
     Router::redirect('profil');
 

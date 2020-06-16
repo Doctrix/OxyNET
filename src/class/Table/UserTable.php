@@ -11,7 +11,7 @@ final class UserTable extends Table {
 
     public function trouverParUsername(string $username)
     {
-        $query = $this->pdo->prepare('SELECT * FROM '.$this->table.' LEFT JOIN role ON utilisateur.role_id=role.id WHERE username = :username');
+        $query = $this->pdo->query('SELECT * FROM ' . $this->table . ' LEFT JOIN role ON utilisateur.role_id=role.id WHERE username = username');
         $query->execute(['username' => $username]);
         $query->setFetchMode(\PDO::FETCH_CLASS, $this->class);
         $result = $query->fetch();

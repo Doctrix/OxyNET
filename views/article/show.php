@@ -1,11 +1,11 @@
 <?php
-use App\ConnexionServeur;
+use App\Server\ConfigDB;
 use App\Table\{ArticleTable,CategorieTable};
 
 $id = (int)$params['id'];
 $slug = $params['slug'];
 
-$pdo = ConnexionServeur::obtenirPDO();
+$pdo = ConfigDB::getDatabase();
 $article = (new ArticleTable($pdo))->trouver($id);
 (new CategorieTable($pdo))->hydrateArticles([$article]);
 

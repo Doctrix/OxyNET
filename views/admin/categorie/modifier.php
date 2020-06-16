@@ -1,12 +1,13 @@
 <?php
-use App\{Auth, ConnexionServeur,ObjectHelper};
+use App\{Auth, ObjectHelper};
 use App\Table\CategorieTable;
 use App\HTML\Form;
+use App\Server\ConfigDB;
 use App\Validators\CategorieValidator;
 
 Auth::Verifier();
 
-$pdo = ConnexionServeur::obtenirPDO();
+$pdo = ConfigDB::getDatabase();
 $table = new CategorieTable($pdo);
 $item = $table->trouver($params['id']);
 $success = false;

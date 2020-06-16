@@ -15,7 +15,7 @@ class Router
      * @var AltoRouter
      */
     private $router;
-    
+
     public function __construct(string $viewPath)
     {
         $this->viewPath = $viewPath;
@@ -47,7 +47,12 @@ class Router
     {
         return $this->router->generate($titre, $params);
     }
- 
+
+    public function redirect(array $params = [])
+    {
+        return $this->router->url($params);
+    }
+
     public function lancer(): self
     {
         $match = $this->router->match();
@@ -78,10 +83,7 @@ class Router
         return $this;
     }
 
-    static function redirect($page){
-        header("Location: Router::url($page)");
-        exit();
-    }
+  
 }
 
 /* ROUTER */

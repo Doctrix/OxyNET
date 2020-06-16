@@ -1,12 +1,14 @@
 <?php
-use App\{Auth,ConnexionServeur};
+use App\Auth;
+use App\Server\ConfigDB;
 use App\Table\ArticleTable;
 
 Auth::Verifier();
 
 $titre_header = "Administration";
 $title = "Tableau de bord : ARTICLES";
-$pdo = ConnexionServeur::obtenirPDO();
+
+$pdo = ConfigDB::getDatabase();
 $link = $router->url('admin_articles');
 [$articles, $pagination] = (new ArticleTable($pdo))->trouverPaginer();
 ?>

@@ -42,7 +42,7 @@ $router
     ->post('/admin/categorie/[i:id]/supprimer', 'admin/categorie/supprimer', 'admin_categorie_supprimer')
     ->match('/admin/categorie/nouveau', 'admin/categorie/nouveau', 'admin_categorie_nouveau')
     // USER user
-    ->obtenir('/user', 'user/index', 'user')
+    ->obtenir('/user', 'user/membre', 'user')
     ->obtenir('/profil', 'user/profil', 'profil')
     ->match('/voir_profil', 'user/voir_profil', 'user_profil')
     ->lancer();
