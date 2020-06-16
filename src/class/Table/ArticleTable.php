@@ -59,12 +59,10 @@ final class ArticleTable extends Table {
     public function trouverPaginerPourLaCategorie (int $categorieID)
     {
         $paginatedQuery = new PaginatedQuery(
-            "SELECT a.*
-                FROM {$this->table} a
-                JOIN article_categorie ac ON ac.article_id = a.id
-                WHERE ac.categorie_id = {$categorieID}
-                ORDER BY date_de_creation DESC",
-            "SELECT COUNT(categorie_id) FROM article_categorie WHERE categorie_id = {$categorieID}");
+            "SELECT a.* FROM {$this->table} a JOIN article_categorie ac ON ac.article_id = a.id WHERE ac.categorie_id = {$categorieID} ORDER BY date_de_creation DESC",
+            "SELECT COUNT(categorie_id) FROM article_categorie WHERE categorie_id = {$categorieID}",
+            $this->pdo
+        );
         $articles = $paginatedQuery->obtenirItems(Article::class);
         (new CategorieTable($this->pdo))->hydrateArticles($articles);
         return [$articles, $paginatedQuery];

@@ -2,7 +2,7 @@
 require dirname(__DIR__) .'/core/constants.php';
 require dirname(__DIR__) . DS .'vendor/autoload.php';
 
-require LIB.DS.'debug.php';
+/* require LIB.DS.'debug.php'; */
 
 if (isset($_GET['page']) && $_GET['page'] === '1') {
     $uri = explode('?', $_SERVER['REQUEST_URI'])[0];
