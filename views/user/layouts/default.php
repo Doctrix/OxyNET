@@ -24,7 +24,7 @@
     <title><?= isset($titre_navBar) ? e($titre_navBar) : 'PROFIL'; ?></title> 
 </head>
 <header>
-    <h1 class="titre text-center"><b><?= isset($titre_header) ? e($titre_header): 'Mon PROFIL'; ?></b></h1>           
+    <h1 class="titre text-center"><b><?= isset($titre_header) ? e($titre_header): 'Espace utilisateur'; ?></b></h1>           
 </header>        
 <body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

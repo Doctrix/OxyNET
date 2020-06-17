@@ -44,5 +44,6 @@ $router
     // USER user
     ->obtenir('/user', 'user/membre', 'user')
     ->obtenir('/profil', 'user/profil', 'profil')
+    ->obtenir('/profil/dashboard', 'user/index', 'user_dashboard')
     ->match('/voir_profil', 'user/voir_profil', 'user_profil')
     ->lancer();
