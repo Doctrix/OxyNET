@@ -16,7 +16,9 @@ function nav_menu(string $linkClass = ''): string
 {
     return
     nav_item('a', 'href', '/', 'HOME', $linkClass).
-    nav_item('a', 'href', '/login', 'Connexion', $linkClass);
+    nav_item('a', 'href', '/blog/categorie/jeux-video-1', 'GAMES', $linkClass).
+    nav_item('a', 'href', '/blog/categorie/serveur-2', 'SERVEUR', $linkClass).
+    nav_item('a', 'href', '/login', 'Se Connecter', $linkClass);
 }
 
 function nav_menu_user(string $linkClass = '', string $linkClassUser = 'navbar-toggler navbar-nav mt-2 mt-lg-1 navbar-collapse', string $style = 'background:transparent; border:none;'): string
