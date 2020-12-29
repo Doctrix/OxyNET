@@ -3,8 +3,7 @@ namespace App\Widgets;
 
 class Social {
 
-    public function facebook (string $url, string $label, string $nom, string $titre): string 
-    {
+    public function facebook(string $url, string $label, string $nom, string $titre): string {
     return <<<HTML
     <style type="text/css">
     .center-div-fb
@@ -13,8 +12,7 @@ class Social {
     padding: 0 0 80px 0;
     height: 600px;
     margin-left: auto;
-    margin-right: auto
-    }
+    margin-right: auto;    }
     </style>
     <div class="card text-center center-div-fb col-md-3">
     <label><b>{$label}</b></label><br>
@@ -33,11 +31,10 @@ class Social {
         </div>
     </div>
     <br clear="all">
-HTML;       
-    }
+HTML;
+}
 
-    public function twitter (string $url, string $label, string $nom, string $titre): string 
-    {
+    public function twitter(string $url, string $label, string $nom, string $titre): string {
     $ref = "ref_src=twsrc%5Etfw";
     return <<<HTML
     <style type="text/css">
@@ -49,9 +46,7 @@ HTML;
     text-align: center;
     display: block;
     margin-left: auto;
-    margin-right: auto
-    }
-    
+    margin-right: auto;    }
     </style>
     <div class="center-div-tweets card col-md-3">
     <label><b>{$label}</b></label><br>
@@ -63,9 +58,9 @@ HTML;
         href="https://{$url}.com/{$nom}?{$ref}">Tweets by {$titre}</a>
         <script async src="https://platform.{$url}.com/widgets.js" charset="utf-8"></script>
     </div>
-    <br>
-HTML;       
-    }
+    <br clear="all">
+HTML;
 }
 
- 
+}
+

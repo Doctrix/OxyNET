@@ -4,12 +4,7 @@ namespace App\Server;
 use App\Auth;
 use \PDO;
 
-/* define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASSWORD', 'password');
-define('DB_NAME', 'db_server');
-define('PORT', '3306'); */
-require LIB . DS . 'ConfigDB.php';
+require LIB . DS . 'DB.php';
 class ConfigDB {
 
     public static $db;

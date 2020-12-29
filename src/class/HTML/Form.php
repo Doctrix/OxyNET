@@ -19,7 +19,7 @@ class Form {
             <input type="{$type}" id="field{$key}" class="{$this->obtenirInputClass($key)}" name="{$key}" value="{$value}" required>
             {$this->obtenirErrorFeedback($key)}
         </div>
-HTML;       
+HTML;
     }
 
     public function textarea (string $key, string $label): string
