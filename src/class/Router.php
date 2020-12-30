@@ -82,8 +82,6 @@ class Router
         }
         return $this;
     }
-
-  
 }
 
 /* ROUTER */

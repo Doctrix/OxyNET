@@ -1,5 +1,5 @@
 <?php
-use App\{ObjectHelper, Auth};
+use App\{ObjectHelper, Auth, Images};
 use App\Table\{ArticleTable, CategorieTable};
 use App\HTML\Form;
 use App\Validators\ArticleValidator;
@@ -10,15 +10,18 @@ Auth::Verifier();
 
 $errors = [];
 $article = new Article();
-$pdo = ConfigDB::getDatabase();
-$categorieTable = new CategorieTable($pdo);
-$categories = $categorieTable->list();
+$images = new Images();
 $article->definirDateDeCreation(date('Y-m-d H:i:s'));
 
+$pdo = ConfigDB::getDatabase();
+$articleTable = new ArticleTable($pdo);
+$categorieTable = new CategorieTable($pdo);
+
+$categories = $categorieTable->list();   
+
 if (!empty($_POST)) {
-    $articleTable = new ArticleTable($pdo);
-    $v = new ArticleValidator($_POST,$articleTable,$article->obtenirID(),$categories);
-    ObjectHelper::hydrate($article, $_POST, ['titre','contenu','slug','date_de_creation','extrait','lien']);
+    $v = new ArticleValidator($_POST,$articleTable,$article->obtenirID(),$categories,$images);
+    ObjectHelper::hydrate($article, $_POST, ['titre','image','contenu','slug','date_de_creation','extrait','lien']);
     if($v->validate()) {
         $pdo->beginTransaction();
         $articleTable->CreerArticle($article);

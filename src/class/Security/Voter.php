@@ -1,6 +1,7 @@
-<?php declare(strict_types=1);
+<?php 
 namespace App\Security;
+use App\Model\User;
 interface Voter {
     public function canVote(string $permission, $subject = null): bool;
-    public function vote(\App\Model\User $user, string $permission, $subjet =null): bool;
+    public function vote(User $user, string $permission, $subjet =null): bool;
 }

@@ -8,6 +8,7 @@ class Article {
 
     private $id;
     private $slug;
+    private $image_id;
     private $titre;
     private $contenu;
     private $extrait;
@@ -24,6 +25,17 @@ class Article {
     public function definirID(int $id): self
     {
         $this->id = $id;
+        return $this;
+    }
+
+    public function obtenirImage (): ?String
+    {
+        return $this->image_id;
+    }
+
+    public function definirImage(string $image_id): self
+    {
+        $this->image_id = $image_id;
         return $this;
     }
 

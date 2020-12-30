@@ -3,6 +3,7 @@
 <a href="<?= $router->url('admin_articles') ?>" class="btn btn-light">Tous les articles</a>
 </th> 
 <form action="#" Method="POST">
+    <?= $form->image('image', 'Image a la une'); ?>
     <?= $form->input('titre','Titre'); ?>
     <?= $form->input('slug','Slug'); ?>
     <?= $form->textarea('contenu','Contenu'); ?>

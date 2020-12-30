@@ -1,0 +1,32 @@
+<?php declare(strict_types=1);
+
+namespace Tests;
+
+use PHPUnit\Framework\TestCase;
+use Tests\Helpers\TestUser;
+use App\Security\Permission;
+use Tests\Helpers\AlwaysYesVoter;
+use Tests\Helpers\AlwaysNoVoter;
+
+class PermissionTest extends TestCase {
+    
+    public function testEmptyVoters(){
+        $permission = new Permission();
+        $user = new TestUser();
+        $this->assertFalse($permission->can($user, 'demo'));
+    }
+
+    public function testWithTrueVoter () {
+        $permission = new Permission();
+        $user = new TestUser();
+        $permission->addVoter(new AlwaysYesVoter);
+        $this->assertTrue($permission->can($user, 'demo'));
+    }
+    public function testWithOneVoterVotesTrue () {
+        $permission = new Permission();
+        $user = new TestUser();
+        $permission->addVoter(new AlwaysNoVoter);
+        $permission->addVoter(new AlwaysYesVoter);
+        $this->assertTrue($permission->can($user, 'demo'));
+    }
+}

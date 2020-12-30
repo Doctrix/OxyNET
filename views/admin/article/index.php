@@ -3,35 +3,45 @@ use App\Auth;
 use App\Server\ConfigDB;
 use App\Table\ArticleTable;
 
-Auth::Verifier();
+//Auth::Verifier();
 
-$titre_header = "Administration";
+$titre_header = "Tous les ARTICLES";
 $title = "Tableau de bord : ARTICLES";
 
 $pdo = ConfigDB::getDatabase();
+
 $link = $router->url('admin_articles');
 [$articles, $pagination] = (new ArticleTable($pdo))->trouverPaginer();
-?>
-<?php if (isset($_GET['supprimer'])): ?>
+
+if (isset($_GET['supprimer'])): ?>
+
 <div class="alert alert-success">
     L'enregistrement à bien été supprimé
 </div>
 <?php endif ?>
-<p><button onclick="history.go(-1);" class="btn btn-secondary" >Retour</button></p>
+<h2><?= $title ?></h2>
+<br>
+<p><button onclick="history.go(-1);" class="btn btn-secondary" >Retour</button>
+<th><a href="<?= $router->url('admin_article_nouveau') ?>" class="btn btn-primary">Ajouter un article</a></th></p>
+
 <table class="table table-striped">
     <thead>
         <tr>
             <th>#</th>
+            <th>Image</th>
             <th>Titre</th>
-            <th>
-            <a href="<?= $router->url('admin_article_nouveau') ?>" class="btn btn-primary">Ajouter un article</a>
-            </th>  
+            <th> </th>
         </tr>
     </thead>
     <tbody>
     <?php foreach($articles as $article): ?>
     <tr>
-        <td>#<?= $article->obtenirID() ?></td>
+        <td><?= $article->obtenirID() ?></td>
+        <td>
+            <a href="<?= $router->url('admin_article',['id'=>$article->obtenirID()]) ?>">
+            <?= e($article->obtenirImage()) ?>
+            </a>
+        </td>
         <td>
             <a href="<?= $router->url('admin_article',['id'=>$article->obtenirID()]) ?>">
             <?= e($article->obtenirTitre()) ?>

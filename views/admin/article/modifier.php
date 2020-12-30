@@ -19,7 +19,7 @@ $errors = [];
 
 if (!empty($_POST)) {
     $v = new ArticleValidator($_POST, $articleTable, $article->obtenirID(), $categories);
-    ObjectHelper::hydrate($article, $_POST, ['titre','contenu','slug','date_de_creation','extrait','lien']);
+    ObjectHelper::hydrate($article, $_POST, ['titre','image','contenu','slug','date_de_creation','extrait','lien']);
     if($v->validate()) {
         $pdo->beginTransaction();
         $articleTable->MajArticle($article);

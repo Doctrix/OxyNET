@@ -1,7 +1,8 @@
 <?php
 use App\Auth;
+use App\Session;
 
-Auth::Verifier();
+//Auth::Verifier();
 
 $titre_header = $titre_navBar = 'Tableau de bord';
 
@@ -30,19 +31,7 @@ $mois = [
     '11' => 'Novembre',
     '12' => 'Decembre'
 ];
-
-/* if(Session::getInstance()->getFlash()) :
-    foreach(Session::getInstance()->getFlash() as $type => $message) :
-        $message = <<<HTML
-        <div class="alert arlet-<?= $type; ?>">
-            <?= $message; ?>
-        </div>
-HTML;
-endforeach;
-endif; */
 ?>
-
-<!-- $message; ?> -->
 
 <h2><ul>Membres</ul></h2>
 <strong>Inscris :</strong><br/>

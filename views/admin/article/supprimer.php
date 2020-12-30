@@ -6,6 +6,7 @@ use App\Table\ArticleTable;
 Auth::Verifier();
 
 $titre_header = $title = "Supprimer l'article n° {$params['id']}";
+
 $pdo = ConfigDB::getDatabase();
 $table = new ArticleTable($pdo);
 $table->supprimer($params['id']);

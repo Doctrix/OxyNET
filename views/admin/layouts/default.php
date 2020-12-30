@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="zoombox.css" />
     <link rel="stylesheet" type="text/css" href="/src/inc/css/zoombox.css" />
-    <title><?= isset($titre_navBar) ? e($titre_navBar) : 'Administration'; ?></title> 
+    <title><?= isset($titre_navBar) ? e($titre_navBar) : 'Tous les articles'; ?></title> 
 </head>
 <header>
     <h1 class="titre text-center"><b><?= isset($titre_header) ? e($titre_header): 'Oxy'; ?></b></h1>           
@@ -44,10 +44,11 @@
     <div class="container mt-4">
         <?= $contenu ?>
     </div>
-    <p>Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME)) ?>ms</p>  
+     <br clear="all">
 <footer class="bg-dark py-4 footer mt-auto">
     <div class="container">
         <strong class="">O</strong>xy<strong class="">G</strong>ène<strong class="">S</strong>tudio <a href="//oxygames.fr" target="_blank">[O.G.S]</a> en partenariat avec : <a href="//mifaconcept.fr" target="_blank">Mifa Concept</a>
+        <p> Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME)) ?>ms</p> 
     </div>
 </footer>
 <!-- script -->

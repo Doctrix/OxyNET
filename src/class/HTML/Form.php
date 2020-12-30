@@ -3,6 +3,9 @@ namespace App\HTML;
 
 class Form {
 
+    private $data;
+    private $errors;
+
     public function __construct ($data, array $errors)
     {
         $this->data = $data;
@@ -17,6 +20,19 @@ class Form {
         <div class="form-group">
             <label for="field{$key}"><b>{$label}</b></label>
             <input type="{$type}" id="field{$key}" class="{$this->obtenirInputClass($key)}" name="{$key}" value="{$value}" required>
+            {$this->obtenirErrorFeedback($key)}
+        </div>
+HTML;
+    }
+
+    public function image (string $key, string $label): string 
+    {
+        $value = $this->obtenirValeur($key);
+        $type = "file";
+        return <<<HTML
+        <div class="form-group">
+            <label for="field{$key}"><b>{$label}</b></label>
+            <input type="{$type}" id="field{$key}" class="{$this->obtenirInputClass($key)}" name="{$key}" value="{$value}">
             {$this->obtenirErrorFeedback($key)}
         </div>
 HTML;
@@ -52,8 +68,8 @@ HTML;
 HTML;
     }
 
-    private function obtenirValeur (string $key)
-    {
+    // getValue
+    private function obtenirValeur (string $key) {
         if(is_array($this->data)) {
             return $this->data[$key] ?? null;
         }
@@ -65,8 +81,8 @@ HTML;
         return $value;
     }
 
-    private function obtenirInputClass (string $key): string
-    {
+    // gestion des erreur
+    private function obtenirInputClass (string $key): string{
         $inputClass = 'form-control';
         if(isset($this->errors[$key])) {
             $inputClass .= ' is-invalid';
@@ -74,8 +90,7 @@ HTML;
         return $inputClass;
     }
 
-    private function obtenirErrorFeedback (string $key): string
-    {
+    private function obtenirErrorFeedback (string $key): string{
         if (isset($this->errors[$key])) {
             if (is_array($this->errors[$key])) {
                 $error = implode('<br>', $this->errors[$key]);

@@ -24,19 +24,50 @@ if(!empty($_FILES)) {
 </form>
 
 <?php
-$dos = IMAGES . DS . 'thumbnail';
-$dir = opendir($dos);
+$imageThumb = IMAGES . DS . 'thumbnail';
+$imagePost = IMAGES.DS.'posts';
+$dir = opendir($imageThumb);
 while ($file = readdir($dir)) {
     $allow_ext = array('jpg', 'png', 'gif');
     $ext = strtolower(substr($file, -3));
     if(in_array($ext, $allow_ext)) {
     ?>
-    <div class="min">
+    <br>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Titre</th>
+            <th>Image</th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+        #<?= $dir['name'] ?>
+        </td>
+        <td>
+        <a href="<?= IMAGES . DS . $file ?>" rel="zoombox[galerie]" ><?= $file ?></a>
+        </td>
+        <td>
         <a href="<?= IMAGES . DS . $file ?>" rel="zoombox[galerie]">
             <img src="<?= IMAGES . DS . 'thumbnail' . DS . $file ?>"/>
-            <h3><?= $file; ?></h3>
         </a>
-    </div>
+        </td>
+        <td>
+        <a href="" class="btn btn-primary">
+            Modifier
+            </a>
+            <form action=""
+            method="POST" onsubmit="return confirm('Voulez vous vraiment effectuer cette action ?')" style="display:inline">
+            <button type="submit"  class="btn btn-danger">Supprimer</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br clear="all">
     <?php
     } 
 }

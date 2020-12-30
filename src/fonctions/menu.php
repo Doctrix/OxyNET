@@ -37,5 +37,6 @@ function nav_menu_admin(string $linkClass = '', string $linkClassAdmin = 'navbar
     nav_item('a', 'href', '/admin', 'Tableau de bord', $linkClassAdmin).
     nav_item('a', 'href', '/admin/articles', 'Articles', $linkClassAdmin).
     nav_item('a', 'href', '/admin/categories', 'Catégories', $linkClassAdmin).
+    nav_item('a', 'href', '/media', 'Média', $linkClassAdmin).
     nav_item("form method='post'", 'action', 'logout', "<button type='submit' style='$style'>Déconnexion</button>",$linkClassAdmin);
 }

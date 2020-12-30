@@ -1,6 +1,6 @@
 <?php
 require dirname(__DIR__) .'/core/constants.php';
-require dirname(__DIR__) . DS .'vendor/autoload.php';
+require VENDOR . DS .'autoload.php';
 
 /* require LIB.DS.'debug.php'; */
 
@@ -17,7 +17,7 @@ if (isset($_GET['page']) && $_GET['page'] === '1') {
     exit();
 }
 
-$router = new App\Router(dirname(__DIR__) . DS . 'views');
+$router = new App\Router(VIEWS);
 $router
     ->obtenir('/', 'article/index', 'home')
     ->obtenir('/blog/categorie/[*:slug]-[i:id]', 'categorie/show', 'categorie')

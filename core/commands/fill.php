@@ -1,9 +1,11 @@
 <?php
 use App\ConnexionServeur;
+use App\Server\ConfigDB;
+
 require dirname(__DIR__) .'/constants.php';
 require dirname(dirname(__DIR__)) . DS .'vendor/autoload.php';
 
-$pdo = ConnexionServeur::obtenirPDO();
+$pdo = ConfigDB::getDatabase();
 
 $faker = Faker\Factory::create('fr_FR');
 

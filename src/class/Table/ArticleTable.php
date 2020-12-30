@@ -13,6 +13,7 @@ final class ArticleTable extends Table {
     {
         $this->MAJ([
             'titre' => $article->obtenirTitre(),
+            'image_id' => $article->obtenirImage(),
             'slug' => $article->obtenirSlug(),
             'contenu' => $article->obtenirContenu(),
             'extrait' => $article->obtenirExtrait(),
@@ -26,6 +27,7 @@ final class ArticleTable extends Table {
     {
         $id = $this->Creer([
             'titre' => $article->obtenirTitre(),
+            'image_id' => $article->obtenirImage(),
             'slug' => $article->obtenirSlug(),
             'contenu' => $article->obtenirContenu(),
             'extrait' => $article->obtenirExtrait(),
