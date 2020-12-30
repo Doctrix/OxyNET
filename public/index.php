@@ -46,4 +46,5 @@ $router
     ->obtenir('/profil', 'user/profil', 'profil')
     ->obtenir('/profil/dashboard', 'user/index', 'user_dashboard')
     ->match('/voir_profil', 'user/voir_profil', 'user_profil')
+    ->obtenir('/live','user/live','live')
     ->lancer();

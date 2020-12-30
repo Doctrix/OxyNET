@@ -3,7 +3,10 @@ use App\Auth;
 use App\Model\User;
 use App\Server\ConfigDB;
 
-Auth::Verifier();
+if(Auth::$session['auth']) {
+  Auth::Verifier();
+  exit(); 
+}
 
 $pdo = ConfigDB::getDatabase();
 $utilisateur = new User();
@@ -20,7 +23,16 @@ $titre_navBar = $afficher_profil->nom;
 <h2>Vos informations :</h2>
     <div>Informations personnel : </div>
     <ul>
-      <p>plein ecran</p>
-    <li>Stream deck for Raspberry pi</li>
+      <p><button class="btn btn-info">
+        <?php if (Auth::$session['auth'] == Auth::$session['admin'] ): ?>
+            Plein écran
+        <?php else: ?>
+            Réduire
+        <?php endif ?>
+    </button></p>
+    <button class="btn btn-info">name button 1</button>
+    <button class="btn btn-info">name button 2</button>
+    <button class="btn btn-info">name button 3</button>
+    <button class="btn btn-info">name button 4</button>
     </ul>
 <hr/>

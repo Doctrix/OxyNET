@@ -1,5 +1,4 @@
 <?php
-
 use App\Auth;
 use App\Images;
 
@@ -9,37 +8,52 @@ if(Auth::$session['auth']) {
 }
 
 if(!empty($_FILES)) {
-
     $img = $_FILES['img'];
     $ext = strtolower(substr($img['name'], -3));
-    $allow_ext = array('jpg', 'png', 'gif');
-    if(in_array($ext, $allow_ext)) {
-        move_uploaded_file($img['tmp_name'], IMAGES . DS . $img['name']);
-        Images::creerMin(IMAGES . DS . $img['name'], IMAGES . DS . 'thumbnail', $img['name'],215,112);
-        Images::ConvertirJPG(IMAGES . DS . $img['name'], IMAGES . DS . 'thumbnail', $img['name'],215,112);
+    $allow_ext = array('jpg','png','gif');
+    if(in_array($ext,$allow_ext)) {
+        move_uploaded_file($img['tmp_name'],IMAGES.DS.$img['name']);
+        Images::creerMin(IMAGES.DS.$img['name'],IMAGES.DS.'thumbnail',$img['name'],215,112);
+        Images::ConvertirJPG(IMAGES.DS.$img['name'],IMAGES.DS.'thumbnail',$img['name'],215,112);
     }
     else {
         setErreur("Votre fichier n'est pas une image");
     }
 }
+echo getFlash();
 ?>
-<?= getFlash() ?>
+
 <form action="#" method="post" enctype="multipart/form-data">
 <input type="file" name="img" id="image">
 <input type="submit" value="Envoyer">
 </form>
 
 <?php
-$imageThumb = IMAGES . DS . 'thumbnail';
+
+$image = IMAGES.DS;
+$imageThumb = IMAGES.DS.'thumbnail';
 $imagePost = IMAGES.DS.'posts';
+
 $dir = opendir($imageThumb);
+$dir2 = opendir($imagePost);
+$dir3 = opendir($image);
+$images = readdir($dir3);
+
 while ($file = readdir($dir)) {
-    $allow_ext = array('jpg', 'png', 'gif');
-    $ext = strtolower(substr($file, -3));
-    if(in_array($ext, $allow_ext)) {
-    ?>
-    <br>
-    <table class="table table-striped">
+$allow_ext = array('jpg','png','gif');
+$ext = strtolower(substr($file, -3));
+if(in_array($ext, $allow_ext)) {
+
+while ($files = readdir($dir2)) {
+$allow_ext2 = array('jpg','png','gif');
+$ext2 = strtolower(substr($files, -3));
+if(in_array($ext2, $allow_ext2)) {
+
+?>
+
+<br>
+
+<table class="table table-striped">
     <thead>
         <tr>
             <th>#</th>
@@ -51,14 +65,14 @@ while ($file = readdir($dir)) {
     <tbody>
     <tr>
         <td>
-        #<?= $dir['name'] ?>
+        #<?= $images ?>
         </td>
         <td>
-        <a href="<?= IMAGES . DS . $file ?>" rel="zoombox[galerie]" ><?= $file ?></a>
+        <a href="<?= IMAGES.DS.$file ?>" rel="zoombox[galerie]" ><?= $file ?></a>
         </td>
         <td>
-        <a href="<?= IMAGES . DS . $file ?>" rel="zoombox[galerie]">
-            <img src="<?= IMAGES . DS . 'thumbnail' . DS . $file ?>"/>
+        <a href="<?= IMAGES.DS.$file ?>" rel="zoombox[galerie]">
+            <img src="<?= IMAGES.DS.'thumbnail'.DS.$file ?>"/>
         </a>
         </td>
         <td>
@@ -71,9 +85,12 @@ while ($file = readdir($dir)) {
             </form>
         </td>
     </tr>
-    </tbody>
+</tbody>
 </table>
+
 <br clear="all">
-    <?php
-    } 
+<?php
+}
+}
+}
 }
