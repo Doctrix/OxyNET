@@ -5,7 +5,10 @@ use App\HTML\Form;
 use App\Server\ConfigDB;
 use App\Validators\ArticleValidator;
 
-Auth::Verifier();
+if(Auth::$session['auth']) {
+    Auth::Verifier();
+    exit();
+}
 
 $pdo = ConfigDB::getDatabase();
 $articleTable = new ArticleTable($pdo);

@@ -3,7 +3,10 @@ use App\Auth;
 use App\Server\ConfigDB;
 use App\Table\CategorieTable;
 
-Auth::Verifier();
+if(Auth::$session['auth']) {
+    Auth::Verifier();
+    exit();
+}
 
 $pdo = ConfigDB::getDatabase();
 $table = new CategorieTable($pdo);

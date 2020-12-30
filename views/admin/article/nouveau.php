@@ -6,7 +6,10 @@ use App\Validators\ArticleValidator;
 use App\Model\Article;
 use App\Server\ConfigDB;
 
-Auth::Verifier();
+if(Auth::$session['auth']) {
+    Auth::Verifier();
+    exit();
+}
 
 $errors = [];
 $article = new Article();

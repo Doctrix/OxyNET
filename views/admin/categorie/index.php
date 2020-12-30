@@ -3,14 +3,19 @@ use App\Auth;
 use App\Server\ConfigDB;
 use App\Table\CategorieTable;
 
-Auth::Verifier();
 
+if(Auth::$session['auth']) {
+    Auth::Verifier();
+    exit(); 
+}
 $pdo = ConfigDB::getDatabase();
 $link = $router->url('admin_categories');
 $items = (new CategorieTable($pdo))->all();
 
 $titre_header = "Gestion des catégories";
 $titre_navBar = "CATEGORIES";
+
+
 ?>
 <?php if (isset($_GET['supprimer'])): ?>
 <div class="alert alert-success">

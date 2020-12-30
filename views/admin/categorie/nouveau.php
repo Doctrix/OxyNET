@@ -6,7 +6,10 @@ use App\Validators\CategorieValidator;
 use App\Model\Categorie;
 use App\Server\ConfigDB;
 
-Auth::Verifier();
+if(Auth::$session['auth']) {
+    Auth::Verifier();
+    exit();
+}
 
 $errors = [];
 $item = new Categorie();

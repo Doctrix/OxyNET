@@ -3,7 +3,10 @@ use App\Auth;
 use App\Server\ConfigDB;
 use App\Table\ArticleTable;
 
-//Auth::Verifier();
+if(Auth::$session['auth']) {
+    Auth::Verifier();
+    exit(); 
+}
 
 $titre_header = "Tous les ARTICLES";
 $title = "Tableau de bord : ARTICLES";

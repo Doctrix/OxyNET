@@ -12,7 +12,7 @@ $titre_navBar = "Connexion";
 if(Auth::$session['auth']) {
     header('Location: ' . $router->url('admin'));
     exit(); 
- } 
+} 
 
 $utilisateur = new User();
 $errors = [];
@@ -27,7 +27,11 @@ if (!empty($_POST)) {
             if (password_verify($_POST['password'], $u->obtenirPassword()) === true) {
                 session_start();
                 $_SESSION['auth'] = $u->getId();
-                header('Location: ' . $router->url('profil'));
+                if($_SESSION['auth'] == true){
+                    header('Location: ' . $router->url('dashboard'));
+                }else{
+                    header('Location: ' . $router->url('profil'));
+                }
                 exit();
             }
         } catch (NotFoundException $e) { }

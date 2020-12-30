@@ -2,7 +2,10 @@
 use App\Auth;
 use App\Session;
 
-//Auth::Verifier();
+if(Auth::$session['auth']) {
+    Auth::Verifier();
+    exit();
+}
 
 $titre_header = $titre_navBar = 'Tableau de bord';
 

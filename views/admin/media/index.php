@@ -1,6 +1,12 @@
 <?php
 
+use App\Auth;
 use App\Images;
+
+if(Auth::$session['auth']) {
+    Auth::Verifier();
+    exit();
+}
 
 if(!empty($_FILES)) {
 
