@@ -1,7 +1,7 @@
 <?php
 
-namespace Model\Security;
-use Model\Classes\User;
+namespace App\Security;
+use Model\User;
 
 interface Voter {
     public function canVote(string $permission, $subject = null): bool;

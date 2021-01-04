@@ -2,7 +2,7 @@
 namespace Framework;
 
 use AltoRouter;
-use Classe\Security\ForbiddenException;
+use App\Security\ForbiddenException;
 
 /**
  * Register et match routes

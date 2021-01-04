@@ -10,8 +10,9 @@
 "autoload": {
     "files":["controller/fonction/helpers.php"],
     "psr-4": {
+        "App\\": "src/",
         "Core\\": "core/",
-        "Model\\": "model/",
+        "Model\\": "src/Model/",
         "Framework\\": "src/Framework/",
         "Tests\\": "tests/"
     }

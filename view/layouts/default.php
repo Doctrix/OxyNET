@@ -1,6 +1,6 @@
 <?php
 
-use Model\Widgets\Social;
+use App\Widgets\Social;
 
 $widgets = new Social();
 

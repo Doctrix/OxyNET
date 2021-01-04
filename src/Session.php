@@ -1,9 +1,8 @@
 <?php
 
-namespace Model;
+namespace App;
 
 class Session {
-
 
     static $instance;
 

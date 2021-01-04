@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace App;
 
 /**
  * Akismet anti-comment spam service

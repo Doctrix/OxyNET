@@ -1,7 +1,7 @@
 <?php
 
-use Model\Server\ConfigDB;
-use Model\Table\ArticleTable;
+use App\Server\ConfigDB;
+use App\Table\ArticleTable;
 
 $pdo = ConfigDB::getDatabase();
 $table = new ArticleTable($pdo);

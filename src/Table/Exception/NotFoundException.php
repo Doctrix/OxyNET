@@ -1,5 +1,5 @@
 <?php
-namespace Model\Table\Exception;
+namespace App\Table\Exception;
 
 class NotFoundException extends \Exception {
     

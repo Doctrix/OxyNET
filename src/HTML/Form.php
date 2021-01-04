@@ -1,5 +1,5 @@
 <?php
-namespace Model\HTML;
+namespace App\HTML;
 
 class Form {
 

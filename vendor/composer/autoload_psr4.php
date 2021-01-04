@@ -36,7 +36,7 @@ return array(
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src/Prophecy'),
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
-    'Model\\' => array($baseDir . '/model'),
+    'Model\\' => array($baseDir . '/src/Model'),
     'Joli\\JoliNotif\\' => array($vendorDir . '/jolicode/jolinotif/src'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
     'Framework\\' => array($baseDir . '/src/Framework'),
@@ -49,4 +49,5 @@ return array(
     'Clue\\React\\Utf8\\' => array($vendorDir . '/clue/utf8-react/src'),
     'Clue\\React\\Term\\' => array($vendorDir . '/clue/term-react/src'),
     'Clue\\React\\Stdio\\' => array($vendorDir . '/clue/stdio-react/src'),
+    'App\\' => array($baseDir . '/src'),
 );

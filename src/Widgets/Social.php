@@ -1,5 +1,5 @@
 <?php
-namespace Model\Widgets;
+namespace App\Widgets;
 
 class Social {
 

@@ -1,5 +1,5 @@
 <?php
-namespace Model\Classes;
+namespace Model;
 
 class Categorie {
 

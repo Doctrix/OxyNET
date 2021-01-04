@@ -1,7 +1,7 @@
 <?php
-namespace Model\Table;
+namespace App\Table;
 
-use Model\Table\Exception\NotFoundException;
+use App\Table\Exception\NotFoundException;
 use Exception;
 use PDO;
 

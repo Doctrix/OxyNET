@@ -1,7 +1,7 @@
 <?php
-namespace Model\Validators;
+namespace App\Validators;
 
-use Model\Validator;
+use App\Validator;
 
 abstract class AbstractValidator {
     

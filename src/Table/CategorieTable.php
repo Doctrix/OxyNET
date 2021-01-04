@@ -1,7 +1,7 @@
 <?php
-namespace Model\Table;
+namespace App\Table;
 
-use Model\Classes\Categorie;
+use Model\Categorie;
 use \PDO;
 
 final class CategorieTable extends Table {

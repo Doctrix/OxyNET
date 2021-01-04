@@ -114,6 +114,10 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
             'Clue\\React\\Term\\' => 16,
             'Clue\\React\\Stdio\\' => 17,
         ),
+        'A' => 
+        array (
+            'App\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -243,7 +247,7 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         ),
         'Model\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/model',
+            0 => __DIR__ . '/../..' . '/src/Model',
         ),
         'Joli\\JoliNotif\\' => 
         array (
@@ -292,6 +296,10 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         'Clue\\React\\Stdio\\' => 
         array (
             0 => __DIR__ . '/..' . '/clue/stdio-react/src',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 

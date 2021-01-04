@@ -1,7 +1,7 @@
 <?php
-namespace Model\Validators;
+namespace App\Validators;
 
-use Model\Table\CategorieTable;
+use App\Table\CategorieTable;
 
 class CategorieValidator extends AbstractValidator {
 

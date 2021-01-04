@@ -1,8 +1,8 @@
 <?php
-namespace Model\Server;
+namespace App\Server;
 
-use Model\Auth;
-use \PDO;
+use App\Auth;
+use PDO;
 
 require LIB . DS . 'DB.php';
 class ConfigDB {

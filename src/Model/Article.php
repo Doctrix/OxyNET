@@ -1,7 +1,7 @@
 <?php
-namespace Model\Classes;
+namespace Model;
 
-use Model\Helpers\Text;
+use App\Helpers\Text;
 use \DateTime;
 
 class Article {
