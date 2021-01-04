@@ -1,9 +1,10 @@
 <?php
-use App\{ObjectHelper, Auth};
-use App\Table\{ArticleTable, CategorieTable};
-use App\HTML\Form;
-use App\Server\ConfigDB;
-use App\Validators\ArticleValidator;
+
+use Model\{ObjectHelper, Auth};
+use Model\Table\{ArticleTable, CategorieTable};
+use Model\HTML\Form;
+use Model\Server\ConfigDB;
+use Model\Validators\ArticleValidator;
 
 if(Auth::$session['auth']) {
     Auth::Verifier();

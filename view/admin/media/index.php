@@ -1,6 +1,7 @@
 <?php
-use App\Auth;
-use App\Images;
+
+use Model\Auth;
+use Model\Images;
 
 if(Auth::$session['auth']) {
     Auth::Verifier();

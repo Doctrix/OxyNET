@@ -1,7 +1,8 @@
 <?php
-use App\Auth;
-use App\Server\ConfigDB;
-use App\Table\ArticleTable;
+
+use Model\Auth;
+use Model\Server\ConfigDB;
+use Model\Table\ArticleTable;
 
 if(Auth::$session['auth']) {
     Auth::Verifier();

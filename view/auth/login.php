@@ -1,10 +1,11 @@
 <?php
-use App\Auth;
-use App\HTML\Form;
-use App\Model\User;
-use App\Server\ConfigDB;
-use App\Table\Exception\NotFoundException;
-use App\Table\UserTable;
+
+use Model\Auth;
+use Model\HTML\Form;
+use Model\Classes\User;
+use Model\Server\ConfigDB;
+use Model\Table\Exception\NotFoundException;
+use Model\Table\UserTable;
 
 $titre_header = "Se connecter";
 $titre_navBar = "Connexion";

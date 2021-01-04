@@ -3,8 +3,8 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
+use Model\Security\Permission;
 use Tests\Helpers\TestUser;
-use App\Security\Permission;
 use Tests\Helpers\AlwaysYesVoter;
 use Tests\Helpers\AlwaysNoVoter;
 

@@ -1,8 +1,8 @@
 <?php
 
-use App\{Auth,Router,Session,Validator};
-use App\Server\ConfigDB;
-
+use Model\{Auth,Session,Validator};
+use Model\Server\ConfigDB;
+use Framework\App;
 
 $db = ConfigDB::getDatabase();
 $user = $db->query('SELECT * FROM utilisateur')->fetchAll();
@@ -37,7 +37,7 @@ if(!empty($_POST)) {
         $auth = new Auth($db,'auth');
         $auth->register($db, $_POST['username'], $_POST['password'], $_POST['email'], $_POST['date_de_creation']);
         Session::getInstance()->setSuccess('Un email de confirmation vous a été envoyé pour valider votre compte');
-        Router::redirect('login');
+        App::redirect('login');
 
     } else {
         $errors = $validator->getErrors();

@@ -7,7 +7,7 @@
  * Release under MIT license
  */
 
-use App\Auth;
+use Model\Auth;
 
 if(Auth::$session['auth']) {
     Auth::Verifier();

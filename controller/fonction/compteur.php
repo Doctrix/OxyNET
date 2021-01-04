@@ -1,4 +1,5 @@
 <?php
+
 function ajouter_une_vue (): void
 {
     $fichier = DATA . DS . 'compteur';
@@ -53,3 +54,5 @@ function nbr_de_vues_detail_par_mois(int $annee, int $mois): array
         return $visites;
     }
 }
+
+?>

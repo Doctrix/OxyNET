@@ -1,4 +1,5 @@
 <?php
+
 function nav_item(string $code, string $action, string $url, string $titre, string $linkClass = ''): string
 {
     $class = 'nav-item';
@@ -35,8 +36,9 @@ function nav_menu_admin(string $linkClass = '', string $linkClassAdmin = 'navbar
 {
     return
     nav_item('a', 'href', '/admin', 'Tableau de bord', $linkClassAdmin).
-    nav_item('a', 'href', '/admin/articles', 'Articles', $linkClassAdmin).
-    nav_item('a', 'href', '/admin/categories', 'Catégories', $linkClassAdmin).
+    nav_item('a', 'href', '/admin/article', 'Articles', $linkClassAdmin).
+    nav_item('a', 'href', '/admin/categorie', 'Catégories', $linkClassAdmin).
     nav_item('a', 'href', '/media', 'Média', $linkClassAdmin).
     nav_item("form method='post'", 'action', 'logout', "<button type='submit' style='$style'>Déconnexion</button>",$linkClassAdmin);
 }
+?>

@@ -39,12 +39,6 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         ),
         'V' => 
         array (
-            'View\\' => 5,
-            'ViewUser\\' => 9,
-            'ViewPost\\' => 9,
-            'ViewCategorie\\' => 14,
-            'ViewAuth\\' => 9,
-            'ViewAdmin\\' => 10,
             'Valitron\\' => 9,
         ),
         'T' => 
@@ -75,7 +69,6 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         ),
         'P' => 
         array (
-            'Public\\' => 7,
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
@@ -89,11 +82,6 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         'J' => 
         array (
             'Joli\\JoliNotif\\' => 15,
-            'JS\\' => 3,
-        ),
-        'I' => 
-        array (
-            'IMG\\' => 4,
         ),
         'G' => 
         array (
@@ -102,23 +90,19 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         'F' => 
         array (
             'Framework\\' => 10,
-            'Fonction\\' => 9,
             'Faker\\' => 6,
         ),
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
-            'Data\\' => 5,
         ),
         'C' => 
         array (
             'Core\\' => 5,
-            'Controller\\' => 11,
             'Clue\\React\\Utf8\\' => 16,
             'Clue\\React\\Term\\' => 16,
             'Clue\\React\\Stdio\\' => 17,
-            'CSS\\' => 4,
         ),
     );
 
@@ -141,37 +125,13 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
-        'View\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/view',
-        ),
-        'ViewUser\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/view/user',
-        ),
-        'ViewPost\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/view/article',
-        ),
-        'ViewCategorie\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/view/categorie',
-        ),
-        'ViewAuth\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/view/auth',
-        ),
-        'ViewAdmin\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/view/admin',
-        ),
         'Valitron\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/valitron/src/Valitron',
         ),
         'Tests\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/test',
+            0 => __DIR__ . '/../..' . '/tests',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
@@ -237,10 +197,6 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/..' . '/react/event-loop/src',
         ),
-        'Public\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/public',
-        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
@@ -269,14 +225,6 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/..' . '/jolicode/jolinotif/src',
         ),
-        'JS\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/public/inc/js',
-        ),
-        'IMG\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/public/inc/image',
-        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -284,10 +232,6 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         'Framework\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/framework',
-        ),
-        'Fonction\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/controller/fonction',
         ),
         'Faker\\' => 
         array (
@@ -301,17 +245,9 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
-        'Data\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/data',
-        ),
         'Core\\' => 
         array (
             0 => __DIR__ . '/../..' . '/core',
-        ),
-        'Controller\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/controller',
         ),
         'Clue\\React\\Utf8\\' => 
         array (
@@ -324,10 +260,6 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         'Clue\\React\\Stdio\\' => 
         array (
             0 => __DIR__ . '/..' . '/clue/stdio-react/src',
-        ),
-        'CSS\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/public/inc/ccs',
         ),
     );
 

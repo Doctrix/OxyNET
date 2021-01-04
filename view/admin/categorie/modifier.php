@@ -1,9 +1,10 @@
 <?php
-use App\{Auth, ObjectHelper};
-use App\Table\CategorieTable;
-use App\HTML\Form;
-use App\Server\ConfigDB;
-use App\Validators\CategorieValidator;
+
+use Model\{Auth, ObjectHelper};
+use Model\Table\CategorieTable;
+use Model\HTML\Form;
+use Model\Server\ConfigDB;
+use Model\Validators\CategorieValidator;
 
 if(Auth::$session['auth']) {
     Auth::Verifier();

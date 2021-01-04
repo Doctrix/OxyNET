@@ -13,7 +13,7 @@ require_once ELEM.DS.'compteur_if.php';
 <html lang="fr" class="h-100">
 <head>
     <meta charset="utf-8" />
-    <meta name="publisher" content="OxyServer">
+    <meta name="publisher" content="OxyNet">
     <meta name="keywords" lang="fr" content="oxy,oxygames">
     <meta name="reply-to" content="contact@mifaconcept.fr">
     <meta name="category" content="internet">

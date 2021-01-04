@@ -55,8 +55,8 @@ define('TESTHELP', TEST . DS . 'Helpers');
 
 /** - VIEW */
 define('ADMIN', VIEWS . DS . 'admin');
-define('CATEG', VIEWS . DS . 'categorie');
-define('ARTICLE', VIEWS . DS . 'article');
+define('CATEGORIE', VIEWS . DS . 'categorie');
+define('POST', VIEWS . DS . 'post');
 define('LAYOUTS', VIEWS . DS . 'layouts');
 define('USER', VIEWS . DS . 'user');
 

@@ -1,7 +1,8 @@
 <?php
 
 namespace Tests\Helpers;
-use App\Model\User;
+
+use Model\Classes\User;
 
 class TestUser implements User {
 

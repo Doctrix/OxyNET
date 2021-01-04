@@ -1,8 +1,8 @@
 <?php
 
-use App\Auth;
-use App\GuestBook;
-use App\Message;
+use Model\Auth;
+use Model\GuestBook;
+use Model\Message;
 
 Auth::Verifier();
 

@@ -1,7 +1,8 @@
 <?php
-use App\Auth;
-use App\Server\ConfigDB;
-use App\Table\CategorieTable;
+
+use Model\Auth;
+use Model\Server\ConfigDB;
+use Model\Table\CategorieTable;
 
 
 if(Auth::$session['auth']) {

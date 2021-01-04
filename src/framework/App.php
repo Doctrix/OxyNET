@@ -4,7 +4,7 @@ namespace Framework;
 
 use Model\Security\ForbiddenException;
 
-class App{
+class App {
     /**
      * @var string
      */
@@ -69,8 +69,7 @@ class App{
             $layout = $isEditor ? 'admin/editeur/layouts/default' : 'layouts/default';
         } elseif ($isIDE) {
             $layout = $isIDE ? 'ide/layouts/default' : 'layouts/default';
-        }
-        try {
+        } try {
             ob_start();
             require $this->viewPath . DS . $view . '.php';
             $contenu = ob_get_clean();

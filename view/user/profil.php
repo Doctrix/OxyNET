@@ -1,7 +1,8 @@
 <?php
-use App\Auth;
-use App\Model\User;
-use App\Server\ConfigDB;
+
+use Model\Auth;
+use Model\Classes\User;
+use Model\Server\ConfigDB;
 
 Auth::Verifier();
 

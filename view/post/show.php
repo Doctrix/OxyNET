@@ -1,4 +1,5 @@
 <?php
+
 use Model\Server\ConfigDB;
 use Model\Table\{ArticleTable,CategorieTable};
 

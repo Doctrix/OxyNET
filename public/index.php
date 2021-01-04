@@ -1,4 +1,6 @@
 <?php
+use Framework\App;
+
 require dirname(__DIR__) .'/core/constants.php';
 require VENDOR . DS .'autoload.php';
 
@@ -15,11 +17,11 @@ if (isset($_GET['page']) && $_GET['page'] === '1') {
     exit();
 }
 
-$router = new Framework\App(VIEWS);
+$router = new App(VIEWS);
 $router
-    ->obtenir('/', 'article/index', 'home')
+    ->obtenir('/', 'post/index', 'home')
     ->obtenir('/blog/categorie/[*:slug]-[i:id]', 'categorie/show', 'categorie')
-    ->obtenir('/blog/[*:slug]-[i:id]', 'article/show', 'article')
+    ->obtenir('/blog/[*:slug]-[i:id]', 'post/show', 'article')
     ->match('/login', 'auth/login', 'login')
     ->match('/register', 'auth/register', 'register')
     ->match('/logout', 'auth/logout', 'logout')
@@ -30,10 +32,10 @@ $router
     ->match('/ide', 'admin/ide/index', 'ide')
     ->match('/media', 'admin/media/index', 'media')
     // Gestion des articles
-    ->obtenir('/admin/article', 'admin/article/index', 'admin_article')
-    ->match('/admin/article/[i:id]', 'admin/article/modifier', 'admin_article_edit')
-    ->post('/admin/article/[i:id]/supprimer', 'admin/article/supprimer', 'admin_article_supprimer')
-    ->match('/admin/article/nouveau', 'admin/article/nouveau', 'admin_article_nouveau')
+    ->obtenir('/admin/post', 'admin/post/index', 'admin_post')
+    ->match('/admin/post/[i:id]', 'admin/post/modifier', 'admin_post_edit')
+    ->post('/admin/post/[i:id]/supprimer', 'admin/post/supprimer', 'admin_post_supprimer')
+    ->match('/admin/post/nouveau', 'admin/post/nouveau', 'admin_post_nouveau')
     // Gestion des categories
     ->obtenir('/admin/categorie', 'admin/categorie/index', 'admin_categorie')
     ->match('/admin/categorie/[i:id]', 'admin/categorie/modifier', 'admin_categorie_edit')

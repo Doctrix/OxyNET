@@ -9,23 +9,10 @@
     "autoload": {
         "files":["controller/fonction/helpers.php"],
         "psr-4": {
-            "Controller\\": "controller/",
-            "Fonction\\": "controller/fonction/",
             "Core\\": "core/",
             "Model\\": "model/",
-            "Public\\": "public/",
-            "CSS\\": "public/inc/ccs/",
-            "IMG\\": "public/inc/image/",
-            "JS\\": "public/inc/js/",
-            "Data\\": "src/data/",
             "Framework\\": "src/framework/",
-            "Tests\\": "test/",
-            "View\\": "view/",
-            "ViewAdmin\\": "view/admin/",
-            "ViewPost\\": "view/article/",
-            "ViewAuth\\": "view/auth/",
-            "ViewCategorie\\": "view/categorie/",
-            "ViewUser\\": "view/user/"
+            "Tests\\": "tests/"
         }
     },
     "require": {

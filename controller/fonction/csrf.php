@@ -1,4 +1,5 @@
 <?php
+
 function csrf(){
     return 'csrf=' . $_SESSION['csrf'];
 }
@@ -18,3 +19,4 @@ function checkCsrf(){
         header('Location:' . POST.DS . 'csrf.php');
         die(); 
 }
+?>

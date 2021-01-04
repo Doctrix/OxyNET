@@ -1,12 +1,14 @@
 <?php
-use Model\Server\{ConfigDB,ConnexionServeur};
+
+use Model\Server\ConfigDB;
 use Model\Table\ArticleTable;
+
 $pdo = ConfigDB::getDatabase();
 $table = new ArticleTable($pdo);
 $link = $router->url('home');
 [$articles, $pagination] = $table->trouverPaginer();
 
-$titre_header = 'O.G.S';
+$titre_header = 'OxyNET';
 $titre_navBar = 'Accueil';
 ?>
 <h1><?= e($titre_header); ?></h1>

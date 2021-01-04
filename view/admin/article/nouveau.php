@@ -1,10 +1,11 @@
 <?php
-use App\{ObjectHelper, Auth, Images};
-use App\Table\{ArticleTable, CategorieTable};
-use App\HTML\Form;
-use App\Validators\ArticleValidator;
-use App\Model\Article;
-use App\Server\ConfigDB;
+
+use Model\{ObjectHelper, Auth, Images};
+use Model\Table\{ArticleTable, CategorieTable};
+use Model\HTML\Form;
+use Model\Validators\ArticleValidator;
+use Model\Classes\Article;
+use Model\Server\ConfigDB;
 
 if(Auth::$session['auth']) {
     Auth::Verifier();

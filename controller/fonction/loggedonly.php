@@ -1,4 +1,5 @@
 <?php
+
 function logged_only($router)
 {
     if(session_status() == PHP_SESSION_NONE){
@@ -10,3 +11,5 @@ function logged_only($router)
         exit();
     }
 }
+
+?>
