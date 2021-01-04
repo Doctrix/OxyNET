@@ -17,7 +17,7 @@ class AppTest extends TestCase {
         $app = new App(VIEWS);
         $request = new ServerRequest('GET', '/blog');
         $response = $app->run($request);
-        $this->assertContains('<h1>Bienvenue sur le blog</h1>',$response->getBody());
+        $this->assertContains('<h1>Bienvenue sur le blog</h1>', $this->response->getBody());
         $this->assertEquals(200,$response->getStatusCode());
     }
 
@@ -25,7 +25,7 @@ class AppTest extends TestCase {
         $app = new App(VIEWS);
         $request = new ServerRequest('GET', '/aze');
         $response = $app->run($request);
-        $this->assertContains('<h1>Erreur 404</h1>',$response->getBody());
+        $this->assertContains('<h1>Erreur 404</h1>', $this->response->getBody());
         $this->assertEquals(404,$response->getStatusCode());
     }
 }
