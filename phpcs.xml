@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <ruleset name="OxyNET">
-    <description>Les regles</description>
+    <description>Les regles de formatage</description>
 
     <arg name="colors"/>
     <arg value="p"/>
@@ -10,4 +10,6 @@
 
     <rule ref="PSR2"></rule>
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"></rule>
+
+    <rule ref="Generic.Files.LineEndings"><exclude name="Generic.Files.LineEndings.InvalidEOLChar"/></rule>
 </ruleset>

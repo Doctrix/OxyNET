@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9007b5bbe918eab1ee61669808515c8f",
+    "content-hash": "8f405e192650180cc9704f26593d950b",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -244,6 +244,47 @@
                 "url"
             ],
             "time": "2020-09-30T07:37:11+00:00"
+        },
+        {
+            "name": "http-interop/response-sender",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/http-interop/response-sender.git",
+                "reference": "fd63be06cd6c9216ef3c725af1a3f6b155eebc84"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/http-interop/response-sender/zipball/fd63be06cd6c9216ef3c725af1a3f6b155eebc84",
+                "reference": "fd63be06cd6c9216ef3c725af1a3f6b155eebc84",
+                "shasum": ""
+            },
+            "require": {
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "guzzlehttp/psr7": "^1.4",
+                "php-mock/php-mock-phpunit": "^1.1",
+                "phpunit/phpunit": "^5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Woody Gilk",
+                    "email": "woody.gilk@gmail.com"
+                }
+            ],
+            "description": "A function to convert PSR-7 Response to HTTP output",
+            "time": "2017-03-17T15:46:19+00:00"
         },
         {
             "name": "psr/http-message",

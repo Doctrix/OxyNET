@@ -1,24 +1,10 @@
 <?php
-use Framework\App;
-
 require dirname(__DIR__) .'/core/constants.php';
 require VENDOR . DS .'autoload.php';
 
-if (isset($_GET['page']) && $_GET['page'] === '1') {
-    $uri = explode('?', $_SERVER['REQUEST_URI'])[0];
-    $get = $_GET;
-    unset($get['page']);
-    $query = http_build_query($get);
-    if (!empty($query)) {
-        $uri = $uri . '?' . $query;
-    }
-    http_response_code(301);
-    header('Location: ' . $uri);
-    exit();
-}
+$app = new \Framework\App(VIEWS);
 
-$router = new App(VIEWS);
-$router
+$response = $app
     ->obtenir('/', 'post/index', 'home')
     ->obtenir('/blog/categorie/[*:slug]-[i:id]', 'categorie/show', 'categorie')
     ->obtenir('/blog/[*:slug]-[i:id]', 'post/show', 'article')
@@ -46,5 +32,6 @@ $router
     ->obtenir('/profil', 'user/profil', 'profil')
     ->obtenir('/profil/dashboard', 'user/index', 'user_dashboard')
     ->match('/voir_profil', 'user/voir_profil', 'user_profil')
-    ->obtenir('/live','user/live','live')
-    ->lancer();
+    ->obtenir('/live', 'user/live', 'live')
+    ->run(\GuzzleHttp\Psr7\ServerRequest::fromGlobals());
+\Http\Response\send($response);

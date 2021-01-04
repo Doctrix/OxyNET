@@ -1,10 +1,14 @@
 <?php
-
 namespace Framework;
 
+use GuzzleHttp\Psr7\Response;
 use Model\Security\ForbiddenException;
 
-class App {
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+
+class App
+{
     /**
      * @var string
      */
@@ -52,17 +56,43 @@ class App {
         return $this->router->url($params);
     }
 
-    public function lancer(): self
+    public function run(ServerRequestInterface $request): ResponseInterface
     {
-        $match = $this->router->match();
+        $uri = $request->getUri()->getPath();
+        $router = $this;
+        $match = $router->router->match();
         $view = $match['target'] ?: 'e404';
         $params = $match['params'];
-        $router = $this;
+        
         $isAdmin = strpos($view, 'admin/') !== false;
         $isEditor = strpos($view, 'editeur/') !== false;
         $isIDE = strpos($view, 'ide/') !== false;
         $isUser = strpos($view, 'user/') !== false;
+
         $layout = $isAdmin ? 'admin/layouts/default' : 'layouts/default';
+
+        if (isset($_GET['page']) && $_GET['page'] === '1') {
+            $get = $_GET;
+            unset($get['page']);
+            $query = http_build_query($get);
+        }
+
+        if (!empty($query)) {
+                $uri = $uri . '?' . $query;
+        }
+
+        if (!empty($uri) && $uri[-1] === "/") {
+                return (new Response())
+                ->withStatus(301)
+                ->withHeader('Location', substr($uri, 0, -1));
+        }
+
+        if ($uri === '/blog') {
+            return new Response(200, [], '<h1>Bienvenue sur le blog</h1>');
+        }
+
+        return new Response(404, [], '<h1>Erreur</h1>');
+
         if ($isUser) {
             $layout = $isUser ? 'user/layouts/default' : 'layouts/default';
         } elseif ($isEditor) {
@@ -71,15 +101,17 @@ class App {
             $layout = $isIDE ? 'ide/layouts/default' : 'layouts/default';
         } try {
             ob_start();
-            require $this->viewPath . DS . $view . '.php';
+            require $router->viewPath . DS . $view . '.php';
             $contenu = ob_get_clean();
-            require $this->viewPath . DS . $layout. '.php';
+            require $router->viewPath . DS . $layout. '.php';
         } catch (ForbiddenException $e) {
-            header('Location: ' . $this->url('login') . '?forbidden=1');
-            exit();
+            return (new Response())
+                ->withHeader('Location', $router->url('login') . '?forbidden=1');
         }
-        return $this;
+
+        $response = $contenu;
+        $response = new Response();
+        $response->getBody()->write('bonjour');
+        return  $response;
     }
 }
-
-/* ROUTER */
