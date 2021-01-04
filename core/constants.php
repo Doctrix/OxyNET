@@ -13,7 +13,7 @@ define('CORE', ROOT . DS . 'core');
 define('MODEL', ROOT . DS . 'model');
 define('PUBLI', ROOT . DS . 'public');
 define('SRC', ROOT . DS . 'src');
-define('TEST', ROOT . DS . 'test');
+define('TESTS', ROOT . DS . 'tests');
 define('VENDOR', ROOT . DS . 'vendor');
 define('VIEWS', ROOT . DS . 'view');
 
@@ -42,22 +42,26 @@ define('WIDGET', MODEL . DS . 'Widgets');
 define('INC', PUBLI . DS . 'inc');
 
 /** - DATA */
-define('DATA', SRC . DS . 'data');
+define('DATA', SRC . DS . 'Data');
 
 /** - IMAGES */
 define('IMAGES', DATA . DS . 'img');
 
 /** - FRAMEWORK */
-define('FRAMEWORK', SRC . DS . 'framework');
+define('FRAMEWORK', SRC . DS . 'Framework');
+
+define('ROUTER', FRAMEWORK . DS . 'Router');
 
 /** - TEST */
-define('TESTHELP', TEST . DS . 'Helpers');
+define('TESTHELP', TESTS . DS . 'Helpers');
 
 /** - VIEW */
 define('ADMIN', VIEWS . DS . 'admin');
+define('AUTH', VIEWS . DS . 'auth');
 define('CATEGORIE', VIEWS . DS . 'categorie');
-define('POST', VIEWS . DS . 'post');
 define('LAYOUTS', VIEWS . DS . 'layouts');
+define('POST', VIEWS . DS . 'post');
+define('MSG', VIEWS . DS . 'messagerie');
 define('USER', VIEWS . DS . 'user');
 
 require CORE . DS . 'includes.php';

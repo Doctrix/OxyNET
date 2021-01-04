@@ -19,6 +19,7 @@ return array(
     '667aeda72477189d0494fecd327c3641' => $vendorDir . '/symfony/var-dumper/Resources/functions/dump.php',
     'a0edc8309cc5e1d60e3047b5df6b7052' => $vendorDir . '/guzzlehttp/psr7/src/functions_include.php',
     '6124b4c8570aa390c21fafd04a26c69f' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+    '253c157292f75eb38082b5acb06f3f01' => $vendorDir . '/nikic/fast-route/src/functions.php',
     '6f2c5977e422114bbaec553e7c77ee8b' => $vendorDir . '/http-interop/response-sender/src/functions.php',
     'b91789a2344988a4189eeedb082d926b' => $baseDir . '/controller/fonction/helpers.php',
 );

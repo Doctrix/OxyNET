@@ -53,7 +53,7 @@ require_once ELEM.DS.'compteur_if.php';
         </div>
     </nav>             
     <div class="container mt-4">
-        <?= $contenu; ?>
+        <?= $content; ?>
     </div>
     <br clear="all">
 <footer class="bg-dark py-4 footer mt-auto">

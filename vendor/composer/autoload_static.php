@@ -20,6 +20,7 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '6f2c5977e422114bbaec553e7c77ee8b' => __DIR__ . '/..' . '/http-interop/response-sender/src/functions.php',
         'b91789a2344988a4189eeedb082d926b' => __DIR__ . '/../..' . '/controller/fonction/helpers.php',
     );
@@ -28,6 +29,11 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
+        ),
+        'Z' => 
+        array (
+            'Zend\\Stdlib\\' => 12,
+            'Zend\\Expressive\\Router\\' => 23,
         ),
         'Y' => 
         array (
@@ -71,6 +77,7 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'Psr\\Http\\Server\\' => 16,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'Prophecy\\' => 9,
@@ -91,6 +98,8 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         'F' => 
         array (
             'Framework\\' => 10,
+            'Fig\\Http\\Message\\' => 17,
+            'FastRoute\\' => 10,
             'Faker\\' => 6,
         ),
         'D' => 
@@ -113,6 +122,15 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'Zend\\Stdlib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-stdlib/src',
+        ),
+        'Zend\\Expressive\\Router\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-expressive-fastroute/src',
+            1 => __DIR__ . '/..' . '/zendframework/zend-expressive-router/src',
         ),
         'Yosymfony\\ResourceWatcher\\' => 
         array (
@@ -202,6 +220,11 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
+        'Psr\\Http\\Server\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-server-handler/src',
+            1 => __DIR__ . '/..' . '/psr/http-server-middleware/src',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
@@ -232,7 +255,15 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         ),
         'Framework\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/framework',
+            0 => __DIR__ . '/../..' . '/src/Framework',
+        ),
+        'Fig\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fig/http-message-util/src',
+        ),
+        'FastRoute\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nikic/fast-route/src',
         ),
         'Faker\\' => 
         array (
