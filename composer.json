@@ -1,5 +1,5 @@
 {
-    "name": "oxynet/framework",
+    "name": "oxynet/oxy-net",
     "authors": [
         {
             "name": "Doctrix",
@@ -9,8 +9,21 @@
     "autoload": {
         "files":["src/fonctions/helpers.php"],
         "psr-4": {
-            "App\\": "src/class/",
-            "Tests\\": "tests/",
+            "Controllers\\": "controller/",
+            "Fonction\\": "controller/fonction",
+            "Core\\": "core/",
+            "Classe\\": "model/",
+            "Model\\": "model/",
+            "Public\\": "public/",
+            "CSS\\": "public/inc/ccs/",
+            "IMG\\": "public/inc/image/",
+            "JS\\": "public/inc/js/",
+            "Data\\": "src/data/",
+            "Framework\\": "src/framework/",
+            "Tests\\": "test/",
+            "View\\": "views/",
+            "Admin\\": "views/admin/",
+            "Post\\": "views/article/",
             "ViewUser\\": "views/user/"
         }
     },

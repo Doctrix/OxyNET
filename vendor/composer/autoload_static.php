@@ -20,7 +20,7 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        'bc2851360f079495345362576f8ee049' => __DIR__ . '/../..' . '/src/fonctions/helpers.php',
+        '65743b841d999fee5e4342f8222335d8' => __DIR__ . '/../..' . '/src/fonctions/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -39,6 +39,7 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         ),
         'V' => 
         array (
+            'View\\' => 5,
             'ViewUser\\' => 9,
             'Valitron\\' => 9,
         ),
@@ -70,15 +71,26 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         ),
         'P' => 
         array (
+            'Public\\' => 7,
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'Prophecy\\' => 9,
+            'Post\\' => 5,
             'PhpParser\\' => 10,
+        ),
+        'M' => 
+        array (
+            'Model\\' => 6,
         ),
         'J' => 
         array (
             'Joli\\JoliNotif\\' => 15,
+            'JS\\' => 3,
+        ),
+        'I' => 
+        array (
+            'IMG\\' => 4,
         ),
         'G' => 
         array (
@@ -86,22 +98,29 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         ),
         'F' => 
         array (
+            'Framework\\' => 10,
+            'Fonction\\' => 9,
             'Faker\\' => 6,
         ),
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
+            'Data\\' => 5,
         ),
         'C' => 
         array (
+            'Core\\' => 5,
+            'Controllers\\' => 12,
             'Clue\\React\\Utf8\\' => 16,
             'Clue\\React\\Term\\' => 16,
             'Clue\\React\\Stdio\\' => 17,
+            'Classe\\' => 7,
+            'CSS\\' => 4,
         ),
         'A' => 
         array (
-            'App\\' => 4,
+            'Admin\\' => 6,
         ),
     );
 
@@ -124,6 +143,10 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
+        'View\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/views',
+        ),
         'ViewUser\\' => 
         array (
             0 => __DIR__ . '/../..' . '/views/user',
@@ -134,7 +157,7 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         ),
         'Tests\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/tests',
+            0 => __DIR__ . '/../..' . '/test',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
@@ -200,6 +223,10 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/..' . '/react/event-loop/src',
         ),
+        'Public\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/public',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
@@ -216,17 +243,41 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
         ),
+        'Post\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/views/article',
+        ),
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
+        ),
+        'Model\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/model',
         ),
         'Joli\\JoliNotif\\' => 
         array (
             0 => __DIR__ . '/..' . '/jolicode/jolinotif/src',
         ),
+        'JS\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/public/inc/js',
+        ),
+        'IMG\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/public/inc/image',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'Framework\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/framework',
+        ),
+        'Fonction\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controller/fonction',
         ),
         'Faker\\' => 
         array (
@@ -240,6 +291,18 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+        'Data\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/data',
+        ),
+        'Core\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/core',
+        ),
+        'Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controller',
+        ),
         'Clue\\React\\Utf8\\' => 
         array (
             0 => __DIR__ . '/..' . '/clue/utf8-react/src',
@@ -252,9 +315,17 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/..' . '/clue/stdio-react/src',
         ),
-        'App\\' => 
+        'Classe\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/class',
+            0 => __DIR__ . '/../..' . '/model',
+        ),
+        'CSS\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/public/inc/ccs',
+        ),
+        'Admin\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/views/admin',
         ),
     );
 
