@@ -1,5 +1,5 @@
 <?php
-namespace Classe;
+namespace Model;
 
 class StrRandom {
 

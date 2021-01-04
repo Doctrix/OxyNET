@@ -1,7 +1,7 @@
 <?php
-namespace Classe\Server;
+namespace Model\Server;
 
-use Classe\Auth;
+use Model\Auth;
 use \PDO;
 
 require LIB . DS . 'DB.php';

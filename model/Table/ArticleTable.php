@@ -1,8 +1,8 @@
 <?php
-namespace Classe\Table;
+namespace Model\Table;
 
-use Classe\PaginatedQuery;
-use Classe\Model\Article;
+use Model\PaginatedQuery;
+use Model\Classes\Article;
 
 final class ArticleTable extends Table {
 

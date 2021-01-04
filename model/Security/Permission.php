@@ -1,7 +1,7 @@
 <?php 
-namespace Classe\Security;
+namespace Model\Security;
 
-use Classe\Model\User;
+use Model\Classes\User;
 
 final class Permission {
     /**

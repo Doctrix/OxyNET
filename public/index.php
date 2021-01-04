@@ -30,13 +30,13 @@ $router
     ->match('/ide', 'admin/ide/index', 'ide')
     ->match('/media', 'admin/media/index', 'media')
     // Gestion des articles
-    ->obtenir('/admin/articles', 'admin/article/index', 'admin_articles')
-    ->match('/admin/article/[i:id]', 'admin/article/modifier', 'admin_article')
+    ->obtenir('/admin/article', 'admin/article/index', 'admin_article')
+    ->match('/admin/article/[i:id]', 'admin/article/modifier', 'admin_article_edit')
     ->post('/admin/article/[i:id]/supprimer', 'admin/article/supprimer', 'admin_article_supprimer')
     ->match('/admin/article/nouveau', 'admin/article/nouveau', 'admin_article_nouveau')
     // Gestion des categories
-    ->obtenir('/admin/categories', 'admin/categorie/index', 'admin_categories')
-    ->match('/admin/categorie/[i:id]', 'admin/categorie/modifier', 'admin_categorie')
+    ->obtenir('/admin/categorie', 'admin/categorie/index', 'admin_categorie')
+    ->match('/admin/categorie/[i:id]', 'admin/categorie/modifier', 'admin_categorie_edit')
     ->post('/admin/categorie/[i:id]/supprimer', 'admin/categorie/supprimer', 'admin_categorie_supprimer')
     ->match('/admin/categorie/nouveau', 'admin/categorie/nouveau', 'admin_categorie_nouveau')
     // USER user

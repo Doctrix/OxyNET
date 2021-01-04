@@ -1,7 +1,7 @@
 <?php
-namespace Classe\Table;
-use Classe\Model\User;
-use Classe\Table\Exception\NotFoundException;
+namespace Model\Table;
+use Model\Classes\User;
+use Model\Table\Exception\NotFoundException;
 
 final class UserTable extends Table {
 

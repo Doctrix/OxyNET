@@ -1,8 +1,8 @@
 <?php
-namespace Classe;
+namespace Model;
 
-use Classe\Model\User;
-use Classe\Security\ForbiddenException;
+use Model\Classes\User;
+use Model\Security\ForbiddenException;
 use PDO;
 
 class Auth

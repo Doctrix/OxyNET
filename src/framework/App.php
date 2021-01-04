@@ -2,7 +2,7 @@
 
 namespace Framework;
 
-use Classe\Security\ForbiddenException;
+use Model\Security\ForbiddenException;
 
 class App{
     /**
@@ -72,9 +72,9 @@ class App{
         }
         try {
             ob_start();
-            require $this->viewPath . DIRECTORY_SEPARATOR . $view . '.php';
+            require $this->viewPath . DS . $view . '.php';
             $contenu = ob_get_clean();
-            require $this->viewPath . DIRECTORY_SEPARATOR . $layout. '.php';
+            require $this->viewPath . DS . $layout. '.php';
         } catch (ForbiddenException $e) {
             header('Location: ' . $this->url('login') . '?forbidden=1');
             exit();

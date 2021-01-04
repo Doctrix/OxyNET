@@ -1,6 +1,6 @@
 <?php
-use App\Server\ConfigDB;
-use App\Table\{ArticleTable,CategorieTable};
+use Model\Server\ConfigDB;
+use Model\Table\{ArticleTable,CategorieTable};
 
 $id = (int)$params['id'];
 $slug = $params['slug'];

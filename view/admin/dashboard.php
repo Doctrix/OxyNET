@@ -1,6 +1,6 @@
 <?php
-use App\Auth;
-use App\Session;
+use Model\Auth;
+use Model\Session;
 
 if(Auth::$session['auth']) {
     Auth::Verifier();
@@ -9,7 +9,7 @@ if(Auth::$session['auth']) {
 
 $titre_header = $titre_navBar = 'Tableau de bord';
 
-require FONC . DS . 'compteur.php';
+require FONCTION.DS.'compteur.php';
 
 $annee = (int)date('Y');
 $annee_selectionner = empty($_GET['annee']) ? null : (int)$_GET['annee'];

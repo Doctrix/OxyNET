@@ -1,4 +1,4 @@
 <?php
-require_once FONC.DS.'menu.php';
-require_once FONC.DS.'flash.php';
-require_once FONC.DS.'image.php';
+require_once FONCTION.DS.'menu.php';
+require_once FONCTION.DS.'flash.php';
+require_once FONCTION.DS.'image.php';

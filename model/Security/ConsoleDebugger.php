@@ -1,7 +1,7 @@
 <?php
-namespace Classe\Security;
+namespace Model\Security;
 
-use Classe\Model\User;
+use Model\Classes\User;
 
 final class ConsoleDebugger implements PermissionDebugger {
     public function debug(Voter $voter, bool $vote, string $permission, User $ser, $subject): void

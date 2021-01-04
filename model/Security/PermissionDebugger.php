@@ -1,7 +1,7 @@
 <?php
 
-namespace Classe\Security;
-use Classe\Model\User;
+namespace Model\Security;
+use Model\Classes\User;
 
 interface PermissionDebugger {
     public function debug(Voter $voter, bool $vote, string $permission, User $ser, $subject): void;

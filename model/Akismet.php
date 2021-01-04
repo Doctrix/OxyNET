@@ -1,6 +1,6 @@
 <?php
 
-namespace Classe;
+namespace Model;
 
 /**
  * Akismet anti-comment spam service

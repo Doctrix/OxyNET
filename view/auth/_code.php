@@ -2,10 +2,10 @@
 
 
 use App\ConnexionServeur;
-use App\HTML\Form;
-use App\Model\User;
-use App\Table\Exception\NotFoundException;
-use App\Table\UserTable;
+use Model\HTML\Form;
+use Model\Classes\User;
+use Model\Table\Exception\NotFoundException;
+use Model\Table\UserTable;
 
 session_start();
 if(isset($_SESSION['auth'])) {

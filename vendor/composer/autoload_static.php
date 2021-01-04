@@ -20,7 +20,7 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        '65743b841d999fee5e4342f8222335d8' => __DIR__ . '/../..' . '/src/fonctions/helpers.php',
+        'b91789a2344988a4189eeedb082d926b' => __DIR__ . '/../..' . '/controller/fonction/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -41,6 +41,10 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             'View\\' => 5,
             'ViewUser\\' => 9,
+            'ViewPost\\' => 9,
+            'ViewCategorie\\' => 14,
+            'ViewAuth\\' => 9,
+            'ViewAdmin\\' => 10,
             'Valitron\\' => 9,
         ),
         'T' => 
@@ -76,7 +80,6 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'Prophecy\\' => 9,
-            'Post\\' => 5,
             'PhpParser\\' => 10,
         ),
         'M' => 
@@ -111,16 +114,11 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         'C' => 
         array (
             'Core\\' => 5,
-            'Controllers\\' => 12,
+            'Controller\\' => 11,
             'Clue\\React\\Utf8\\' => 16,
             'Clue\\React\\Term\\' => 16,
             'Clue\\React\\Stdio\\' => 17,
-            'Classe\\' => 7,
             'CSS\\' => 4,
-        ),
-        'A' => 
-        array (
-            'Admin\\' => 6,
         ),
     );
 
@@ -145,11 +143,27 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         ),
         'View\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/views',
+            0 => __DIR__ . '/../..' . '/view',
         ),
         'ViewUser\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/views/user',
+            0 => __DIR__ . '/../..' . '/view/user',
+        ),
+        'ViewPost\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/view/article',
+        ),
+        'ViewCategorie\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/view/categorie',
+        ),
+        'ViewAuth\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/view/auth',
+        ),
+        'ViewAdmin\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/view/admin',
         ),
         'Valitron\\' => 
         array (
@@ -243,10 +257,6 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
         ),
-        'Post\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/views/article',
-        ),
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
@@ -299,7 +309,7 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/../..' . '/core',
         ),
-        'Controllers\\' => 
+        'Controller\\' => 
         array (
             0 => __DIR__ . '/../..' . '/controller',
         ),
@@ -315,17 +325,9 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/..' . '/clue/stdio-react/src',
         ),
-        'Classe\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/model',
-        ),
         'CSS\\' => 
         array (
             0 => __DIR__ . '/../..' . '/public/inc/ccs',
-        ),
-        'Admin\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/views/admin',
         ),
     );
 

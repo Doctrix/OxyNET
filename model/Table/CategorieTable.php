@@ -1,7 +1,7 @@
 <?php
-namespace Classe\Table;
+namespace Model\Table;
 
-use Classe\Model\Categorie;
+use Model\Classes\Categorie;
 use \PDO;
 
 final class CategorieTable extends Table {
@@ -10,7 +10,7 @@ final class CategorieTable extends Table {
     protected $class = Categorie::class;
 
     /**
-     * @param App\Model\Article[] $articles
+     * @param Model\Classes\Article[] $articles
      */
     public function hydrateArticles(array $articles): void
     {

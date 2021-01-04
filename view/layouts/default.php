@@ -1,13 +1,13 @@
 <?php
 
-use App\Widgets\Social;
+use Model\Widgets\Social;
 
 $widgets = new Social();
 
-require_once FONC . DS . 'compteur.php';
+require_once FONCTION.DS.'compteur.php';
 ajouter_une_vue();
 $vues = nbr_de_vues();
-require_once ELEM . DS . 'compteur_if.php';
+require_once ELEM.DS.'compteur_if.php';
 ?>
 <!DOCTYPE HTML>
 <html lang="fr" class="h-100">

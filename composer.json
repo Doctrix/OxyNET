@@ -7,12 +7,11 @@
         }
     ],
     "autoload": {
-        "files":["src/fonctions/helpers.php"],
+        "files":["controller/fonction/helpers.php"],
         "psr-4": {
-            "Controllers\\": "controller/",
-            "Fonction\\": "controller/fonction",
+            "Controller\\": "controller/",
+            "Fonction\\": "controller/fonction/",
             "Core\\": "core/",
-            "Classe\\": "model/",
             "Model\\": "model/",
             "Public\\": "public/",
             "CSS\\": "public/inc/ccs/",
@@ -21,10 +20,12 @@
             "Data\\": "src/data/",
             "Framework\\": "src/framework/",
             "Tests\\": "test/",
-            "View\\": "views/",
-            "Admin\\": "views/admin/",
-            "Post\\": "views/article/",
-            "ViewUser\\": "views/user/"
+            "View\\": "view/",
+            "ViewAdmin\\": "view/admin/",
+            "ViewPost\\": "view/article/",
+            "ViewAuth\\": "view/auth/",
+            "ViewCategorie\\": "view/categorie/",
+            "ViewUser\\": "view/user/"
         }
     },
     "require": {

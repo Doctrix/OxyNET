@@ -1,6 +1,6 @@
 <?php
-use App\Server\{ConfigDB,ConnexionServeur};
-use App\Table\ArticleTable;
+use Model\Server\{ConfigDB,ConnexionServeur};
+use Model\Table\ArticleTable;
 $pdo = ConfigDB::getDatabase();
 $table = new ArticleTable($pdo);
 $link = $router->url('home');
