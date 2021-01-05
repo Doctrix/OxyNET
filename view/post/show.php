@@ -7,7 +7,7 @@ $id = (int)$params['id'];
 $slug = $params['slug'];
 
 $pdo = ConfigDB::getDatabase();
-$article = (new ArticleTable($pdo))->trouver($id);
+$article = (new ArticleTable($pdo))->find($id);
 (new CategorieTable($pdo))->hydrateArticles([$article]);
 
 if($article->obtenirSlug() !== $slug){

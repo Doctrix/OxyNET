@@ -1,6 +1,6 @@
 <?php
 
-use Model\Auth;
+use App\Auth;
 
 if(Auth::$session['auth']) {
     Auth::Verifier();
