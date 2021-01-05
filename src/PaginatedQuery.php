@@ -25,11 +25,12 @@ class PaginatedQuery {
         $this->pdo = $pdo;
         $this->perPage = $perPage;
     }
-    public function obtenirItems(string $classMapping): array
+
+    public function getItems(string $classMapping): array
     {
         if ($this->items === null) {
-        $currentPage = $this->obtenirCurrentPage();
-        $pages = $this->obtenirPages();
+        $currentPage = $this->getCurrentPage();
+        $pages = $this->getPages();
         if ($currentPage > $pages) {
             throw new \Exception('Cette page n\'existe pas');
         }
@@ -41,30 +42,34 @@ class PaginatedQuery {
         }
         return $this->items;
     }
+
     public function previousLink(string $link): ?string
     {
-        $currentPage = $this->obtenirCurrentPage();
+        $currentPage = $this->getCurrentPage();
         if ($currentPage <= 1) return null;
         if ($currentPage > 2) $link .= "?page=" . ($currentPage - 1);
         return <<<HTML
         <a href="{$link}" class="btn btn-primary">&laquo; Page précédente</a>
 HTML;
     }
+
     public function nextLink(string $link): ?string
     {
-        $currentPage = $this->obtenirCurrentPage();
-        $pages = $this->obtenirPages();
+        $currentPage = $this->getCurrentPage();
+        $pages = $this->getPages();
         if ($currentPage >= $pages) return null;
         $link .= "?page=" . ($currentPage + 1);
         return <<<HTML
         <a href="{$link}" class="btn btn-info ml-auto">Page suivante &raquo;</a>
 HTML;
     }
-    public function obtenirCurrentPage(): int
+
+    public function getCurrentPage(): int
     {
-        return URL::obtenirPositiveInt('page', 1);
+        return URL::getPositiveInt('page', 1);
     }
-    private function obtenirPages(): int
+    
+    private function getPages(): int
     {
         if ($this->count === null){
             $this->count = (int)$this->pdo

@@ -1,6 +1,6 @@
 <?php
 /** / */
-define('ROOT', dirname(__DIR__));
+define('ROOT', dirname(__DIR__,2));
 define('DEBUG_TIME', microtime(true));
 define('DS', DIRECTORY_SEPARATOR);
 define('BASE_URL', '/');
@@ -15,16 +15,16 @@ define('TESTS', ROOT . DS . 'tests');
 define('VENDOR', ROOT . DS . 'vendor');
 define('VIEWS', ROOT . DS . 'view');
 
+/** - FONCTION */
+define('FONCTION', CONTROLLER . DS . 'fonction');
 /** - ELEMENT */
 define('ELEM', CONTROLLER . DS . 'element');
 define('ELEM_COMM', ELEM . DS . 'commentaire');
 define('ELEM_CONN', ELEM . DS . 'connexion');
 
-/** - FONCTION */
-define('FONCTION', CONTROLLER . DS . 'fonction');
-
 /** - LIBRARY */
 define('LIB', CORE . DS . 'lib');
+define('CONFIG', CORE . DS . 'config');
 
 /** - INC */
 define('INC', PUB . DS . 'inc');
@@ -58,4 +58,4 @@ define('MSG', VIEWS . DS . 'messagerie');
 define('POST', VIEWS . DS . 'post');
 define('USER', VIEWS . DS . 'user');
 
-require CORE . DS . 'includes.php';
+require_once  CONFIG . DS . 'includes.php';

@@ -2,7 +2,7 @@
 namespace Framework;
 
 use AltoRouter;
-use App\Security\ForbiddenException;
+use Security\ForbiddenException;
 
 /**
  * Register et match routes
@@ -23,7 +23,7 @@ class Router
     public function __construct(string $viewPath)
     {
         $this->viewPath = $viewPath;
-        $this->router = new \AltoRouter();
+        $this->router = new AltoRouter();
     }
  
 

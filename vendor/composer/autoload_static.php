@@ -51,6 +51,7 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         'T' => 
         array (
             'Tests\\' => 6,
+            'Table\\' => 6,
         ),
         'S' => 
         array (
@@ -68,6 +69,8 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
             'Symfony\\Component\\Finder\\' => 25,
             'Symfony\\Component\\Console\\' => 26,
             'Spatie\\PhpUnitWatcher\\' => 22,
+            'Server\\' => 7,
+            'Security\\' => 9,
         ),
         'R' => 
         array (
@@ -156,6 +159,10 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/../..' . '/tests',
         ),
+        'Table\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Table',
+        ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
@@ -211,6 +218,14 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         'Spatie\\PhpUnitWatcher\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/phpunit-watcher/src',
+        ),
+        'Server\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Server',
+        ),
+        'Security\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Security',
         ),
         'React\\Stream\\' => 
         array (

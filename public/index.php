@@ -1,4 +1,4 @@
 <?php
-require dirname(__DIR__) .'/core/constants.php';
+require dirname(__DIR__) . '/core/config/constants.php';
 require VENDOR . DS .'autoload.php';
-require CORE.DS.'config/routes.php';
+require_once CONFIG . DS . 'routes.php';

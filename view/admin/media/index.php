@@ -1,7 +1,6 @@
 <?php
 
-use Model\Auth;
-use Model\Images;
+use App\{Auth, Images};
 
 if(Auth::$session['auth']) {
     Auth::Verifier();
@@ -91,7 +90,4 @@ if(in_array($ext2, $allow_ext2)) {
 
 <br clear="all">
 <?php
-}
-}
-}
-}
+}}}}

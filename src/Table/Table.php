@@ -1,7 +1,7 @@
 <?php
-namespace App\Table;
+namespace Table;
 
-use App\Table\Exception\NotFoundException;
+use Table\Exception\NotFoundException;
 use Exception;
 use \PDO;
 
@@ -53,7 +53,7 @@ abstract class Table {
         return (int)$query->fetch(PDO::FETCH_NUM)[0] > 0;
     }
 
-    public function all (): array
+    public function all(): array
     {  
         $sql = "SELECT * FROM {$this->table}";
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();

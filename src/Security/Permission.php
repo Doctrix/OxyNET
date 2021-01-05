@@ -1,5 +1,5 @@
 <?php 
-namespace App\Security;
+namespace Security;
 
 use Model\User;
 
@@ -20,7 +20,7 @@ final class Permission {
             if($voter->canVote($permission,$subject)){
                 $vote = $voter->vote($user,$permission, $subject);
                 if($this->debugger){
-                    $this->debugger->debug($voter,$vote,$permission,$user,$subject);
+                    $this->debugger->debug($voter, $vote, $permission, $user, $subject);
                 }
 
                 if($vote == true){

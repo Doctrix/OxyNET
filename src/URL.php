@@ -4,22 +4,22 @@ namespace App;
 
 class URL {
 
-    public static function obtenirInt(string $titre, ?int $default = null): ?int
+    public static function getInt(string $title, ?int $default = null): ?int
     {
-        if(!isset($_GET[$titre])) return $default;
-        if($_GET[$titre] === '0') return 0;
+        if(!isset($_GET[$title])) return $default;
+        if($_GET[$title] === '0') return 0;
 
-        if (!filter_var($_GET[$titre], FILTER_VALIDATE_INT)) {
-            throw new \Exception("Le parametre $titre dans l'url n'est pas un entier");
+        if (!filter_var($_GET[$title], FILTER_VALIDATE_INT)) {
+            throw new \Exception("Le parametre $title dans l'url n'est pas un entier");
         }
-        return (int)$_GET[$titre];
+        return (int)$_GET[$title];
     }
 
-    public static function obtenirPositiveInt(string $titre, ?int $default = null): ?int
+    public static function getPositiveInt(string $title, ?int $default = null): ?int
     {
-        $param = self::obtenirInt($titre, $default);
+        $param = self::getInt($title, $default);
         if ($param !== null && $param <= 0) {
-            throw new \Exception("Le parametre $titre dans l'url n'est pas un entier positif");
+            throw new \Exception("Le parametre $title dans l'url n'est pas un entier positif");
         }
         return $param;
     }

@@ -2,7 +2,7 @@
 namespace App;
 
 use Model\User;
-use App\Security\ForbiddenException;
+use Security\ForbiddenException;
 use PDO;
 
 class Auth
@@ -38,40 +38,40 @@ class Auth
             return null;
         }
 
-        $query = self::$pdo->prepare('SELECT * FROM utilisateur WHERE id = ?');
+        $query = self::$pdo->prepare('SELECT * FROM user WHERE id = ?');
         $query->execute([$id]);
-        $utilisateur = $query->fetchObject(User::class);
-        return $utilisateur ?: null;
+        $user = $query->fetchObject(User::class);
+        return $user ?: null;
     }
 
     public function login(string $username, string $password, $remember = false): ?USer
     {
         // Trouver l'utilisateur = $username correspondant au 'username'
-        $query = $this->pdo->query("SELECT * FROM utilisateur WHERE username = username");
+        $query = $this->pdo->query("SELECT * FROM user WHERE username = username");
         $query->execute(['username' => $username]);
-        $utilisateur = $query->fetchObject(User::class);
-        if ($utilisateur === false) {
+        $user = $query->fetchObject(User::class);
+        if ($user === false) {
             return null;
         }
         // On vérifie password_verify que l'utilisateur correspond
-        if (password_verify($password, $utilisateur->obtenirPassword()) === true) 
+        if (password_verify($password, $user->obtenirPassword()) === true) 
         {
             if (session_status() === PHP_SESSION_NONE) 
             {
                 session_start();
             }
-            $this->connect($utilisateur->getId());
+            $this->connect($user->getId());
             if($remember) 
             {
-                $this->remember($this->pdo, $utilisateur->id);
+                $this->remember($this->pdo, $user->id);
             }
-            return $utilisateur;
+            return $user;
         } else {
             return false;
         } 
     }
 
-    public function register($db,$username,$password,$email)
+    public function register($db, $username, $password, $email)
     {
         $password = password_hash($password, PASSWORD_BCRYPT);
         $token = StrRandom::random(60);
@@ -87,18 +87,18 @@ class Auth
 
     public function confirm($db,$user_id, $token)
     {
-        $user = $db->query('SELECT * FROM utilisateur WHERE id = ?', [$user_id])->fetch();
+        $user = $db->query('SELECT * FROM user WHERE id = ?', [$user_id])->fetch();
         if($user && $user->confirmation_token == $token){
-            $db->query('UPDATE utilisateur SET confirmation_token = NULL, date_creation_compte = NOW( WHERE id = ?', [$user_id]);
+            $db->query('UPDATE user SET confirmation_token = NULL, date_creation_compte = NOW( WHERE id = ?', [$user_id]);
             $this->session->write('auth', $user);
             return true;
         }
         return false;
     }
 
-    public function connect($utilisateur)
+    public function connect($user)
     {
-        $this->session->write('auth', $utilisateur);
+        $this->session->write('auth', $user);
     }
 
     public function restrict()
@@ -113,7 +113,7 @@ class Auth
     public function remember($db, $user_id) 
     {
         $remember_token = StrRandom::random(250);
-        $db->query('UPDATE utilisateur SET remember_token = ? WHERE id = ?', [$remember_token, $user_id]);
+        $db->query('UPDATE user SET remember_token = ? WHERE id = ?', [$remember_token, $user_id]);
         setcookie('remember', $user_id . '==' . $remember_token .sha1($user_id . 'oxyoxy'), time() + 60 * 60 * 24 * 7);
     }
 
@@ -125,10 +125,10 @@ class Auth
 
     public function resetPassword($db, $email) 
     {
-        $utilisateur = $db->query("SELECT * FROM utilisateur WHERE email = ? AND date_creation_compte IS NOT NULL", [$email])->fetch();
-        if($utilisateur) {
+        $user = $db->query("SELECT * FROM user WHERE email = ? AND date_creation_compte IS NOT NULL", [$email])->fetch();
+        if($user) {
             $reset_token = StrRandom::random(60);
-            $db->query('UPDATE utilisateur SET reset_token = ?, reset_id = NOW() WHERE id = ?', [$reset_token, $utilisateur->id]);
+            $db->query('UPDATE user SET reset_token = ?, reset_id = NOW() WHERE id = ?', [$reset_token, $user->id]);
             mail($_POST['email'], 'Reinitialisation de votre mot de passe', "Afin de réinitialiser votre mote de passe veillez clique sur le lien suivant : $reset_token");
         } else {
             $this->session->setErreur('Aucun compte ne correspond à cet adresse');

@@ -1,11 +1,11 @@
 <?php
 
-use Model\Auth;
-use Model\HTML\Form;
-use Model\Classes\User;
-use Model\Server\ConfigDB;
-use Model\Table\Exception\NotFoundException;
-use Model\Table\UserTable;
+use App\Auth;
+use App\HTML\Form;
+use Model\User;
+use Server\ConfigDB;
+use Table\Exception\NotFoundException;
+use Table\UserTable;
 
 $titre_header = "Se connecter";
 $titre_navBar = "Connexion";
@@ -15,17 +15,17 @@ if(Auth::$session['auth']) {
     exit(); 
 } 
 
-$utilisateur = new User();
+$user = new User();
 $errors = [];
 if (!empty($_POST)) {
-    $utilisateur->setUsername($_POST['username']);
+    $user->setUsername($_POST['username']);
     $errors['password'] = 'Identifiant ou mot de passe incorrect';
 
     if (!empty($_POST['username']) && !empty($_POST['password'])) {
         $table = new UserTable(ConfigDB::getDatabase());
         try {
-            $u = $table->trouverParUsername($_POST['username']);
-            if (password_verify($_POST['password'], $u->obtenirPassword()) === true) {
+            $u = $table->findParUsername($_POST['username']);
+            if (password_verify($_POST['password'], $u->getPassword()) === true) {
                 session_start();
                 $_SESSION['auth'] = $u->getId();
                 if($_SESSION['auth'] == true){
@@ -39,7 +39,7 @@ if (!empty($_POST)) {
     }   
 }
 
-$form = new Form($utilisateur, $errors);
+$form = new Form($user, $errors);
 ?>
 
 <form action="<?= $router->url('login') ?>" method="POST">

@@ -3,7 +3,7 @@ namespace App\Widgets;
 
 class Social {
 
-    public function facebook(string $url, string $label, string $nom, string $titre): string {
+    public function facebook(string $url, string $label, string $name, string $title): string {
     return <<<HTML
     <style type="text/css">
     .center-div-fb
@@ -17,7 +17,7 @@ class Social {
     <div class="card text-center center-div-fb col-md-3">
     <label><b>{$label}</b></label><br>
         <div class="fb-page" 
-            data-href="https://www.{$url}.com/{$nom}" 
+            data-href="https://www.{$url}.com/{$name}" 
             data-tabs="timeline, events, messages" 
             data-width="340px" 
             data-height="100%" 
@@ -25,8 +25,8 @@ class Social {
             data-adapt-container-width="false" 
             data-hide-cover="false" 
             data-show-facepile="false">
-            <blockquote cite="https://www.{$url}.com/{$nom}" 
-                class="fb-xfbml-parse-ignore"><a href="https://www.{$url}.com/{$nom}">{$titre}</a>
+            <blockquote cite="https://www.{$url}.com/{$name}" 
+                class="fb-xfbml-parse-ignore"><a href="https://www.{$url}.com/{$name}">{$title}</a>
             </blockquote>
         </div>
     </div>
@@ -34,7 +34,7 @@ class Social {
 HTML;
 }
 
-    public function twitter(string $url, string $label, string $nom, string $titre): string {
+    public function twitter(string $url, string $label, string $name, string $title): string {
     $ref = "ref_src=twsrc%5Etfw";
     return <<<HTML
     <style type="text/css">
@@ -55,7 +55,7 @@ HTML;
         data-theme="dark"
         data-width="94%"
         data-height="100%" 
-        href="https://{$url}.com/{$nom}?{$ref}">Tweets by {$titre}</a>
+        href="https://{$url}.com/{$name}?{$ref}">Tweets by {$title}</a>
         <script async src="https://platform.{$url}.com/widgets.js" charset="utf-8"></script>
     </div>
     <br clear="all">

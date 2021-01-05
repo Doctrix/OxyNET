@@ -1,8 +1,8 @@
 <?php
 
-use Model\Auth;
-use Model\Server\ConfigDB;
-use Model\Table\ArticleTable;
+use App\Auth;
+use Server\ConfigDB;
+use Table\PostTable;
 
 if(Auth::$session['auth']) {
     Auth::Verifier();
@@ -12,6 +12,6 @@ if(Auth::$session['auth']) {
 $titre_header = $title = "Supprimer l'article n° {$params['id']}";
 
 $pdo = ConfigDB::getDatabase();
-$table = new ArticleTable($pdo);
+$table = new PostTable($pdo);
 $table->supprimer($params['id']);
-header('Location: ' . $router->url('admin_articles') . '?supprimer=1');
+header('Location: ' . $router->url('admin_post') . '?supprimer=1');

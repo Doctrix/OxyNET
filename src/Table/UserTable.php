@@ -1,17 +1,18 @@
 <?php
-namespace App\Table;
+namespace Table;
+
 use Model\User;
-use App\Table\Exception\NotFoundException;
+use Table\Exception\NotFoundException;
 
 final class UserTable extends Table {
 
-    protected $table = "utilisateur";
+    protected $table = "user";
     protected $tableRole = "role";
     protected $class = User::class;
 
-    public function trouverParUsername(string $username)
+    public function findParUsername(string $username)
     {
-        $query = $this->pdo->query('SELECT * FROM ' . $this->table . ' LEFT JOIN role ON utilisateur.role_id=role.id WHERE username = username');
+        $query = $this->pdo->query('SELECT * FROM ' . $this->table . ' LEFT JOIN role ON user.role_id=role.id WHERE username = username');
         $query->execute(['username' => $username]);
         $query->setFetchMode(\PDO::FETCH_CLASS, $this->class);
         $result = $query->fetch();
@@ -21,7 +22,7 @@ final class UserTable extends Table {
         return $result;
     }
 
-    public function trouverParRole(string $role)
+    public function fiindParRole(string $role)
     {
         $query = $this->pdo->prepare('SELECT * FROM '.$this->tableRole);
         $query->execute();

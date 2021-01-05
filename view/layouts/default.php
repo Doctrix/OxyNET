@@ -4,11 +4,14 @@ use App\Widgets\Social;
 
 $widgets = new Social();
 
-require_once FONCTION.DS.'compteur.php';
+require_once FONCTION . DS . 'compteur.php';
+
 ajouter_une_vue();
 $vues = nbr_de_vues();
-require_once ELEM.DS.'compteur_if.php';
+
+require_once ELEM . DS . 'compteur_if.php';
 ?>
+
 <!DOCTYPE HTML>
 <html lang="fr" class="h-100">
 <head>
@@ -27,9 +30,9 @@ require_once ELEM.DS.'compteur_if.php';
     <meta name="abstract" content="Ce site présente les nouveautées developper par OGS">
     <meta name="identifier-url" content="https://serveur.oxygames.fr/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="icon" href="<?= BASE_URL . DS . 'src' . DS . 'inc' . DS . 'images' . DS . 'ico' . DS . 'favicon.ico'; ?>">   
-    <link rel="stylesheet" href="<?= BASE_URL . DS . 'src' . DS . 'inc' . DS . 'ccs' . DS . 'styles.css'; ?>">
-    <link rel="stylesheet" href="<?= BASE_URL . DS . 'src' . DS . 'inc' . DS . 'ccs' . DS . 'bootstrap.css'; ?>"> 
+    <link rel="icon" href="<?= INC . DS . 'images' . DS . 'ico' . DS . 'favicon.ico'; ?>">
+    <link rel="stylesheet" href="<?= INC . DS . 'ccs' . DS . 'styles.css'; ?>">
+    <link rel="stylesheet" href="<?= INC . DS . 'ccs' . DS . 'bootstrap.css'; ?>">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title><?= isset($titre_navBar) ? e($titre_navBar) : 'Oxy SERVEUR'; ?></title> 
 </head>
@@ -53,7 +56,7 @@ require_once ELEM.DS.'compteur_if.php';
         </div>
     </nav>             
     <div class="container mt-4">
-        <?= $content; ?>
+        <?= $content ?>
     </div>
     <br clear="all">
 <footer class="bg-dark py-4 footer mt-auto">

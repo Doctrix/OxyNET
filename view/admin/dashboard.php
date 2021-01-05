@@ -9,7 +9,7 @@ if(Auth::$session['auth']) {
 
 $titre_header = $titre_navBar = 'Tableau de bord';
 
-require FONCTION.DS.'compteur.php';
+require FONCTION . DS . 'compteur.php';
 
 $annee = (int)date('Y');
 $annee_selectionner = empty($_GET['annee']) ? null : (int)$_GET['annee'];
@@ -47,8 +47,8 @@ $mois = [
             <a class="list-group-item <?= $annee - $i === $annee_selectionner ? 'active' : ''; ?>" href="admin?annee=<?= $annee - $i ?>"><?= $annee - $i ?></a>
             <?php if ($annee - $i === $annee_selectionner): ?>   
             <div class="list-group">
-                <?php foreach ($mois as $numero => $nom): ?>
-                <a class="list-group-item <?= $numero === $mois_selectionner ? 'active' : ''; ?>" href="admin?annee=<?= $annee_selectionner ?>&mois=<?= $numero ?>"><?= $nom ?></a>
+                <?php foreach ($mois as $numero => $name): ?>
+                <a class="list-group-item <?= $numero === $mois_selectionner ? 'active' : ''; ?>" href="admin?annee=<?= $annee_selectionner ?>&mois=<?= $numero ?>"><?= $name ?></a>
                 <?php endforeach; ?>
             </div>
             <?php endif; ?>
@@ -87,8 +87,8 @@ $mois = [
 <br/>
 <th>
 <button onclick="history.go(-1);" class="btn btn-secondary" >Retour</button>
-<a href="<?= $router->url('admin_articles') ?>" class="btn btn-info">Tous les articles</a>
-<a href="<?= $router->url('admin_article_nouveau') ?>" class="btn btn-primary">Ajouter un nouveau article</a>
+<a href="<?= $router->url('admin_post') ?>" class="btn btn-info">Tous les articles</a>
+<a href="<?= $router->url('admin_post_nouveau') ?>" class="btn btn-primary">Ajouter un nouveau article</a>
 <a href="<?= $router->url('editeur') ?>" class="btn btn-dark">Editeur</a>
 </th>
 <hr/>

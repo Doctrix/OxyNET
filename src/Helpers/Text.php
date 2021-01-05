@@ -3,12 +3,12 @@ namespace App\Helpers;
 
 class Text {
     
-    public static function excerpt(string $contenu, int $limit = 60)
+    public static function excerpt(string $content, int $limit = 60)
     {
-        if(mb_strlen($contenu) <= $limit){
-            return $contenu;
+        if(mb_strlen($content) <= $limit){
+            return $content;
         }
-        $lastSpace = mb_strpos($contenu, ' ', $limit);
-        return mb_substr($contenu, 0, $lastSpace) . '...';
+        $lastSpace = mb_strpos($content, ' ', $limit);
+        return mb_substr($content, 0, $lastSpace) . '...';
     }
 }

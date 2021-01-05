@@ -5,47 +5,47 @@ class Categorie {
 
     private $id;
     private $slug;
-    private $nom;
-    private $article_id;
-    private $article;
+    private $name;
+    private $post_id;
     
-    public function obtenirID (): ?int {
+    public function getID (): ?int {
         return $this->id;
     }
 
-    public function definirID(int $id): self
+    public function setID(int $id): self
     {
         $this->id = $id;
         return $this;
     }
 
-    public function obtenirSlug (): ?string {
+    public function getSlug (): ?string {
         return $this->slug;
     }
 
-    public function definirSlug(string $slug): self
+    public function setSlug(string $slug): self
     {
         $this->slug = $slug;
         return $this;
     }
 
-    public function obtenirNom (): ?string {
-        return $this->nom;
+    public function getName (): ?string {
+        return $this->name;
     }
 
-    public function definirNom(string $nom): self
+    public function setName(string $name): self
     {
-        $this->nom = $nom;
+        $this->name = $name;
         return $this;
     }
 
-    public function obtenirArticleID (): ?int
+    public function getPostID (): ?int
     {
-        return $this->article_id;
+        return $this->post_id;
     }
 
-    public function fixerArticle (Article $article)
+    public function setPostID (string $post_id): self
     {
-        $this->article = $article;
+        $this->post_id = $post_id;
+        return $this;
     }
 }

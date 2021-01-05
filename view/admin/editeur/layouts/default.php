@@ -826,12 +826,11 @@
         </div>
     </nav>             
     <div class="container mt-4">
-       <?= $contenu; ?>
+       <?= $content ?>
     </div> 
 <footer class="bg-dark py-4 footer mt-auto">
     <div class="container">
-		<strong class="">O</strong>xy<strong class="">G</strong>ène<strong class="">S</strong>tudio <a href="//oxygames.fr" target="_blank">[O.G.S]</a><br>
-		1010100010101
+		<strong class="">O</strong>xy<strong class="">G</strong>ène<strong class="">S</strong>tudio <a href="//oxygames.fr" target="_blank">[O.G.S]</a>
     </div>
 </footer>
 </body>

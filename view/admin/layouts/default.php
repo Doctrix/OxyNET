@@ -2,7 +2,7 @@
 <html lang="fr" class="h-100">
 <head>
     <meta charset="utf-8" />
-    <meta name="publisher" content="OxyServer">
+    <meta name="publisher" content="OxyNET">
     <meta name="keywords" lang="fr" content="oxy,oxygames">
     <meta name="reply-to" content="contact@mifaconcept.fr">
     <meta name="category" content="internet">
@@ -10,16 +10,18 @@
     <meta name="distribution" content="global">
     <meta name="Description" content="Serveur OxyGameS">
     <meta name="revisit-after" content="3 day">
-    <meta name="author" lang="fr" content="Bertrand PRIVAT">
+    <meta name="author" lang="fr" content="DOCtriX">
     <meta name="copyright" content="oxygames">
     <meta name="generator" content="Microsoft Visual Studio, Visual Studio Code">
     <meta name="abstract" content="Ce site présente les nouveautées developper par OGS">
     <meta name="identifier-url" content="https://serveur.oxygames.fr/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="icon" href="<?= INC . DS . 'images' . DS . 'ico' . DS . 'favicon.ico' ?>">   
+    <link rel="stylesheet" href="<?= INC . DS . 'ccs' . DS . 'styles.css' ?>">
+    <link rel="stylesheet" href="<?= INC . DS . 'ccs' . DS . 'bootstrap.css' ?>"> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" type="text/css" href="zoombox.css" />
-    <link rel="stylesheet" type="text/css" href="/src/inc/css/zoombox.css" />
+    <link rel="stylesheet" type="text/css" href="<?= INC . DS . 'ccs' . DS . 'zoombox.css' ?>" />
     <title><?= isset($titre_navBar) ? e($titre_navBar) : 'Tous les articles'; ?></title> 
 </head>
 <header>
@@ -42,7 +44,7 @@
         </div>
     </nav>             
     <div class="container mt-4">
-        <?= $contenu ?>
+        <?= $content ?>
     </div>
      <br clear="all">
 <footer class="bg-dark py-4 footer mt-auto">

@@ -1,8 +1,8 @@
 <?php
+namespace Security;
 
-namespace App\Security;
 use Model\User;
 
 interface PermissionDebugger {
-    public function debug(Voter $voter, bool $vote, string $permission, User $ser, $subject): void;
+    public function debug(Voter $voter, bool $vote, string $permission, User $user, $subject): void;
 }

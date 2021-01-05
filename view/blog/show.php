@@ -16,10 +16,10 @@ if($post->getSlug() !== $slug){
     header('Location: ' . $url);
 }
 
-$titre_header = "{$post->getTitle()}";
+$titre_header = "{$post->getTitre()}";
 $titre_navBar = 'Article';
 ?>
-<h1><b>Article : </b><?= e($post->getTitle()) ?></h1>
+<h1><b>Article : </b><?= e($post->getTitre()) ?></h1>
 <p class="text-muted"><?= $post->getDateDeCreation()->format('d F Y') ?></p>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">

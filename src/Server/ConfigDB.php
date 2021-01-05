@@ -1,5 +1,5 @@
 <?php
-namespace App\Server;
+namespace Server;
 
 use App\Auth;
 use PDO;

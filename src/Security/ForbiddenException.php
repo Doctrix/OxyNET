@@ -1,5 +1,5 @@
 <?php
-namespace App\Security;
+namespace Security;
 
 class ForbiddenException extends \Exception{
 

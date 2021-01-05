@@ -1,8 +1,8 @@
 <?php
 
-use Model\Auth;
-use Model\Classes\User;
-use Model\Server\ConfigDB;
+use App\Auth;
+use Model\User;
+use Server\ConfigDB;
 
 $titre_navBar = 'tableau de bord';
 if(Auth::$session['user']) {
@@ -11,13 +11,13 @@ if(Auth::$session['user']) {
 }
 
 $pdo = ConfigDB::getDatabase();
-$utilisateur = new User();
+$user = new User();
 
-$afficher_profil = $pdo->query("SELECT * FROM utilisateur");
+$afficher_profil = $pdo->query("SELECT * FROM user");
 $afficher_profil = $afficher_profil->fetch();
 
 $titre_header = 'Tableau de bord de ' . $afficher_profil->username;
-$titre_navBar = $afficher_profil->nom .' '. $afficher_profil->username; 
+$titre_navBar = $afficher_profil->name .' '. $afficher_profil->username; 
 ?>
-<p>image : <img src="D:\WinNMP\WWW\OxyNet\src\data\img\OxyGames.png" alt=""></p>
+<p>image : <img src="<?= DATA . DS . 'img\OxyGames.png'; ?>" alt=""></p>
 <p>texte : </p>

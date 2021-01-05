@@ -1,10 +1,10 @@
 <?php
 
-use Model\{Auth, ObjectHelper};
-use Model\Table\CategorieTable;
-use Model\HTML\Form;
-use Model\Server\ConfigDB;
-use Model\Validators\CategorieValidator;
+use App\HTML\Form;
+use App\{Auth, ObjectHelper};
+use App\Validators\CategorieValidator;
+use Table\CategorieTable;
+use Server\ConfigDB;
 
 if(Auth::$session['auth']) {
     Auth::Verifier();
@@ -13,19 +13,20 @@ if(Auth::$session['auth']) {
 
 $pdo = ConfigDB::getDatabase();
 $table = new CategorieTable($pdo);
-$item = $table->trouver($params['id']);
+$item = $table->find($params['id']);
 $success = false;
 $errors = [];
-$fields = ['nom','slug'];
+$fields = ['name', 'slug'];
 
 if (!empty($_POST)) {
-    $v = new CategorieValidator($_POST,$table,$item->obtenirID());
+    $v = new CategorieValidator($_POST, $table, $item->obtenirID());
     ObjectHelper::hydrate($item, $_POST, $fields);
     if($v->validate()) {
         $table->MAJ([
-            'nom' => $item->obtenirNom(),
+            'name' => $item->getName(),
             'slug' => $item->obtenirSLug()
-        ], $item->obtenirID());
+        ], 
+        $item->obtenirID());
         $success = true;
     } else {
         $errors = $v->errors();
@@ -33,7 +34,7 @@ if (!empty($_POST)) {
 }
 $form = new Form($item, $errors);
 
-$titre_header = 'Modifier la catégorie : '.e($item->obtenirNom());
+$titre_header = 'Modifier la catégorie : '.e($item->getName());
 $titre_navBar = "Modifier la catégorie n° {$params['id']}";
 ?>
 

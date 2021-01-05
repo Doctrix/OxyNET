@@ -1,7 +1,7 @@
 <?php
 
-use Model\Auth;
-use Model\Server\ConfigDB;
+use App\Auth;
+use Server\ConfigDB;
 
 Auth::Verifier();
   

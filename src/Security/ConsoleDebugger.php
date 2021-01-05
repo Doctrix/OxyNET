@@ -1,10 +1,10 @@
 <?php
-namespace App\Security;
+namespace Security;
 
 use Model\User;
 
 final class ConsoleDebugger implements PermissionDebugger {
-    public function debug(Voter $voter, bool $vote, string $permission, User $ser, $subject): void
+    public function debug(Voter $voter, bool $vote, string $permission, User $user, $subject): void
     {
         $className = get_class($voter);
         $vote = $vote ? "\e[32myes\e[0m": "\e[31mno\e[0m";

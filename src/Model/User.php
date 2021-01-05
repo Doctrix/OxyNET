@@ -23,7 +23,7 @@ class User {
      */
     public $role;
 
-    public function obtenirUsername(): ?string
+    public function getUsername(): ?string
     {
         return $this->username;
     }
@@ -35,7 +35,7 @@ class User {
         return $this;
     }
 
-    public function obtenirPassword(): ?string
+    public function getPassword(): ?string
     {
         return $this->password;
     }

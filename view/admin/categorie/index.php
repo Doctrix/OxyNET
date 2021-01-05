@@ -1,8 +1,8 @@
 <?php
 
-use Model\Auth;
-use Model\Server\ConfigDB;
-use Model\Table\CategorieTable;
+use App\Auth;
+use Server\ConfigDB;
+use Table\CategorieTable;
 
 
 if(Auth::$session['auth']) {
@@ -10,14 +10,13 @@ if(Auth::$session['auth']) {
     exit(); 
 }
 $pdo = ConfigDB::getDatabase();
-$link = $router->url('admin_categories');
+$link = $router->url('admin_categorie');
 $items = (new CategorieTable($pdo))->all();
 
 $titre_header = "Gestion des catégories";
 $titre_navBar = "CATEGORIES";
-
-
 ?>
+
 <?php if (isset($_GET['supprimer'])): ?>
 <div class="alert alert-success">
     L'enregistrement à bien été supprimé
@@ -38,18 +37,18 @@ $titre_navBar = "CATEGORIES";
     <tbody>
     <?php foreach($items as $item): ?>
     <tr>
-        <td>#<?= $item->obtenirID() ?></td>
+        <td>#<?= $item->getID() ?></td>
         <td>
-            <a href="<?= $router->url('admin_categorie',['id'=>$item->obtenirID()]) ?>">
-            <?= e($item->obtenirNom()) ?>
+            <a href="<?= $router->url('admin_categorie',['id'=>$item->getID()]) ?>">
+            <?= e($item->getName()) ?>
             </a>
         </td>
-        <td><?= $item->obtenirSlug() ?></td>
+        <td><?= $item->getSlug() ?></td>
         <td>
-            <a href="<?= $router->url('admin_categorie',['id'=>$item->obtenirID()]) ?>" class="btn btn-primary">
+            <a href="<?= $router->url('admin_categorie_edit',['id'=>$item->getID()]) ?>" class="btn btn-primary">
             Modifier
             </a>
-            <form action="<?= $router->url('admin_categorie_supprimer',['id'=>$item->obtenirID()]) ?>"
+            <form action="<?= $router->url('admin_categorie_supprimer',['id'=>$item->getID()]) ?>"
             method="POST" onsubmit="return confirm('Voulez vous vraiment effectuer cette action ?')" style="display:inline">
             <button type="submit"  class="btn btn-danger">Supprimer</button>
             </form>

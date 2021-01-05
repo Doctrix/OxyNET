@@ -1,5 +1,5 @@
 <?php
-namespace App\Table;
+namespace Table;
 
 use Model\Categorie;
 use \PDO;
@@ -10,23 +10,23 @@ final class CategorieTable extends Table {
     protected $class = Categorie::class;
 
     /**
-     * @param Model\Classes\Article[] $articles
+     * @param Model\Classes\Post[] $posts
      */
-    public function hydrateArticles(array $articles): void
+    public function hydratePosts(array $posts): void
     {
-        $articlesByID = [];
-        foreach($articles as $article) {
-            $article->definirCategories([]);
-            $articlesByID[$article->obtenirID()] = $article;
+        $postsByID = [];
+        foreach($posts as $post) {
+            $post->setCategories([]);
+            $postsByID[$post->getID()] = $post;
         }
         $categories = $this->pdo
-            ->query('SELECT c.*, ac.article_id
-                    FROM article_categorie ac
+            ->query('SELECT c.*, ac.post_id
+                    FROM post_categorie ac
                     JOIN categorie c ON c.id = ac.categorie_id
-                    WHERE ac.article_id IN (' . implode(',', array_keys($articlesByID)) . ')'
+                    WHERE ac.post_id IN (' . implode(',', array_keys($postsByID)) . ')'
             )->fetchAll(PDO::FETCH_CLASS, $this->class);
         foreach($categories as $categorie){
-            $articlesByID[$categorie->obtenirArticleID()]->ajouterUneCategorie($categorie);
+            $postsByID[$categorie->getPostID()]->ajouterUneCategorie($categorie);
         }
     }
 
@@ -37,10 +37,10 @@ final class CategorieTable extends Table {
 
     public function list (): array
     {
-        $categories = $this->queryEtFetchAll("SELECT * FROM {$this->table} ORDER BY nom ASC");
+        $categories = $this->queryEtFetchAll("SELECT * FROM {$this->table} ORDER BY name ASC");
         $results = [];
         foreach($categories as $categorie) {
-            $results[$categorie->obtenirID()] = $categorie->obtenirNom();
+            $results[$categorie->getID()] = $categorie->getName();
 
         }
         return $results;

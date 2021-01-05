@@ -1,17 +1,17 @@
 <?php
 
-use Model\{Auth,Session};
-use Model\Server\ConfigDB;
-use Framework\App;
+use App\{Auth,Session};
+use Framework\Router;
+use Server\ConfigDB;
 
 $db = ConfigDB::getDatabase();
 $auth = new Auth($db);
 
-if($auth->confirm($db, $_GET['id'], $_GET['token'], Session::getInstance(), App::redirect())){
+if($auth->confirm($db, $_GET['id'], $_GET['token'], Session::getInstance(), Router::redirect())){
     Session::getInstance()->setSuccess("Votre compte a bien été validé");
-    App::redirect('profil');
+    Router::redirect('profil');
 
 }else{
     Session::getInstance()->setErreur("Ce token n'est plus valide");
-    App::redirect('login');
+    Router::redirect('login');
 }

@@ -1,18 +1,18 @@
 <th>
 <button onclick="history.go(-1);" class="btn btn-secondary" >Retour</button>
-<a href="<?= $router->url('admin_articles') ?>" class="btn btn-light">Tous les articles</a>
+<a href="<?= $router->url('admin_post') ?>" class="btn btn-light">Tous les articles</a>
 </th> 
 <form action="#" Method="POST">
-    <?= $form->image('image', 'Image a la une'); ?>
-    <?= $form->input('titre','Titre'); ?>
+    <?= $form->image('picture', 'Image a la une'); ?>
+    <?= $form->input('title','Titre'); ?>
     <?= $form->input('slug','Slug'); ?>
-    <?= $form->textarea('contenu','Contenu'); ?>
+    <?= $form->textarea('content','Contenu'); ?>
     <?= $form->select('categories_ids','Categories',$categories); ?>
     <?= $form->input('extrait','Extrait'); ?>
-    <?= $form->input('lien','Lien de l\'auteur'); ?>
+    <?= $form->input('url','Lien de l\'auteur'); ?>
     <?= $form->input('date_de_creation','Date'); ?>    
     <button class="btn btn-info">
-        <?php if ($article->obtenirID() !== null): ?>
+        <?php if ($post->getID() !== null): ?>
             Enregister
         <?php else: ?>
             Créer
@@ -20,7 +20,7 @@
     </button>
 </form>
 <?php ob_start();?>
-<script src="<?= BASE_URL.DS.'src'.DS.'inc'.DS.'js'.DS.'tinymce'.DS; ?>tinymce.min.js" referrerpolicy="origin"></script>
+<script src="<?= INC . DS . 'js' . DS . 'tinymce' . DS ?>tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
@@ -31,4 +31,4 @@ tinyMCE.init({
 });
 $(".selector").flatpickr(optional_config);
 </script>
-<?php $script = ob_get_clean(); ?>
+<?php $script = ob_get_clean() ?>

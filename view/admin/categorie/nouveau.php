@@ -1,11 +1,11 @@
 <?php
 
-use Model\{ObjectHelper,Auth};
-use Model\Table\CategorieTable;
-use Model\HTML\Form;
-use Model\Validators\CategorieValidator;
-use Model\Classes\Categorie;
-use Model\Server\ConfigDB;
+use App\{ObjectHelper, Auth};
+use Table\CategorieTable;
+use App\HTML\Form;
+use App\Validators\CategorieValidator;
+use Model\Categorie;
+use Server\ConfigDB;
 
 if(Auth::$session['auth']) {
     Auth::Verifier();
@@ -20,13 +20,14 @@ if (!empty($_POST)) {
     $table = new CategorieTable($pdo);
 
     $v = new CategorieValidator($_POST,$table);
-    ObjectHelper::hydrate($item, $_POST, ['nom','slug']);
+    ObjectHelper::hydrate($item, $_POST, ['name','slug']);
     if($v->validate()) {
         $table->Creer([
-            'nom' => $item->obtenirNom(),
-            'slug' => $item->obtenirSLug()
-        ], $item->obtenirID());
-        header('Location:' . $router->url('admin_categories').'?creer=1');
+            'name' => $item->getName(),
+            'slug' => $item->getSlug()
+        ],
+        $item->getID());
+        header('Location:' . $router->url('admin_categorie').'?creer=1');
         exit();
     } else {
         $errors = $v->errors();

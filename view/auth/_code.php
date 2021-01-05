@@ -1,17 +1,16 @@
 <?php
 
-use Model\Server\ConfigDB;
-use Model\HTML\Form;
-use Model\Classes\User;
-use Model\Table\Exception\NotFoundException;
-use Model\Table\UserTable;
+use App\HTML\Form;
+use Server\ConfigDB;
+use Model\User;
+use Table\Exception\NotFoundException;
+use Table\UserTable;
 
 session_start();
 if(isset($_SESSION['auth'])) {
     header('Location: ' . $router->url('dashboard'));
     exit();
 }
-
 
 $utilisateur = new User;
 $errors = [];
@@ -32,7 +31,6 @@ if(!empty($_POST)) {
         } catch (NotFoundException $e) {  
         } 
     }
-   
 }
 
 $form = new Form($utilisateur, $errors);

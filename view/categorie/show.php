@@ -1,29 +1,31 @@
 <?php
 
-use Model\Server\ConfigDB;
-use Model\Table\{ArticleTable,CategorieTable};
+use Server\ConfigDB;
+use Table\{PostTable, CategorieTable};
 
 $id = (int)$params['id'];
 $slug = $params['slug'];
-$pdo = ConfigDB::getDatabase();
-$categorie = (new CategorieTable($pdo))->trouver($id);
 
-if($categorie->obtenirSlug() !== $slug){
-    $url = $router->url('categorie', ['slug' => $categorie->obtenirSlug(), 'id' => $id]);
+$pdo = ConfigDB::getDatabase();
+$categorie = (new CategorieTable($pdo))->find($id);
+
+if($categorie->getSlug() !== $slug){
+    $url = $router->url('categorie', ['slug' => $categorie->getSlug(), 'id' => $id]);
     http_response_code(301);
     header('Location: ' . $url);
 }
-[$articles,$paginatedQuery] = (new ArticleTable($pdo))->trouverPaginerPourLaCategorie($categorie->obtenirID());
-$link = $router->url('categorie', ['id' => $categorie->obtenirID(), 'slug' => $categorie->obtenirSlug()]);
+[$posts,$paginatedQuery] = (new PostTable($pdo))->findPaginerPourLaCategorie($categorie->getID());
+$link = $router->url('categorie', ['id' => $categorie->getID(), 'slug' => $categorie->getSlug()]);
 
-$titre_header = "{$categorie->obtenirNom()}";
+$titre_header = "{$categorie->getName()}";
 $titre_navBar = 'Catégorie';
 ?>
-<h1><b>Catégorie : </b><?= e($categorie->obtenirNom()) ?></h1>
+
+<h1><b>Catégorie : </b><?= e($categorie->getName()) ?></h1>
 <div class="row">
-    <?php foreach($articles as $article): ?>
+    <?php foreach($posts as $post): ?>
     <div class="col-md-3">
-        <?php require VIEWS.DS.'article'.DS.'card.php' ?>
+        <?php require_once POST . DS . 'card.php' ?>
     </div>
     <?php endforeach ?>
 </div>

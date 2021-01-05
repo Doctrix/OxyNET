@@ -1,8 +1,8 @@
 <?php
 
-use Model\Auth;
-use Model\Server\ConfigDB;
-use Model\Table\ArticleTable;
+use App\Auth;
+use Server\ConfigDB;
+use Table\PostTable;
 
 if(Auth::$session['auth']) {
     Auth::Verifier();
@@ -14,8 +14,8 @@ $title = "Tableau de bord : ARTICLES";
 
 $pdo = ConfigDB::getDatabase();
 
-$link = $router->url('admin_articles');
-[$articles, $pagination] = (new ArticleTable($pdo))->trouverPaginer();
+$link = $router->url('admin_post');
+[$posts, $pagination] = (new PostTable($pdo))->findPaginer();
 
 if (isset($_GET['supprimer'])): ?>
 
@@ -26,7 +26,7 @@ if (isset($_GET['supprimer'])): ?>
 <h2><?= $title ?></h2>
 <br>
 <p><button onclick="history.go(-1);" class="btn btn-secondary" >Retour</button>
-<th><a href="<?= $router->url('admin_article_nouveau') ?>" class="btn btn-primary">Ajouter un article</a></th></p>
+<th><a href="<?= $router->url('admin_post_nouveau') ?>" class="btn btn-primary">Ajouter un article</a></th></p>
 
 <table class="table table-striped">
     <thead>
@@ -38,24 +38,24 @@ if (isset($_GET['supprimer'])): ?>
         </tr>
     </thead>
     <tbody>
-    <?php foreach($articles as $article): ?>
+    <?php foreach($posts as $post): ?>
     <tr>
-        <td><?= $article->obtenirID() ?></td>
+        <td><?= $post->getID() ?></td>
         <td>
-            <a href="<?= $router->url('admin_article',['id'=>$article->obtenirID()]) ?>">
-            <?= e($article->obtenirImage()) ?>
+            <a href="<?= $router->url('admin_post',['id'=>$post->getID()]) ?>">
+            <?= e($post->getPicture()) ?>
             </a>
         </td>
         <td>
-            <a href="<?= $router->url('admin_article',['id'=>$article->obtenirID()]) ?>">
-            <?= e($article->obtenirTitre()) ?>
+            <a href="<?= $router->url('admin_post',['id'=>$post->getID()]) ?>">
+            <?= e($post->getTitle()) ?>
             </a>
         </td>
         <td>
-            <a href="<?= $router->url('admin_article',['id'=>$article->obtenirID()]) ?>" class="btn btn-primary">
+            <a href="<?= $router->url('admin_post_edit',['id'=>$post->getID()]) ?>" class="btn btn-primary">
             Modifier
             </a>
-            <form action="<?= $router->url('admin_article_supprimer',['id'=>$article->obtenirID()]) ?>"
+            <form action="<?= $router->url('admin_post_supprimer',['id'=>$post->getID()]) ?>"
             method="POST" onsubmit="return confirm('Voulez vous vraiment effectuer cette action ?')" style="display:inline">
             <button type="submit"  class="btn btn-danger">Supprimer</button>
             </form>

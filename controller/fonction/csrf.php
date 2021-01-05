@@ -16,7 +16,7 @@ function checkCsrf(){
     ){
         return true;
     }
-        header('Location:' . POST.DS . 'csrf.php');
+        header('Location:' . FONCTION . DS . 'csrf.php');
         die(); 
 }
 ?>

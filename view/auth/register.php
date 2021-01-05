@@ -1,7 +1,7 @@
 <?php
 
-use Model\{Auth,Session,Validator};
-use Model\Server\ConfigDB;
+use App\{Auth,Session,Validator};
+use Server\ConfigDB;
 use Framework\App;
 
 $db = ConfigDB::getDatabase();
