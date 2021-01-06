@@ -18,13 +18,13 @@ class GuestBook {
         $this->fichier = $fichier;
     }
 
-    public function ajouterUnMessage(Message $message): void
+    public function addMessage(Message $message): void
     {
         file_put_contents($this->fichier, $message->toJSON() . PHP_EOL, FILE_APPEND);
     }
 
 
-    public function obtenirLeMessage(): array
+    public function getMessage(): array
     {
         $content = trim(file_get_contents($this->fichier));
         $lignes = explode(PHP_EOL, $content);

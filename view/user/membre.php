@@ -1,14 +1,14 @@
 <?php
 
 use App\Auth;
-use Server\ConfigDB;
+use Server\Connection;
 
-Auth::Verifier();
+Auth::check();
 
 $titre_header = $titre_navBar = 'Utilisateurs';
 
-$pdo = ConfigDB::getDatabase();
-$afficher_profil = $pdo->query("SELECT * FROM utilisateur");
+$pdo = Connection::getPDO();
+$afficher_profil = $pdo->query("SELECT * FROM user");
 $afficher_profil = $afficher_profil->fetchAll();
 
 ?>
@@ -23,8 +23,8 @@ $afficher_profil = $afficher_profil->fetchAll();
     foreach($afficher_profil as $ap){
     ?>
       <tr>          
-        <td><?= $ap->nom ?></td>
-        <td><?= $ap->prenom ?></td>
+        <td><?= $ap->name ?></td>
+        <td><?= $ap->firstname ?></td>
         <td><a href="voir_profil?id=<?= $ap->id ?>">Aller au profil</a></td>
       </tr>
     <?php

@@ -18,13 +18,13 @@ require_once ELEM . DS . 'compteur_if.php';
     <meta charset="utf-8" />
     <meta name="publisher" content="OxyNet">
     <meta name="keywords" lang="fr" content="oxy,oxygames">
-    <meta name="reply-to" content="contact@mifaconcept.fr">
+    <meta name="reply-to" content="contact@oxygames.fr">
     <meta name="category" content="internet">
     <meta name="robots" content="index, follow">
     <meta name="distribution" content="global">
     <meta name="Description" content="Serveur OxyGameS">
     <meta name="revisit-after" content="3 day">
-    <meta name="author" lang="fr" content="Bertrand PRIVAT">
+    <meta name="author" lang="fr" content="DOCtriX">
     <meta name="copyright" content="oxygames">
     <meta name="generator" content="Microsoft Visual Studio, Visual Studio Code">
     <meta name="abstract" content="Ce site présente les nouveautées developper par OGS">

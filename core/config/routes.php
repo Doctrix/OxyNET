@@ -17,7 +17,7 @@ $router = new Framework\App(VIEWS);
 $router
     ->get('/', 'post/index', 'home')
     ->get('/blog', 'blog/index', 'blog')
-    ->get('/blog/categorie/[*:slug]-[i:id]', 'categorie/show', 'categorie')
+    ->get('/blog/category/[*:slug]-[i:id]', 'category/show', 'category')
     ->get('/blog/[*:slug]-[i:id]', 'post/show', 'post')
     ->match('/login', 'auth/login', 'login')
     ->match('/register', 'auth/register', 'register')
@@ -30,14 +30,14 @@ $router
     ->match('/media', 'admin/media/index', 'media')
     // Gestion des articles
     ->get('/admin/post', 'admin/post/index', 'admin_post')
-    ->match('/admin/post/[i:id]', 'admin/post/modifier', 'admin_post_edit')
-    ->post('/admin/post/[i:id]/supprimer', 'admin/post/supprimer', 'admin_post_supprimer')
-    ->match('/admin/post/nouveau', 'admin/post/nouveau', 'admin_post_nouveau')
+    ->match('/admin/post/[i:id]', 'admin/post/edit', 'admin_post_edit')
+    ->post('/admin/post/[i:id]/delete', 'admin/post/delete', 'admin_post_delete')
+    ->match('/admin/post/new', 'admin/post/new', 'admin_post_new')
     // Gestion des categories
-    ->get('/admin/categorie', 'admin/categorie/index', 'admin_categorie')
-    ->match('/admin/categorie/[i:id]', 'admin/categorie/modifier', 'admin_categorie_edit')
-    ->post('/admin/categorie/[i:id]/supprimer', 'admin/categorie/supprimer', 'admin_categorie_supprimer')
-    ->match('/admin/categorie/nouveau', 'admin/categorie/nouveau', 'admin_categorie_nouveau')
+    ->get('/admin/category', 'admin/category/index', 'admin_category')
+    ->match('/admin/category/[i:id]', 'admin/category/edit', 'admin_category_edit')
+    ->post('/admin/category/[i:id]/delete', 'admin/category/delete', 'admin_category_delete')
+    ->match('/admin/category/new', 'admin/category/new', 'admin_category_new')
     // USER user
     ->get('/user', 'user/membre', 'user')
     ->get('/profil', 'user/profil', 'profil')

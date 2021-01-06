@@ -5,7 +5,8 @@ use App\Auth;
 use PDO;
 
 require LIB . DS . 'DB.php';
-class ConfigDB {
+
+class Connection {
 
     public static $db;
     public static $auth;
@@ -13,7 +14,7 @@ class ConfigDB {
     public static $db_password = DB_PASSWORD;
     private $pdo;
 
-    public static function getDatabase(): PDO
+    public static function getPDO(): PDO
     {
         if(!self::$db)
         {
@@ -30,7 +31,7 @@ class ConfigDB {
     {
         if(!self::$auth)
         {
-            self::$auth = new Auth(self::getDatabase());
+            self::$auth = new Auth(self::getPDO());
         }
         return self::$auth;
     }

@@ -2,7 +2,7 @@
 
 namespace Tests\Helpers;
 
-use Model\Classes\User;
+use Model\User;
 
 class TestUser implements User {
 

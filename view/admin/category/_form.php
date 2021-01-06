@@ -3,7 +3,7 @@
 <a href="<?= $router->url('admin_categorie') ?>" class="btn btn-light">Tous les categories</a>
 </th> 
 <form action="#" Method="POST">
-    <?= $form->input('name','Titre'); ?>
+    <?= $form->input('name','Nom'); ?>
     <?= $form->input('slug','Slug'); ?>
     <button class="btn btn-info">
         <?php if ($item->getID() !== null): ?>

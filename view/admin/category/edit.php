@@ -2,31 +2,31 @@
 
 use App\HTML\Form;
 use App\{Auth, ObjectHelper};
-use App\Validators\CategorieValidator;
-use Table\CategorieTable;
-use Server\ConfigDB;
+use App\Validators\CategoryValidator;
+use Table\CategoryTable;
+use Server\Connection;
 
 if(Auth::$session['auth']) {
-    Auth::Verifier();
+    Auth::check();
     exit();
 }
 
-$pdo = ConfigDB::getDatabase();
-$table = new CategorieTable($pdo);
+$pdo = Connection::getPDO();
+$table = new CategoryTable($pdo);
 $item = $table->find($params['id']);
 $success = false;
 $errors = [];
 $fields = ['name', 'slug'];
 
 if (!empty($_POST)) {
-    $v = new CategorieValidator($_POST, $table, $item->obtenirID());
+    $v = new CategoryValidator($_POST, $table, $item->getID());
     ObjectHelper::hydrate($item, $_POST, $fields);
     if($v->validate()) {
-        $table->MAJ([
+        $table->update([
             'name' => $item->getName(),
-            'slug' => $item->obtenirSLug()
+            'slug' => $item->getSLug()
         ], 
-        $item->obtenirID());
+        $item->getID());
         $success = true;
     } else {
         $errors = $v->errors();
@@ -44,7 +44,7 @@ $titre_navBar = "Modifier la catégorie n° {$params['id']}";
     </div>
 <?php endif ?>
 
-<?php if (isset($_GET['creer'])): ?>
+<?php if (isset($_GET['create'])): ?>
     <div class="alert alert-success">
         La catégorie a bien été créé
     </div>

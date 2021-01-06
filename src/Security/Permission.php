@@ -17,8 +17,8 @@ final class Permission {
 
     public function can (User $user, string $permission, $subject = null): bool{
         foreach($this->voters as $voter){
-            if($voter->canVote($permission,$subject)){
-                $vote = $voter->vote($user,$permission, $subject);
+            if($voter->canVote($permission, $subject)){
+                $vote = $voter->vote($user, $permission, $subject);
                 if($this->debugger){
                     $this->debugger->debug($voter, $vote, $permission, $user, $subject);
                 }

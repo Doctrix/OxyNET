@@ -1,27 +1,27 @@
 <?php
 
-use Model\Auth;
-use Model\GuestBook;
-use Model\Message;
+use App\{Auth, GuestBook, Message};
 
 Auth::Verifier();
 
+$titre_header = "Boite à message";
+$titre_navBar = "Ecris ton message";
+
 $errors = null;
 $success = false;
+
 $guestbook = new GuestBook(__DIR__ . DS . 'data' . DS .'messages');
 if (isset($_POST['username'], $_POST['message'])) {
     $message = new Message($_POST['username'], $_POST['message']);
     if ($message->isValid()) {
-        $guestbook->ajouterUnMessage($message);
+        $guestbook->addMessage($message);
         $success = true;
         $_POST = []; 
     } else {
-        $errors = $message->obtenirErrors();
+        $errors = $message->getErrors();
     }
 }
-$messages = $guestbook->obtenirLeMessage();
-$titre_header = "Boite à message";
-$titre_navBar = "Ecris ton message";
+$messages = $guestbook->getMessage();
 ?>
 
 <div class="container">

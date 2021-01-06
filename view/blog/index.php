@@ -6,7 +6,7 @@ use Table\PostTable;
 $pdo = ConfigDB::getDatabase();
 $table = new PostTable($pdo);
 $link = $router->url('blog');
-[$articles, $pagination] = $table->findPaginer();
+[$posts, $pagination] = $table->findPaginated();
 
 $titre_header = 'OxyNET';
 $titre_navBar = 'Accueil';

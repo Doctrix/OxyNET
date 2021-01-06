@@ -1,15 +1,20 @@
 <?php
 
 use App\Auth;
-
-if(Auth::$session['auth']) {
-    Auth::Verifier();
-    exit();
-}
+use Server\Connection;
 
 $titre_header = $titre_navBar = 'Tableau de bord';
 
+if(Auth::$session['auth']) {
+    Auth::check();
+    exit();
+}
+
 require FONCTION . DS . 'compteur.php';
+
+$pdo = Connection::getPDO();
+$user = $pdo->query("SELECT * FROM user");
+$user = $user->fetch();
 
 $annee = (int)date('Y');
 $annee_selectionner = empty($_GET['annee']) ? null : (int)$_GET['annee'];
@@ -88,7 +93,7 @@ $mois = [
 <th>
 <button onclick="history.go(-1);" class="btn btn-secondary" >Retour</button>
 <a href="<?= $router->url('admin_post') ?>" class="btn btn-info">Tous les articles</a>
-<a href="<?= $router->url('admin_post_nouveau') ?>" class="btn btn-primary">Ajouter un nouveau article</a>
+<a href="<?= $router->url('admin_post_new') ?>" class="btn btn-primary">Ajouter un nouveau article</a>
 <a href="<?= $router->url('editeur') ?>" class="btn btn-dark">Editeur</a>
 </th>
 <hr/>
@@ -104,4 +109,7 @@ $mois = [
     <strong>Language :</strong> <?= $_SERVER["HTTP_ACCEPT_LANGUAGE"];?><br/>
     <strong>Requête HTTP :</strong> <?= $_SERVER["HTTP_ACCEPT"];?><br/>
     <hr/>
+    <h2><ul>Informations utilisateur</ul></h2>
+    
+    <strong>Name :</strong> <?= $user->username ?><br/>
 </div>

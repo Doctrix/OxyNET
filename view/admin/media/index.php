@@ -1,9 +1,9 @@
 <?php
 
-use App\{Auth, Images};
+use App\{Auth, Picture};
 
 if(Auth::$session['auth']) {
-    Auth::Verifier();
+    Auth::check();
     exit();
 }
 
@@ -13,8 +13,8 @@ if(!empty($_FILES)) {
     $allow_ext = array('jpg','png','gif');
     if(in_array($ext,$allow_ext)) {
         move_uploaded_file($img['tmp_name'],IMAGES.DS.$img['name']);
-        Images::creerMin(IMAGES.DS.$img['name'],IMAGES.DS.'thumbnail',$img['name'],215,112);
-        Images::ConvertirJPG(IMAGES.DS.$img['name'],IMAGES.DS.'thumbnail',$img['name'],215,112);
+        Picture::creerMin(IMAGES.DS.$img['name'],IMAGES.DS.'thumbnail',$img['name'],215,112);
+        Picture::ConvertirJPG(IMAGES.DS.$img['name'],IMAGES.DS.'thumbnail',$img['name'],215,112);
     }
     else {
         setErreur("Votre fichier n'est pas une image");
@@ -68,11 +68,11 @@ if(in_array($ext2, $allow_ext2)) {
         #<?= $images ?>
         </td>
         <td>
-        <a href="<?= IMAGES.DS.$file ?>" rel="zoombox[galerie]" ><?= $file ?></a>
+        <a href="<?= IMAGES . DS . $file ?>" rel="zoombox[galerie]" ><?= $file ?></a>
         </td>
         <td>
-        <a href="<?= IMAGES.DS.$file ?>" rel="zoombox[galerie]">
-            <img src="<?= IMAGES.DS.'thumbnail'.DS.$file ?>"/>
+        <a href="<?= IMAGES . DS . $file ?>" rel="zoombox[galerie]">
+            <img src="<?= IMAGES . DS . 'thumbnail'.DS.$file ?>"/>
         </a>
         </td>
         <td>

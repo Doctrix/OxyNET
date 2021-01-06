@@ -27,12 +27,12 @@ class Message {
         $this->date = $date ?: new DateTime();
     }
 
-    public function isValid (): bool
+    public function isValid(): bool
     {
-        return empty($this->obtenirErrors());
+        return empty($this->getErrors());
     }
 
-    public function obtenirErrors(): array
+    public function getErrors(): array
     {
         $errors = [];
         if (strlen($this->username) < self::LIMIT_USERNAME ) {
@@ -55,7 +55,8 @@ class Message {
         $message = br_e($this->message);
         return <<<HTML
         <p>
-            <strong>{$username}</strong> <em>le {$date}</em><br>
+            <strong>{$username}</strong>
+            <em>le {$date}</em><br>
             {$message}
         </p>
 HTML;

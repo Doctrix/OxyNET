@@ -10,7 +10,7 @@ final class UserTable extends Table {
     protected $tableRole = "role";
     protected $class = User::class;
 
-    public function findParUsername(string $username)
+    public function findForUsername(string $username)
     {
         $query = $this->pdo->query('SELECT * FROM ' . $this->table . ' LEFT JOIN role ON user.role_id=role.id WHERE username = username');
         $query->execute(['username' => $username]);
@@ -22,7 +22,7 @@ final class UserTable extends Table {
         return $result;
     }
 
-    public function fiindParRole(string $role)
+    public function findForRole(string $role)
     {
         $query = $this->pdo->prepare('SELECT * FROM '.$this->tableRole);
         $query->execute();

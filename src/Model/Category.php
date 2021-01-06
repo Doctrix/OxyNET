@@ -1,7 +1,7 @@
 <?php
 namespace Model;
 
-class Categorie {
+class Category {
 
     private $id;
     private $slug;

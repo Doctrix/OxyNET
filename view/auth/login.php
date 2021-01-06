@@ -24,10 +24,10 @@ if (!empty($_POST)) {
     if (!empty($_POST['username']) && !empty($_POST['password'])) {
         $table = new UserTable(ConfigDB::getDatabase());
         try {
-            $u = $table->findParUsername($_POST['username']);
+            $u = $table->findForUsername($_POST['username']);
             if (password_verify($_POST['password'], $u->getPassword()) === true) {
                 session_start();
-                $_SESSION['auth'] = $u->getId();
+                $_SESSION['auth'] = $u->getID();
                 if($_SESSION['auth'] == true){
                     header('Location: ' . $router->url('dashboard'));
                 }else{

@@ -2,14 +2,14 @@
 
 use App\Auth;
 use Model\User;
-use Server\ConfigDB;
+use Server\Connection;
 
 if(Auth::$session['auth']) {
-  Auth::Verifier();
+  Auth::check();
   exit(); 
 }
 
-$pdo = ConfigDB::getDatabase();
+$pdo = Connection::getPDO();
 $user = new User();
 
 $afficher_profil = $pdo->query("SELECT * FROM user");

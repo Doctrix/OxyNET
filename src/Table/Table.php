@@ -3,7 +3,7 @@ namespace Table;
 
 use Table\Exception\NotFoundException;
 use Exception;
-use \PDO;
+use PDO;
 
 abstract class Table {
 
@@ -14,17 +14,17 @@ abstract class Table {
     public function __construct(PDO $pdo)
     {
         if($this->table === null){
-            throw new \Exception("La class ".get_class($this)." n'a pas de propriété \$table");
+            throw new Exception("La class ".get_class($this)." n'a pas de propriété \$table");
         }
         if($this->class === null){
-            throw new \Exception("La class ".get_class($this)." n'a pas de propriété \$class");
+            throw new Exception("La class ".get_class($this)." n'a pas de propriété \$class");
         }
         $this->pdo = $pdo;
     }
 
     public function find(int $id)
     {
-        $query = $this->pdo->prepare('SELECT * FROM '.$this->table.' WHERE id = :id');
+        $query = $this->pdo->prepare('SELECT * FROM ' . $this->table.' WHERE id = :id');
         $query->execute(['id' => $id]);
         $query->setFetchMode(PDO::FETCH_CLASS, $this->class);
         $result = $query->fetch();
@@ -59,7 +59,7 @@ abstract class Table {
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
     }
 
-    public function Supprimer(int $id)
+    public function delete(int $id)
     {
         $query = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = ?");
         $ok = $query->execute([$id]);
@@ -68,7 +68,7 @@ abstract class Table {
         }
     }
 
-    public function Creer(array $data): int
+    public function create(array $data): int
     {
         $sqlFields = [];
         foreach ($data as $key => $value) {
@@ -82,10 +82,10 @@ abstract class Table {
         return (int)$this->pdo->lastInsertId();
     }
 
-    public function MAJ(array $data, int $id)
+    public function update(array $data, int $id)
     {
         $sqlFields = [];
-        foreach ($data as $key => $Classe) {
+        foreach ($data as $key => $Class) {
             $sqlFields[] = "$key = :$key";
         }
         $query = $this->pdo->prepare("UPDATE {$this->table} SET " . implode(', ', $sqlFields) . " WHERE id = :id");

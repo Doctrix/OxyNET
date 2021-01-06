@@ -2,15 +2,15 @@
 
 use App\Auth;
 use Model\User;
-use Server\ConfigDB;
+use Server\Connection;
 
 $titre_navBar = 'tableau de bord';
 if(Auth::$session['user']) {
-    Auth::Verifier();
+    Auth::check();
     exit();
 }
 
-$pdo = ConfigDB::getDatabase();
+$pdo = Connection::getPDO();
 $user = new User();
 
 $afficher_profil = $pdo->query("SELECT * FROM user");

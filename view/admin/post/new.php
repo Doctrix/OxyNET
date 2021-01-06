@@ -1,46 +1,46 @@
 <?php
 
 use App\{ObjectHelper, Auth, Picture};
-use Table\{PostTable, CategorieTable};
+use Table\{PostTable, CategoryTable};
 use App\HTML\Form;
 use App\Validators\PostValidator;
 use Model\Post;
-use Server\ConfigDB;
+use Server\Connection;
 
 if(Auth::$session['auth']) {
-    Auth::Verifier();
+    Auth::check();
     exit();
 }
+
+$titre_header = 'Créer un article';
+$titre_navBar = 'Créer un nouveau article';
 
 $errors = [];
 $post = new Post();
 $picture = new Picture();
-$post->setDateDeCreation(date('Y-m-d H:i:s'));
+$post->setCreatedAt(date('Y-m-d H:i:s'));
 
-$pdo = ConfigDB::getDatabase();
+$pdo = Connection::getPDO();
 $postTable = new PostTable($pdo);
-$categorieTable = new CategorieTable($pdo);
-
-$categories = $categorieTable->list();   
+$categoryTable = new CategoryTable($pdo);
+$categories = $categoryTable->list();   
 
 if (!empty($_POST)) {
     $v = new PostValidator($_POST, $postTable, $post->getID(), $categories, $picture);
-    ObjectHelper::hydrate($post, $_POST, ['title','picture','content','slug','date_de_creation','extrait','url']);
+    ObjectHelper::hydrate($post, $_POST, ['title', 'picture_id', 'content', 'slug', 'created_at', 'excerpt', 'url']);
     if($v->validate()) {
         $pdo->beginTransaction();
-        $postTable->CreerPost($post);
+        $postTable->createPost($post);
         $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
         $pdo->commit();
-        header('Location:' . $router->url('admin_post', ['id' => $post->getID()]).'?creer=1');
+        header('Location:' . $router->url('admin_post', ['id' => $post->getID()]).'?create=1');
         exit();
     } else {
         $errors = $v->errors();
     }
 }
-$form = new Form($post, $errors);
 
-$titre_header = 'Créer un article';
-$titre_navBar = 'Créer un nouveau article';
+$form = new Form($post, $errors);
 ?>
 
 <?php if (!empty($errors)): ?>

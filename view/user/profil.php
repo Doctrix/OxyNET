@@ -1,19 +1,14 @@
 <?php
 
 use App\Auth;
-use Model\User;
-use Server\ConfigDB;
+use Server\Connection;
 
-Auth::Verifier();
+Auth::check();
 
-$pdo = ConfigDB::getDatabase();
-$user = new User();
-
+$pdo = Connection::getPDO();
 $afficher_profil = $pdo->query("SELECT * FROM user");
 $afficher_profil = $afficher_profil->fetch();
-
 $titre_header = $afficher_profil->username;
-//$titre_navBar = $afficher_profil->nom; 
 ?>
 
 <th>
@@ -25,6 +20,6 @@ $titre_header = $afficher_profil->username;
     <li>Votre pseudo : <?= $afficher_profil->username ?></li>
       <li>Votre id est : <?= $afficher_profil->id ?></li>
       <li>Votre mail est : <?= $afficher_profil->email ?></li>
-      <li>Votre compte a été crée le : <?= $afficher_profil->date_creation_compte ?></li>
+      <li>Votre compte a été crée le : <?= $afficher_profil->created_at_account ?></li>
     </ul>
 <hr/>

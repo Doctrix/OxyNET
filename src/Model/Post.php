@@ -11,9 +11,9 @@ class Post {
     private $picture_id;
     private $title;
     private $content;
-    private $extrait;
+    private $excerpt;
     private $url;
-    private $date_de_creation;
+    private $created_at;
     private $categories = [];
     
     // OBTENIR (get)
@@ -28,18 +28,18 @@ class Post {
         return $this;
     }
 
-    public function getPicture (): ?String
+    public function getPictureID(): ?String
     {
         return $this->picture_id;
     }
 
-    public function setPicture(string $picture_id): self
+    public function setPictureID(string $picture_id): self
     {
         $this->picture_id = $picture_id;
         return $this;
     }
 
-    public function getTitle (): ?String
+    public function getTitle(): ?String
     {
         return nl2br($this->title);
     }
@@ -50,7 +50,7 @@ class Post {
         return $this;
     }
 
-    public function getSlug (): ?string
+    public function getSlug(): ?string
     {
         return nl2br($this->slug);
     }
@@ -61,7 +61,7 @@ class Post {
         return $this;
     }
 
-    public function getUrl (): ?string
+    public function getUrl(): ?string
     {
         return nl2br($this->url);
     }
@@ -72,29 +72,20 @@ class Post {
         return $this;
     }
 
-    public function getDateDeCreation (): DateTime
+    public function getCreatedAt(): DateTime
     {
-        return new DateTime($this->date_de_creation);
+        return new DateTime($this->created_at);
     }
 
-    public function setDateDeCreation(string $date): self
+    public function setCreatedAt(string $date): self
     {
-        $this->date_de_creation = $date;
+        $this->created_at = $date;
         return $this;
     }
 
-    public function getExtrait (): ?string
-    {
-        return nl2br($this->extrait);
-    }
+    
 
-    public function setExtrait(string $extrait): self
-    {
-        $this->extrait = $extrait;
-        return $this;
-    }
-
-    public function getContent (): ?string
+    public function getContent(): ?string
     {
         return nl2br($this->content);
     }
@@ -105,12 +96,23 @@ class Post {
         return $this;
     }
 
-    public function getContentFormater (): ?string
+    public function getContentFormater(): ?string
     {
         return nl2br(e($this->content));
     }
 
-    public function getExcerpt (): ?string
+    public function setExcerpt(string $excerpt): self
+    {
+        $this->excerpt = $excerpt;
+        return $this;
+    }
+
+    public function getExcerpt(): ?string
+    {
+        return nl2br($this->excerpt);
+    }
+    
+    public function getExcerptContent(): ?string
     {
         if ($this->content === null) 
         {
@@ -120,29 +122,29 @@ class Post {
     }
 
     /**
-     * @return Categorie[]
+     * @return Category[]
      */
-    public function getCategories (): array
+    public function getCategories(): array
     {
         return $this->categories;
     }
 
-    public function setCategories (array $categories): self
+    public function setCategories(array $categories): self
     {
         $this->categories = $categories;
         return $this;
     }
-    public function getCategoriesIds (): array
+    public function getCategoriesIds(): array
     {
         $ids = [];
-        foreach($this->categories as $categorie) {
-            $ids[] = $categorie->getID();
+        foreach($this->categories as $category) {
+            $ids[] = $category->getID();
         }
         return $ids;
     }
-    public function ajouterUneCategorie(Categorie $categorie): void
+    public function addCategory(Category $category): void
     {
-        $this->categories[] = $categorie;
-        $categorie->setPostID($this->title);
+        $this->categories[] = $category;
+        $category->setPostID($this->title);
     }
 }

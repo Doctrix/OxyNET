@@ -12,19 +12,19 @@ if(isset($_SESSION['auth'])) {
     exit();
 }
 
-$utilisateur = new User;
+$user = new User;
 $errors = [];
 if(!empty($_POST)) {
-    $utilisateur->setUsername($_POST['username']);
+    $user->setUsername($_POST['username']);
     $errors['password'] = 'Identifiant ou mot de passe incorrect';
 
     if (!empty($_POST['username']) && !empty($_POST['password'])) {
         $table = new UserTable(ConfigDB::getDatabase());
         try {
-            $u = $table->trouverParUsername($_POST['username']);
-            if (password_verify($_POST['password'], $u->obtenirPassword()) === true) {
+            $u = $table->findForUsername($_POST['username']);
+            if (password_verify($_POST['password'], $u->getPassword()) === true) {
                 session_start();
-                $_SESSION['auth']['id'] = $u->getId();
+                $_SESSION['auth']['id'] = $u->getID();
                 header('Location: ' . $router->url('dashboard'));
                 exit();
             }
@@ -33,6 +33,6 @@ if(!empty($_POST)) {
     }
 }
 
-$form = new Form($utilisateur, $errors);
+$form = new Form($user, $errors);
 $titre_header = "Se connecter";
 $titre_navBar = "Connexion";

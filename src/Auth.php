@@ -16,7 +16,7 @@ class Auth
         $this->pdo = $pdo;
     }
 
-    public static function Verifier()
+    public static function check()
     {
         if(session_status() === PHP_SESSION_NONE) {
             session_set_cookie_params(86400, dirname($_SERVER['REQUEST_URI']));
@@ -54,13 +54,13 @@ class Auth
             return null;
         }
         // On vérifie password_verify que l'utilisateur correspond
-        if (password_verify($password, $user->obtenirPassword()) === true) 
+        if (password_verify($password, $user->getPassword()) === true) 
         {
             if (session_status() === PHP_SESSION_NONE) 
             {
                 session_start();
             }
-            $this->connect($user->getId());
+            $this->connect($user->getID());
             if($remember) 
             {
                 $this->remember($this->pdo, $user->id);
@@ -75,7 +75,7 @@ class Auth
     {
         $password = password_hash($password, PASSWORD_BCRYPT);
         $token = StrRandom::random(60);
-        $db->query("INSERT INTO users SET username = ?, password = ?, email = ?, confirmation_token = ?", [
+        $db->query("INSERT INTO user SET username = ?, password = ?, email = ?, confirmation_token = ?", [
             $username, 
             $password, 
             $email, 
@@ -89,7 +89,7 @@ class Auth
     {
         $user = $db->query('SELECT * FROM user WHERE id = ?', [$user_id])->fetch();
         if($user && $user->confirmation_token == $token){
-            $db->query('UPDATE user SET confirmation_token = NULL, date_creation_compte = NOW( WHERE id = ?', [$user_id]);
+            $db->query('UPDATE user SET confirmation_token = NULL, created_at_account = NOW( WHERE id = ?', [$user_id]);
             $this->session->write('auth', $user);
             return true;
         }
@@ -125,7 +125,7 @@ class Auth
 
     public function resetPassword($db, $email) 
     {
-        $user = $db->query("SELECT * FROM user WHERE email = ? AND date_creation_compte IS NOT NULL", [$email])->fetch();
+        $user = $db->query("SELECT * FROM user WHERE email = ? AND created_at_account IS NOT NULL", [$email])->fetch();
         if($user) {
             $reset_token = StrRandom::random(60);
             $db->query('UPDATE user SET reset_token = ?, reset_id = NOW() WHERE id = ?', [$reset_token, $user->id]);

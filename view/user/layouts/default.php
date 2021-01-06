@@ -16,9 +16,9 @@
     <meta name="abstract" content="Ce site présente les nouveautées developper par OGS">
     <meta name="identifier-url" content="https://serveur.oxygames.fr/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="icon" href="<?= SITE_URL.DS.'src'.DS.'inc'.DS.'images'.DS.'ico'.DS.'favicon.ico'; ?>">   
-    <link rel="stylesheet" href="<?= SITE_URL.DS.'src'.DS.'inc'.DS.'ccs'.DS.'styles.css'; ?>">
-    <link rel="stylesheet" href="<?= SITE_URL.DS.'src'.DS.'inc'.DS.'ccs'.DS.'bootstrap.css'; ?>"> 
+    <link rel="icon" href="<?= IMAGES . DS . 'ico' . DS . 'favicon.ico'; ?>">   
+    <link rel="stylesheet" href="<?= INC . DS . 'ccs' . DS . 'styles.css'; ?>">
+    <link rel="stylesheet" href="<?= INC . DS . 'ccs' . DS . 'bootstrap.css'; ?>"> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title><?= isset($titre_navBar) ? e($titre_navBar) : 'PROFIL'; ?></title> 

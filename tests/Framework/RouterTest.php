@@ -1,6 +1,7 @@
 <?php
 namespace Tests\Framework;
 
+use Framework\Router;
 use GuzzleHttp\Psr7\Request;
 use PHPUnit\Framework\TestCase;
 

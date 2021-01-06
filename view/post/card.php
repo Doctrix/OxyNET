@@ -1,8 +1,8 @@
 <?php
-$categories = array_map(function ($categorie) use ($router) {
-    $url = $router->url('categorie', ['id' => $categorie->getID(), 'slug' => $categorie->getSlug()]);
+$categories = array_map(function ($category) use ($router) {
+    $url = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
     return <<<HTML
-<b><a href="{$url}">{$categorie->getName()}</a></b>
+<b><a href="{$url}">{$category->getName()}</a></b>
 HTML;
 }, $post->getCategories());
 ?>
@@ -10,7 +10,7 @@ HTML;
     <div class="card-body">
         <h5 class="card-title"><?= e($post->getTitle()) ?></h5>
         <p class="text-muted">
-            <?= $post->getDateDeCreation()->format('d F Y') ?>
+            <?= $post->getCreatedAt()->format('d F Y') ?>
             <?php if (!empty($post->getCategories())): ?>
             ::
             <?= implode(', ', $categories) ?>

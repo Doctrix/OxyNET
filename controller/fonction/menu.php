@@ -17,28 +17,27 @@ function nav_menu(string $linkClass = ''): string
 {
     return
     nav_item('a', 'href', '/', 'HOME', $linkClass).
-    nav_item('a', 'href', '/blog/categorie/jeux-video-1', 'GAMES', $linkClass).
-    nav_item('a', 'href', '/blog/categorie/serveur-2', 'SERVEUR', $linkClass).
+    nav_item('a', 'href', '/blog/category/jeux-video-1', 'GAMES', $linkClass).
+    nav_item('a', 'href', '/blog/category/serveur-2', 'SERVEUR', $linkClass).
     nav_item('a', 'href', '/login', 'Se Connecter', $linkClass);
 }
 
-function nav_menu_user(string $linkClass = '', string $linkClassUser = 'navbar-toggler navbar-nav mt-2 mt-lg-1 navbar-collapse', string $style = 'background:transparent; border:none;'): string
+function nav_menu_user(string $linkClass = '', string $linkClassAdv = 'navbar-toggler navbar-nav mt-2 mt-lg-1 navbar-collapse'): string
 {
     return
     nav_item('a', 'href', '/', 'HOME', $linkClass).
-    nav_item('a', 'href', '/profil', 'Mon profil', $linkClassUser).
-    nav_item('a', 'href', '/profil/dashboard', 'Mon tableau de bord', $linkClassUser).
-    nav_item('a', 'href', '/logout', 'Déconnexion', $linkClassUser);
-    /* nav_item("form method='post'", 'action', 'logout', "<button type='submit' class='$linkClassUser' style='$style'>Déco</button>", $linkClass); */
+    nav_item('a', 'href', '/profil', 'Mon profil', $linkClassAdv).
+    nav_item('a', 'href', '/profil/dashboard', 'Mon tableau de bord', $linkClassAdv).
+    nav_item('a', 'href', '/logout', 'Déconnexion', $linkClassAdv);
 }
 
-function nav_menu_admin(string $linkClass = '', string $linkClassAdmin = 'navbar-toggler navbar-nav mt-2 mt-lg-1 navbar-collapse', string $style = 'background:transparent; border:none;'): string
+function nav_menu_admin(string $linkClass = ''): string
 {
     return
-    nav_item('a', 'href', '/admin', 'Tableau de bord', $linkClassAdmin).
-    nav_item('a', 'href', '/admin/post', 'Articles', $linkClassAdmin).
-    nav_item('a', 'href', '/admin/categorie', 'Catégories', $linkClassAdmin).
-    nav_item('a', 'href', '/media', 'Média', $linkClassAdmin).
-    nav_item("form method='post'", 'action', 'logout', "<button type='submit' style='$style'>Déconnexion</button>",$linkClassAdmin);
+    nav_item('a', 'href', '/admin', 'Tableau de bord', $linkClass).
+    nav_item('a', 'href', '/admin/post', 'Articles', $linkClass).
+    nav_item('a', 'href', '/admin/category', 'Catégories', $linkClass).
+    nav_item('a', 'href', '/media', 'Média', $linkClass).
+    nav_item('a', 'href', '/logout', 'Deconnexion', $linkClass);
 }
 ?>

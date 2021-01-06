@@ -1,16 +1,16 @@
 <?php
 namespace Table;
 
-use Model\Categorie;
-use \PDO;
+use Model\Category;
+use PDO;
 
-final class CategorieTable extends Table {
+final class CategoryTable extends Table {
 
-    protected $table = 'categorie';
-    protected $class = Categorie::class;
+    protected $table = 'category';
+    protected $class = Category::class;
 
     /**
-     * @param Model\Classes\Post[] $posts
+     * @param Model\Post[] $posts
      */
     public function hydratePosts(array $posts): void
     {
@@ -21,26 +21,26 @@ final class CategorieTable extends Table {
         }
         $categories = $this->pdo
             ->query('SELECT c.*, ac.post_id
-                    FROM post_categorie ac
-                    JOIN categorie c ON c.id = ac.categorie_id
+                    FROM post_category ac
+                    JOIN category c ON c.id = ac.category_id
                     WHERE ac.post_id IN (' . implode(',', array_keys($postsByID)) . ')'
             )->fetchAll(PDO::FETCH_CLASS, $this->class);
-        foreach($categories as $categorie){
-            $postsByID[$categorie->getPostID()]->ajouterUneCategorie($categorie);
+        foreach($categories as $category){
+            $postsByID[$category->getPostID()]->addCategory($category);
         }
     }
 
-    public function all (): array
+    public function all(): array
     {  
         return $this->queryEtFetchAll("SELECT * FROM {$this->table} ORDER BY id DESC");
     }
 
-    public function list (): array
+    public function list(): array
     {
         $categories = $this->queryEtFetchAll("SELECT * FROM {$this->table} ORDER BY name ASC");
         $results = [];
-        foreach($categories as $categorie) {
-            $results[$categorie->getID()] = $categorie->getName();
+        foreach($categories as $category) {
+            $results[$category->getID()] = $category->getName();
 
         }
         return $results;

@@ -21,7 +21,7 @@ class User {
     /**
      * @var int
      */
-    public $role;
+    public $role_id;
 
     public function getUsername(): ?string
     {
@@ -47,12 +47,12 @@ class User {
         return $this;
     }
 
-    public function getId(): ?int
+    public function getID(): ?int
     {
         return $this->id;
     }
 
-    public function setId(int $id): self
+    public function setID(int $id): self
     {
         $this->id = $id;
 
@@ -61,12 +61,12 @@ class User {
 
     public function getRole(): ?int
     {
-        return $this->role;
+        return $this->role_id;
     }
 
     public function setRole(int $role): self
     {
-        $this->role = $role;
+        $this->role_id = $role;
 
         return $this;
     }

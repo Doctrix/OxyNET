@@ -1,32 +1,34 @@
 <?php
 
 use App\{ObjectHelper, Auth};
-use Table\{PostTable, CategorieTable};
+use Table\{PostTable, CategoryTable};
 use App\HTML\Form;
-use Server\ConfigDB;
 use App\Validators\PostValidator;
+use Server\Connection;
 
 if(Auth::$session['auth']) {
-    Auth::Verifier();
+    Auth::check();
     exit();
 }
 
-$pdo = ConfigDB::getDatabase();
+$pdo = Connection::getPDO();
 $postTable = new PostTable($pdo);
-$categorieTable = new CategorieTable($pdo);
-$categories = $categorieTable->list();
+$categoryTable = new CategoryTable($pdo);
+$categories = $categoryTable->list();
 $post = $postTable->find($params['id']);
-$categorieTable->hydratePosts([$post]);
+$categoryTable->hydratePosts([$post]);
+$titre_header = 'Modifier l\'article : '.e($post->getTitle());
+$titre_navBar = "Modifier l'article n° {$params['id']}";
 $success = false;
 
 $errors = [];
 
 if (!empty($_POST)) {
     $v = new PostValidator($_POST, $postTable, $post->getID(), $categories);
-    ObjectHelper::hydrate($post, $_POST, ['title','picture','content','slug','date_de_creation','extrait','url']);
+    ObjectHelper::hydrate($post, $_POST, ['title', 'picture_id', 'content', 'slug', 'created_at', 'excerpt', 'url']);
     if($v->validate()) {
         $pdo->beginTransaction();
-        $postTable->MajPost($post);
+        $postTable->updatePost($post);
         $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
         $pdo->commit();
         $categorieTable->hydratePosts([$post]);
@@ -36,9 +38,6 @@ if (!empty($_POST)) {
     }
 }
 $form = new Form($post, $errors);
-
-$titre_header = 'Modifier l\'article : '.e($post->getTitle());
-$titre_navBar = "Modifier l'article n° {$params['id']}";
 ?>
 
 <?php if ($success): ?>
@@ -47,7 +46,7 @@ $titre_navBar = "Modifier l'article n° {$params['id']}";
     </div>
 <?php endif ?>
 
-<?php if (isset($_GET['creer'])): ?>
+<?php if (isset($_GET['create'])): ?>
     <div class="alert alert-success">
         L'article a bien été créé
     </div>

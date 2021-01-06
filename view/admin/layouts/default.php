@@ -16,54 +16,78 @@
     <meta name="abstract" content="Ce site présente les nouveautées developper par OGS">
     <meta name="identifier-url" content="https://serveur.oxygames.fr/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="icon" href="<?= INC . DS . 'images' . DS . 'ico' . DS . 'favicon.ico' ?>">   
-    <link rel="stylesheet" href="<?= INC . DS . 'ccs' . DS . 'styles.css' ?>">
-    <link rel="stylesheet" href="<?= INC . DS . 'ccs' . DS . 'bootstrap.css' ?>"> 
+    <link rel="icon" href="<?= '../inc/image/ico/favicon.ico' ?>">
+    <link rel="stylesheet" type="text/css" href="<?= '../inc/css/bootstrap.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?= '../inc/css/styles.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?= '../inc/css/zoombox.css' ?>">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= INC . DS . 'ccs' . DS . 'zoombox.css' ?>" />
-    <title><?= isset($titre_navBar) ? e($titre_navBar) : 'Tous les articles'; ?></title> 
+    <title><?= isset($titre_navBar) ? e($titre_navBar) : 'Tous les articles'; ?></title>
 </head>
-<header>
-    <h1 class="titre text-center"><b><?= isset($titre_header) ? e($titre_header): 'Oxy'; ?></b></h1>           
-</header>        
 <body class="d-flex flex-column h-100">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="<?= BASE_URL ?>"><?= isset($titre_navBar) ? e($titre_navBar) : 'Accueil'; ?></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerPrincipal" aria-controls="navbarTogglerPrincipal" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerPrincipal">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <?= nav_menu_admin('nav-link'); ?>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Rechercher">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
-            </form>
-        </div>
-    </nav>             
-    <div class="container mt-4">
-        <?= $content ?>
+
+<header class="header mt-auto py-3 bg-dark">
+
+<aside>   
+    <div class="vertical-nav bg-dark" id="sidebar" role="group" aria-label="Button admin">     
+        <ul class="nav flex-column bg-white mb-0">
+        <?= nav_menu_admin('nav-link text-dark font-italic bg-light'); ?>
+        </ul>   
     </div>
-     <br clear="all">
-<footer class="bg-dark py-4 footer mt-auto">
+</aside>
+<aside>
+    <div class="mr-auto" style="text-align:right">
+        <button id="sidebarCollapse" type="button" class="btn btn-dark bg-dark rounded-pill shadow-sm px-5 mb-3"><small class="text-uppercase font-weight-bold">...</small></button>
+    </div>
+</aside>
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="<?= BASE_URL ?>"><?= isset($titre_navBar) ? e($titre_navBar) : 'Accueil'; ?></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerPrincipal" aria-controls="navbarTogglerPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerPrincipal">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <?= nav_menu_admin('nav-link navbar-toggler navbar-nav mt-2 mt-lg-1 navbar-collapse'); ?>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Rechercher">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+        </form>
+    </div>
+</nav> -->
+<h1 class="titre text-center"><b><?= isset($titre_header) ? e($titre_header): 'Oxy'; ?></b></h1>
+
+</header>
+
+
+
+<section class="page-content h-100" id="content" >
+    <article class="container btn-post">
+        <?= $content ?>
+    </article>
+</section>
+
+<footer class="footer mt-auto bg-dark">
+    <br clear="all">
     <div class="container">
         <strong class="">O</strong>xy<strong class="">G</strong>ène<strong class="">S</strong>tudio <a href="//oxygames.fr" target="_blank">[O.G.S]</a> en partenariat avec : <a href="//mifaconcept.fr" target="_blank">Mifa Concept</a>
         <p> Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME)) ?>ms</p> 
     </div>
 </footer>
-<!-- script -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/src/inc/js/zoombox.js"></script> 
+
+    <!-- script -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../inc/js/zoombox.js"></script>
     <script type="text/javascript"> 
-//<![CDATA[
-    $(function(){
-        $('a.zoombox').zoombox();
-    });
-//]]>
-</script>    
-</body>
+    //<![CDATA[
+        $(function(){
+            $('a.zoombox').zoombox();
+        });
+    //]]>
+    </script>
+    <script type="text/javascript" src="../inc/js/script.js"></script>
+
+    </body>
 </html>

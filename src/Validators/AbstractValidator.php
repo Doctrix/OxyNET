@@ -14,12 +14,12 @@ abstract class AbstractValidator {
         $this->validator = new Validator($data);
     }
 
-    public function validate (): bool
+    public function validate(): bool
     {
         return $this->validator->validate();
     }
 
-    public function errors (): array
+    public function errors(): array
     {
         return $this->validator->errors();
     }

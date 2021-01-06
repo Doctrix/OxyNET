@@ -28,7 +28,6 @@ define('CONFIG', CORE . DS . 'config');
 
 /** - INC */
 define('INC', PUB . DS . 'inc');
-
 /** - DATA */
 define('DATA', SRC . DS . 'Data');
 /** - IMAGES */
@@ -52,7 +51,7 @@ define('TESTHELP', TESTS . DS . 'Helpers');
 define('ADMIN', VIEWS . DS . 'admin');
 define('AUTH', VIEWS . DS . 'auth');
 define('BLOG', VIEWS . DS . 'blog');
-define('CATEGORIE', VIEWS . DS . 'categorie');
+define('CATEGORIE', VIEWS . DS . 'category');
 define('LAYOUTS', VIEWS . DS . 'layouts');
 define('MSG', VIEWS . DS . 'messagerie');
 define('POST', VIEWS . DS . 'post');

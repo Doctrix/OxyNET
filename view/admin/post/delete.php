@@ -1,17 +1,17 @@
 <?php
 
 use App\Auth;
-use Server\ConfigDB;
+use Server\Connection;
 use Table\PostTable;
 
 if(Auth::$session['auth']) {
-    Auth::Verifier();
+    Auth::check();
     exit();
 }
 
 $titre_header = $title = "Supprimer l'article n° {$params['id']}";
 
-$pdo = ConfigDB::getDatabase();
+$pdo = Connection::getPDO();
 $table = new PostTable($pdo);
-$table->supprimer($params['id']);
-header('Location: ' . $router->url('admin_post') . '?supprimer=1');
+$table->delete($params['id']);
+header('Location: ' . $router->url('admin_post') . '?delete=1');

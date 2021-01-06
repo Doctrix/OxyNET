@@ -27,7 +27,7 @@
         </div>
     </nav>             
     <div>
-       <?= $contenu; ?>
+       <?= $content; ?>
     </div> 
 <footer class="bg-dark py-4 footer mt-auto">
     <div class="container">

@@ -2,9 +2,9 @@
 
 namespace Tests\Helpers;
 
-use Model\Classes\User;
+use Model\User;
 
-use Model\Security\Voter;
+use Security\Voter;
 
 class AlwaysYesVoter implements Voter {
     public function canVote(string $permission, $subject = null): bool {

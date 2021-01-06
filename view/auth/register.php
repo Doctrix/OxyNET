@@ -5,7 +5,7 @@ use Server\ConfigDB;
 use Framework\App;
 
 $db = ConfigDB::getDatabase();
-$user = $db->query('SELECT * FROM utilisateur')->fetchAll();
+$user = $db->query('SELECT * FROM user')->fetchAll();
 
 if(!empty($_POST)) {
 
@@ -16,7 +16,7 @@ if(!empty($_POST)) {
     $validator->isAlpha('username', "Votre pseudo n'est pas valide (alphanumérique)");
     
     if ($validator->isValid()){
-        $validator->isUniq('username', $db, 'utilisateur', 'Ce pseudo est déja pris');
+        $validator->isUniq('username', $db, 'user', 'Ce pseudo est déja pris');
     }
 
     $validator->isEmail('email', "Votre email n'est pas valide");
@@ -35,7 +35,7 @@ if(!empty($_POST)) {
     if ($validator->isValid()) {
 
         $auth = new Auth($db,'auth');
-        $auth->register($db, $_POST['username'], $_POST['password'], $_POST['email'], $_POST['date_de_creation']);
+        $auth->register($db, $_POST['username'], $_POST['password'], $_POST['email'], $_POST['created_at']);
         Session::getInstance()->setSuccess('Un email de confirmation vous a été envoyé pour valider votre compte');
         App::redirect('login');
 
