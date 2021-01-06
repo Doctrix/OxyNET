@@ -341,3 +341,5 @@ healthchecksdb
 /vendor/
 
 composer.lock
+
+src/Data/compteur*
