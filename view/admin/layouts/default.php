@@ -30,13 +30,14 @@
 <body class="d-flex flex-column h-100">
 
 <header class="header mt-auto py-3 bg-dark">
-<h1 class="titre text-center"><b><?= isset($titre_header) ? e($titre_header): 'Oxy'; ?></b></h1>
-<aside>
-    <div class="mr-auto" style="text-align:right">
-        <button id="sidebarCollapse" type="button" class="btn btn-dark bg-dark rounded-pill shadow-sm px-5 mb-3"><small class="text-uppercase font-weight-bold">...</small></button>
-    </div>
-</aside>
+    <aside>
+        <div class="mr-auto" style="text-align:right">
+            <button id="sidebarCollapse" type="button" class="btn btn-dark bg-dark rounded-pill shadow-sm px-5 mb-3"><small class="text-uppercase font-weight-bold">...</small></button>
+        </div>
+    </aside>
 </header>
+
+<h1 class="titre text-center"><b><?= isset($titre_header) ? e($titre_header): 'Oxy'; ?></b></h1>
 
 <aside>   
     <div class="vertical-nav bg-dark" id="sidebar" role="group" aria-label="Button admin">     
@@ -46,6 +47,7 @@
         </ul>   
     </div>
 </aside>
+<p> Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME)) ?>ms</p>
 
 <section class="page-content h-100 btn-post" id="content" >
     <article class="container">
@@ -53,14 +55,6 @@
     </article>
 </section>
 
-<br clear="all">
-<footer class="footer mt-auto bg-dark">
-    <br clear="all">
-    <div class="container">
-        <strong class="">O</strong>xy<strong class="">G</strong>ène<strong class="">S</strong>tudio <a href="//oxygames.fr" target="_blank">[O.G.S]</a> en partenariat avec : <a href="//mifaconcept.fr" target="_blank">Mifa Concept</a>
-        <p> Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME)) ?>ms</p> 
-    </div>
-</footer>
 
     <!-- script -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -77,5 +71,8 @@
         });
     //]]>
     </script>
+<footer class="footer">
+</footer>
+
     </body>
 </html>

@@ -21,18 +21,13 @@ if (isset($_GET['delete'])): ?>
 <div class="alert alert-success">
     L'enregistrement à bien été supprimé
 </div>
-
 <?php endif ?>
-
-<h2><?= $title ?></h2>
-
-<p>
 <button onclick="history.go(-1);" class="btn btn-secondary" >Retour</button>
 <th>
     <a href="<?= $router->url('admin_post_new') ?>" class="btn btn-primary">Ajouter un article</a>
 </th>
-</p>
-
+<br clear="all">
+<br clear="all">
 <table class="table">
     <thead>
         <tr>

@@ -12,9 +12,9 @@ if(!empty($_FILES)) {
     $ext = strtolower(substr($img['name'], -3));
     $allow_ext = array('jpg','png','gif');
     if(in_array($ext,$allow_ext)) {
-        move_uploaded_file($img['tmp_name'],IMAGES.DS.$img['name']);
-        Picture::creerMin(IMAGES.DS.$img['name'],IMAGES.DS.'thumbnail',$img['name'],215,112);
-        Picture::ConvertirJPG(IMAGES.DS.$img['name'],IMAGES.DS.'thumbnail',$img['name'],215,112);
+        move_uploaded_file($img['tmp_name'], IMAGES  .DS . $img['name']);
+        Picture::creerMin(IMAGES.DS.$img['name'], IMAGES . DS . 'thumbnail', $img['name'], 215, 112);
+        Picture::ConvertirJPG(IMAGES.DS.$img['name'], IMAGES . DS . 'thumbnail', $img['name'], 215, 112);
     }
     else {
         setErreur("Votre fichier n'est pas une image");
@@ -29,50 +29,27 @@ echo getFlash();
 </form>
 
 <?php
-
-$image = IMAGES.DS;
 $imageThumb = IMAGES.DS.'thumbnail';
-$imagePost = IMAGES.DS.'posts';
-
 $dir = opendir($imageThumb);
-$dir2 = opendir($imagePost);
-$dir3 = opendir($image);
-$images = readdir($dir3);
-
+$images = readdir($dir);
 while ($file = readdir($dir)) {
 $allow_ext = array('jpg','png','gif');
 $ext = strtolower(substr($file, -3));
 if(in_array($ext, $allow_ext)) {
-
-while ($files = readdir($dir2)) {
-$allow_ext2 = array('jpg','png','gif');
-$ext2 = strtolower(substr($files, -3));
-if(in_array($ext2, $allow_ext2)) {
-
 ?>
-
-<br>
 
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>#</th>
-            <th>Titre</th>
             <th>Image</th>
-            <th> </th>
+            <th>Actions </th>
         </tr>
     </thead>
     <tbody>
     <tr>
         <td>
-        #<?= $images ?>
-        </td>
-        <td>
-        <a href="<?= IMAGES . DS . $file ?>" rel="zoombox[galerie]" ><?= $file ?></a>
-        </td>
-        <td>
-        <a href="<?= IMAGES . DS . $file ?>" rel="zoombox[galerie]">
-            <img src="<?= IMAGES . DS . 'thumbnail'.DS.$file ?>"/>
+        <a href="<?= 'inc/img' . DS . $file; ?>" rel="zoombox[galerie]" alt="<?= 'inc/img/thumbnail'. DS. $file; ?>">
+            <img src="<?= 'inc/img/thumbnail'. DS. $file; ?>"/>
         </a>
         </td>
         <td>
@@ -87,7 +64,6 @@ if(in_array($ext2, $allow_ext2)) {
     </tr>
 </tbody>
 </table>
-
-<br clear="all">
 <?php
-}}}}
+    }
+}
