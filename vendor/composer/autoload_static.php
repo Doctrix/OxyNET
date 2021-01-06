@@ -22,7 +22,7 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '6f2c5977e422114bbaec553e7c77ee8b' => __DIR__ . '/..' . '/http-interop/response-sender/src/functions.php',
-        'b91789a2344988a4189eeedb082d926b' => __DIR__ . '/../..' . '/controller/fonction/helpers.php',
+        'fed98b3799a6beac50389f21f46b2b1e' => __DIR__ . '/../..' . '/app/element/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -41,12 +41,14 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         ),
         'W' => 
         array (
+            'Widget\\' => 7,
             'Whoops\\' => 7,
             'Webmozart\\Assert\\' => 17,
         ),
         'V' => 
         array (
             'Valitron\\' => 9,
+            'Validator\\' => 10,
         ),
         'T' => 
         array (
@@ -94,13 +96,16 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             'Joli\\JoliNotif\\' => 15,
         ),
+        'H' => 
+        array (
+            'Helper\\' => 7,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
         ),
         'F' => 
         array (
-            'Framework\\' => 10,
             'Fig\\Http\\Message\\' => 17,
             'FastRoute\\' => 10,
             'Faker\\' => 6,
@@ -113,6 +118,7 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         'C' => 
         array (
             'Core\\' => 5,
+            'Controller\\' => 11,
             'Clue\\React\\Utf8\\' => 16,
             'Clue\\React\\Term\\' => 16,
             'Clue\\React\\Stdio\\' => 17,
@@ -143,6 +149,10 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/..' . '/yosymfony/resource-watcher/src',
         ),
+        'Widget\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/widget',
+        ),
         'Whoops\\' => 
         array (
             0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
@@ -155,13 +165,17 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/..' . '/vlucas/valitron/src/Valitron',
         ),
+        'Validator\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/validator',
+        ),
         'Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
         ),
         'Table\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/Table',
+            0 => __DIR__ . '/../..' . '/app/table',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
@@ -221,11 +235,11 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         ),
         'Server\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/Server',
+            0 => __DIR__ . '/../..' . '/app/server',
         ),
         'Security\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/Security',
+            0 => __DIR__ . '/../..' . '/app/security',
         ),
         'React\\Stream\\' => 
         array (
@@ -262,19 +276,19 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         ),
         'Model\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/Model',
+            0 => __DIR__ . '/../..' . '/app/model',
         ),
         'Joli\\JoliNotif\\' => 
         array (
             0 => __DIR__ . '/..' . '/jolicode/jolinotif/src',
         ),
+        'Helper\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/helper',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
-        ),
-        'Framework\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Framework',
         ),
         'Fig\\Http\\Message\\' => 
         array (
@@ -300,6 +314,10 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/../..' . '/core',
         ),
+        'Controller\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/controller',
+        ),
         'Clue\\React\\Utf8\\' => 
         array (
             0 => __DIR__ . '/..' . '/clue/utf8-react/src',
@@ -314,7 +332,7 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         ),
         'App\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 

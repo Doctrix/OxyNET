@@ -1,6 +1,5 @@
 <?php
 
-use Server\ConfigDB;
 use Server\Connection;
 use Table\PostTable;
 

@@ -1,6 +1,6 @@
 <?php
 
-use App\Auth;
+use Controller\Auth;
 use Server\Connection;
 
 Auth::check();

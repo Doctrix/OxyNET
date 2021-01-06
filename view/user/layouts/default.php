@@ -2,7 +2,7 @@
 <html lang="fr" class="h-100">
 <head>
     <meta charset="utf-8" />
-    <meta name="publisher" content="OxyServer">
+    <meta name="publisher" content="OxyNET">
     <meta name="keywords" lang="fr" content="oxy,oxygames">
     <meta name="reply-to" content="contact@mifaconcept.fr">
     <meta name="category" content="internet">
@@ -10,15 +10,16 @@
     <meta name="distribution" content="global">
     <meta name="Description" content="Serveur OxyGameS">
     <meta name="revisit-after" content="3 day">
-    <meta name="author" lang="fr" content="Bertrand PRIVAT">
+    <meta name="author" lang="fr" content="DOCtriX">
     <meta name="copyright" content="oxygames">
     <meta name="generator" content="Microsoft Visual Studio, Visual Studio Code">
     <meta name="abstract" content="Ce site présente les nouveautées developper par OGS">
     <meta name="identifier-url" content="https://serveur.oxygames.fr/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="icon" href="<?= IMAGES . DS . 'ico' . DS . 'favicon.ico'; ?>">   
-    <link rel="stylesheet" href="<?= INC . DS . 'ccs' . DS . 'styles.css'; ?>">
-    <link rel="stylesheet" href="<?= INC . DS . 'ccs' . DS . 'bootstrap.css'; ?>"> 
+    <link rel="icon" href="<?= '/inc/img/ico/favicon.ico' ?>">
+    <link rel="stylesheet" type="text/css" href="/inc/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/inc/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/inc/css/zoombox.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title><?= isset($titre_navBar) ? e($titre_navBar) : 'PROFIL'; ?></title> 
@@ -54,9 +55,9 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="<?= SITE_URL.DS.'src'.DS.'inc'.DS.'js'.DS; ?>script.js" type="text/javascript"></script>
-<script src="<?= SITE_URL.DS.'src'.DS.'inc'.DS.'js'.DS; ?>jquery.js" type="text/javascript"></script>
-<script src="<?= SITE_URL.DS.'src'.DS.'inc'.DS.'js'.DS; ?>bootstrap.js" type="text/javascript"></script>
+<script src="/inc/js/script.js" type="text/javascript"></script>
+<script src="/inc/js/jquery.js" type="text/javascript"></script>
+<script src="/inc/js/bootstrap.js" type="text/javascript"></script>
 <?php if(isset($script)): ?><?= $script; ?><?php endif; ?>
 </body>
 </html>

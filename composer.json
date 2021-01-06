@@ -8,15 +8,18 @@
     }
 ],
 "autoload": {
-    "files":["controller/fonction/helpers.php"],
+    "files":["app/element/helpers.php"],
     "psr-4": {
         "Core\\": "core/",
-        "App\\": "src/",
-        "Framework\\": "src/Framework/",
-        "Model\\": "src/Model/",
-        "Security\\": "src/Security/",
-        "Server\\": "src/Server/",
-        "Table\\": "src/Table/",
+        "App\\": "app/",
+        "Controller\\": "app/controller/",
+        "Helper\\": "app/helper/",
+        "Model\\": "app/model/",
+        "Security\\": "app/security/",
+        "Server\\": "app/server/",
+        "Table\\": "app/table/",
+        "Validator\\": "app/validator/",
+        "Widget\\": "app/widget/",
         "Tests\\": "tests/"
     }
 },

@@ -1,9 +1,9 @@
 <?php
 
-use App\Auth;
+use Controller\Auth;
 use App\HTML\Form;
 use Model\User;
-use Server\ConfigDB;
+use Server\Connection;
 use Table\Exception\NotFoundException;
 use Table\UserTable;
 
@@ -22,7 +22,7 @@ if (!empty($_POST)) {
     $errors['password'] = 'Identifiant ou mot de passe incorrect';
 
     if (!empty($_POST['username']) && !empty($_POST['password'])) {
-        $table = new UserTable(ConfigDB::getDatabase());
+        $table = new UserTable(Connection::getPDO());
         try {
             $u = $table->findForUsername($_POST['username']);
             if (password_verify($_POST['password'], $u->getPassword()) === true) {
@@ -49,13 +49,11 @@ $form = new Form($user, $errors);
         <div class="text-center"><button class="btn btn-primary" type="submit">Se connecter</button></div>
     </div>
 </form>
-<div class="text-center">
-
+<br clear="all">
 <!-- Button Facebook -->
+<div class="text-center">
 <div id="fb-root"></div>
-
 <?php require_once INC.DS.'js/facebookConnect.js'; ?>
-
     <div class="fb-login-button" 
     data-size="large" 
     data-button-type="continue_with" 

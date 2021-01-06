@@ -1,8 +1,8 @@
 <?php
 
-use App\{Auth, GuestBook, Message};
+use Controller\{Auth, GuestBook, Message};
 
-Auth::Verifier();
+Auth::check();
 
 $titre_header = "Boite à message";
 $titre_navBar = "Ecris ton message";

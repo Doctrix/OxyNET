@@ -1,6 +1,6 @@
 <?php
 
-use App\Auth;
+use Controller\Auth;
 use Server\Connection;
 
 $titre_header = $titre_navBar = 'Tableau de bord';
@@ -10,7 +10,7 @@ if(Auth::$session['auth']) {
     exit();
 }
 
-require FONCTION . DS . 'compteur.php';
+require ELEM . DS . 'compteur.php';
 
 $pdo = Connection::getPDO();
 $user = $pdo->query("SELECT * FROM user");

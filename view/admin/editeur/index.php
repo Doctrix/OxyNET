@@ -7,10 +7,10 @@
  * Release under MIT license
  */
 
-use App\Auth;
+use Controller\Auth;
 
 if(Auth::$session['auth']) {
-    Auth::Verifier();
+    Auth::check();
     exit();
 }
 

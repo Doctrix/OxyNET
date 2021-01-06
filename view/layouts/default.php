@@ -1,14 +1,9 @@
 <?php
-
-use App\Widgets\Social;
-
+use Widget\Social;
 $widgets = new Social();
-
-require_once FONCTION . DS . 'compteur.php';
-
+require_once ELEM . DS . 'compteur.php';
 ajouter_une_vue();
 $vues = nbr_de_vues();
-
 require_once ELEM . DS . 'compteur_if.php';
 ?>
 
@@ -16,7 +11,7 @@ require_once ELEM . DS . 'compteur_if.php';
 <html lang="fr" class="h-100">
 <head>
     <meta charset="utf-8" />
-    <meta name="publisher" content="OxyNet">
+    <meta name="publisher" content="OxyNET">
     <meta name="keywords" lang="fr" content="oxy,oxygames">
     <meta name="reply-to" content="contact@oxygames.fr">
     <meta name="category" content="internet">
@@ -30,11 +25,14 @@ require_once ELEM . DS . 'compteur_if.php';
     <meta name="abstract" content="Ce site présente les nouveautées developper par OGS">
     <meta name="identifier-url" content="https://serveur.oxygames.fr/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="icon" href="<?= INC . DS . 'images' . DS . 'ico' . DS . 'favicon.ico'; ?>">
-    <link rel="stylesheet" href="<?= INC . DS . 'ccs' . DS . 'styles.css'; ?>">
-    <link rel="stylesheet" href="<?= INC . DS . 'ccs' . DS . 'bootstrap.css'; ?>">
+    <link rel="icon" href="<?= '/inc/img/ico/favicon.ico' ?>">
+    <link rel="stylesheet" type="text/css" href="<?= '/inc/css/bootstrap.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?= '/inc/css/styles.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?= '/inc/css/zoombox.css' ?>">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <title><?= isset($titre_navBar) ? e($titre_navBar) : 'Oxy SERVEUR'; ?></title> 
+    <title>
+        <?= isset($titre_navBar) ? e($titre_navBar) : 'OxyNET'; ?>
+    </title> 
 </head>
 <header>
     <h1 class="titre text-center"><b><?= isset($titre_header) ? e($titre_header): 'Oxy'; ?></b></h1>           
@@ -72,6 +70,9 @@ require_once ELEM . DS . 'compteur_if.php';
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script data-ad-client="ca-pub-2314966356420014" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="/inc/js/script.js" type="text/javascript"></script>
+<script src="/inc/js/jquery.js" type="text/javascript"></script>
+<script src="/inc/js/bootstrap.js" type="text/javascript"></script>
 <?php if(isset($script)): ?><?= $script; ?><?php endif ?>
 </body>
 </html>

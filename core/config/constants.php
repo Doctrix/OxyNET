@@ -7,42 +7,38 @@ define('BASE_URL', '/');
 define('SITE_URL', BASE_URL . DS . $_SERVER['SCRIPT_NAME']);
 
 /** ROOT */
-define('CONTROLLER', ROOT . DS . 'controller');
 define('CORE', ROOT . DS . 'core');
 define('PUB', ROOT . DS . 'public');
-define('SRC', ROOT . DS . 'src');
+define('SRC', ROOT . DS . 'app');
 define('TESTS', ROOT . DS . 'tests');
 define('VENDOR', ROOT . DS . 'vendor');
 define('VIEWS', ROOT . DS . 'view');
 
-/** - FONCTION */
-define('FONCTION', CONTROLLER . DS . 'fonction');
-/** - ELEMENT */
-define('ELEM', CONTROLLER . DS . 'element');
-define('ELEM_COMM', ELEM . DS . 'commentaire');
-define('ELEM_CONN', ELEM . DS . 'connexion');
-
 /** - LIBRARY */
-define('LIB', CORE . DS . 'lib');
 define('CONFIG', CORE . DS . 'config');
 
 /** - INC */
 define('INC', PUB . DS . 'inc');
 /** - DATA */
-define('DATA', SRC . DS . 'Data');
+define('DATA', PUB . DS . 'data');
 /** - IMAGES */
-define('IMAGES', DATA . DS . 'img');
+define('IMAGES', INC . DS . 'img');
+
 /** - FRAMEWORK */
-define('FRAMEWORK', SRC . DS . 'Framework');
-define('ROUTER', FRAMEWORK . DS . 'Router');
-define('HELPER', SRC . DS . 'Helpers');
+define('CONTROLLER', SRC . DS . 'controller');
+define('ELEM', SRC . DS . 'element');
+define('HELPER', SRC . DS . 'helper');
 define('HTML', SRC . DS . 'HTML');
-define('MODEL', SRC . DS . 'Model');
-define('SECURITY', SRC . DS . 'Security');
-define('SERVER', SRC . DS . 'Server');
-define('TABLE', SRC . DS . 'Table');
-define('VALIDATOR', SRC . DS . 'Validators');
-define('WIDGET', SRC . DS . 'Widgets');
+define('MODEL', SRC . DS . 'Mmdel');
+define('SECURITY', SRC . DS . 'security');
+define('SERVER', SRC . DS . 'server');
+define('TABLE', SRC . DS . 'table');
+define('VALIDATOR', SRC . DS . 'validator');
+define('WIDGET', SRC . DS . 'widgets');
+
+/** - ELEMENT */
+define('ELEM_COMM', ELEM . DS . 'commentaire');
+define('ELEM_CONN', ELEM . DS . 'connexion');
 
 /** - TEST */
 define('TESTHELP', TESTS . DS . 'Helpers');

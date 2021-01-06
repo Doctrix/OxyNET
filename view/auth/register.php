@@ -1,17 +1,14 @@
 <?php
 
-use App\{Auth,Session,Validator};
-use Server\ConfigDB;
-use Framework\App;
+use Controller\{Auth, Session, Validator, App};
+use Server\Connection;
 
-$db = ConfigDB::getDatabase();
+$db = Connection::getPDO();
 $user = $db->query('SELECT * FROM user')->fetchAll();
 
 if(!empty($_POST)) {
 
     $errors = array();
-
-    $db =  ConfigDB::getDatabase();
     $validator = new Validator($_POST);
     $validator->isAlpha('username', "Votre pseudo n'est pas valide (alphanumérique)");
     

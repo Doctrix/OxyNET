@@ -1,10 +1,9 @@
 <?php
-use Server\ConfigDB;
+use Server\Connection;
 
-require CONFIG . DS . 'constants.php';
 require VENDOR . DS . 'autoload.php';
 
-$pdo = ConfigDB::getDatabase();
+$pdo = Connection::getPDO();
 
 $faker = Faker\Factory::create('fr_FR');
 

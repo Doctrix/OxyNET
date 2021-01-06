@@ -1,6 +1,6 @@
 <th>
 <button onclick="history.go(-1);" class="btn btn-secondary" >Retour</button>
-<a href="<?= $router->url('admin_categorie') ?>" class="btn btn-light">Tous les categories</a>
+<a href="<?= $router->url('admin_category') ?>" class="btn btn-light">Tous les categories</a>
 </th> 
 <form action="#" Method="POST">
     <?= $form->input('name','Nom'); ?>

@@ -30,7 +30,7 @@ $titre_navBar = 'Article';
                 if ($k > 0):
                     echo ' - ';
                 endif;
-                $category_url = $router->url('categorie', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
+                $category_url = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
                 ?><a href="<?= $category_url ?>"><?= e($category->getName()) ?></a>
             <?php endforeach ?>
             </b>
@@ -39,7 +39,7 @@ $titre_navBar = 'Article';
 </nav>
 <p><?= $post->getContent() ?></p>
 <p><a href="<?= e($post->getUrl()) ?>" class="btn btn-info" target="_blank">En savoir plus ...</a></p>
-<?php if($_SESSION['admin'] = true)
+<?php if($_SESSION['auth']['admin']=true)
 {echo  <<<HTML
 <a href="{$router->url('admin_post_edit', ['id' => $post->getID()])}" class="btn btn-info" target="_blank">Modifier</a>
 HTML;

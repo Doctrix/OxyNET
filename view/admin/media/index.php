@@ -1,6 +1,6 @@
 <?php
 
-use App\{Auth, Picture};
+use Controller\{Auth, Picture};
 
 if(Auth::$session['auth']) {
     Auth::check();

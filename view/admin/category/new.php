@@ -1,9 +1,9 @@
 <?php
 
-use App\{ObjectHelper, Auth};
+use Controller\{ObjectHelper, Auth};
 use Table\CategoryTable;
 use App\HTML\Form;
-use App\Validators\CategoryValidator;
+use Validator\CategoryValidator;
 use Model\Category;
 use Server\Connection;
 

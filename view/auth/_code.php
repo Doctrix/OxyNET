@@ -1,7 +1,7 @@
 <?php
 
 use App\HTML\Form;
-use Server\ConfigDB;
+use Server\Connection;
 use Model\User;
 use Table\Exception\NotFoundException;
 use Table\UserTable;
@@ -19,7 +19,7 @@ if(!empty($_POST)) {
     $errors['password'] = 'Identifiant ou mot de passe incorrect';
 
     if (!empty($_POST['username']) && !empty($_POST['password'])) {
-        $table = new UserTable(ConfigDB::getDatabase());
+        $table = new UserTable(Connection::getPDO());
         try {
             $u = $table->findForUsername($_POST['username']);
             if (password_verify($_POST['password'], $u->getPassword()) === true) {

@@ -1,6 +1,6 @@
 <?php
 
-use App\Auth;
+use Controller\Auth;
 use Model\User;
 use Server\Connection;
 
@@ -19,5 +19,5 @@ $afficher_profil = $afficher_profil->fetch();
 $titre_header = 'Tableau de bord de ' . $afficher_profil->username;
 $titre_navBar = $afficher_profil->name .' '. $afficher_profil->username; 
 ?>
-<p>image : <img src="<?= DATA . DS . 'img\OxyGames.png'; ?>" alt=""></p>
+<p>image : <img src="<?= IMAGES . DS . 'OxyGames.png'; ?>" alt=""></p>
 <p>texte : </p>

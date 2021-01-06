@@ -13,7 +13,7 @@ if (isset($_GET['page']) && $_GET['page'] === '1') {
     exit();
 }
 
-$router = new Framework\App(VIEWS);
+$router = new Controller\App(VIEWS);
 $router
     ->get('/', 'post/index', 'home')
     ->get('/blog', 'blog/index', 'blog')

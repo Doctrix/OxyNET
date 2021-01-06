@@ -1,9 +1,9 @@
 <?php
 
-use App\{ObjectHelper, Auth, Picture};
+use Controller\{ObjectHelper, Auth, Picture};
 use Table\{PostTable, CategoryTable};
 use App\HTML\Form;
-use App\Validators\PostValidator;
+use Validator\PostValidator;
 use Model\Post;
 use Server\Connection;
 

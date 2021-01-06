@@ -1,6 +1,5 @@
 <?php
-
-use Server\ConfigDB;
+use Server\Connection;
 use Table\{PostTable, CategoryTable};
 
 $titre_navBar = 'Catégorie';
@@ -8,7 +7,7 @@ $titre_navBar = 'Catégorie';
 $id = (int)$params['id'];
 $slug = $params['slug'];
 
-$pdo = ConfigDB::getDatabase();
+$pdo = Connection::getPDO();
 $category = (new CategoryTable($pdo))->find($id);
 
 $titre_header = "{$category->getName()}";

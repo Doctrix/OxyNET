@@ -1,12 +1,12 @@
 <?php
 namespace Tests\Framework;
-use Framework\App;
+use Controller\Router;
 use GuzzleHttp\Psr7\ServerRequest;
 use PHPUnit\Framework\TestCase;
 
 class AppTest extends TestCase {
     public function testRedirectTrailingSlash() {
-        $app = new App(VIEWS);
+        $app = new Router(VIEWS);
         $request = new ServerRequest('GET','/azerty/');
         $response = $app->run($request);
         $this->assertContains('/azerty', $response->getHeader('Location'));
@@ -14,7 +14,7 @@ class AppTest extends TestCase {
     }
 
     public function testBlog() {
-        $app = new App(VIEWS);
+        $app = new Router(VIEWS);
         $request = new ServerRequest('GET', '/blog');
         $response = $app->run($request);
         $this->assertContains('<h1>Bienvenue sur le blog</h1>', $this->response->getBody());
@@ -22,7 +22,7 @@ class AppTest extends TestCase {
     }
 
     public function testError404() {
-        $app = new App(VIEWS);
+        $app = new Router(VIEWS);
         $request = new ServerRequest('GET', '/aze');
         $response = $app->run($request);
         $this->assertContains('<h1>Erreur 404</h1>', $this->response->getBody());

@@ -342,4 +342,4 @@ healthchecksdb
 
 composer.lock
 
-src/Data/compteur*
+public/data/

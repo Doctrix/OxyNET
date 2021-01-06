@@ -1,9 +1,9 @@
 <?php
 
-use Server\ConfigDB;
+use Server\Connection;
 use Table\PostTable;
 
-$pdo = ConfigDB::getDatabase();
+$pdo = Connection::getPDO();
 $table = new PostTable($pdo);
 $link = $router->url('blog');
 [$posts, $pagination] = $table->findPaginated();

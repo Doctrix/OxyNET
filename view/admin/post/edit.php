@@ -1,9 +1,9 @@
 <?php
 
-use App\{ObjectHelper, Auth};
+use Controller\{ObjectHelper, Auth};
 use Table\{PostTable, CategoryTable};
 use App\HTML\Form;
-use App\Validators\PostValidator;
+use Validator\PostValidator;
 use Server\Connection;
 
 if(Auth::$session['auth']) {
@@ -17,8 +17,10 @@ $categoryTable = new CategoryTable($pdo);
 $categories = $categoryTable->list();
 $post = $postTable->find($params['id']);
 $categoryTable->hydratePosts([$post]);
+
 $titre_header = 'Modifier l\'article : '.e($post->getTitle());
 $titre_navBar = "Modifier l'article n° {$params['id']}";
+
 $success = false;
 
 $errors = [];

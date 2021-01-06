@@ -1,12 +1,12 @@
 <?php
 
-use Server\ConfigDB;
-use Table\{PostTable,CategoryTable};
+use Server\Connection;
+use Table\{PostTable, CategoryTable};
 
 $id = (int)$params['id'];
 $slug = $params['slug'];
 
-$pdo = ConfigDB::getDatabase();
+$pdo = Connection::getPDO();
 $post = (new PostTable($pdo))->find($id);
 (new CategoryTable($pdo))->hydratePosts([$post]);
 
