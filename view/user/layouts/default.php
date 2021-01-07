@@ -52,6 +52,6 @@
     </div>
 </footer>
 <!-- script -->
-<?= require_once INC . DS . 'js' . DS .  'scripts.php'; ?> 
+<?php require_once(INC . DS . 'js' . DS .  'scripts.php'); ?> 
 </body>
 </html>

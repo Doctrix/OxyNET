@@ -12,7 +12,7 @@
 </form>
 <div class="text-center">
 <div id="fb-root"></div>
-<?php require_once INC.DS.'js/facebookConnect.js'; ?>
+<?php require_once(INC.DS.'js/facebookConnect.js'); ?>
     <div class="fb-login-button" 
     data-size="large" 
     data-button-type="continue_with" 

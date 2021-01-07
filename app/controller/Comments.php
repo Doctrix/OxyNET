@@ -10,4 +10,3 @@ foreach($comments as $c => $comment){
         unset($comments[$c]);
     }
 }
-?>

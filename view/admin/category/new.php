@@ -45,4 +45,4 @@ $titre_navBar = 'Créer une nouvelle catégorie';
     </div>
 <?php endif ?>
 
-<?php require('_form.php') ?>
+<?php require_once('_form.php') ?>

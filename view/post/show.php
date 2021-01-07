@@ -1,5 +1,6 @@
 <?php
 
+use App\HTML\Form;
 use Server\Connection;
 use Table\{PostTable,CategoryTable};
 
@@ -12,6 +13,7 @@ $post = (new PostTable($pdo))->find($id);
 
 $titre_header = "{$post->getTitle()}";
 $titre_navBar = 'Article';
+$errors = [];
 
 if($post->getSlug() !== $slug){
     $url = $router->url('post', ['slug' => $post->getSlug(), 'id' => $id]);
@@ -19,7 +21,7 @@ if($post->getSlug() !== $slug){
     header('Location: ' . $url);
 }
 ?>
-<header>
+<header class="card-body card-title">
     <h1><b>Article : </b><?= e($post->getTitle()) ?></h1>
 </header>
 
@@ -42,26 +44,32 @@ if($post->getSlug() !== $slug){
             </li>
         </ol>
     </nav>
-<div class="card card-body card-title">
+<div class="card border-dark">
     <?= $post->getContent() ?>
-</div>
-</article>
-
 <!-- Bouton -->
 <p><a href="<?= e($post->getUrl()) ?>" class="btn btn-info" target="_blank">En savoir plus ...</a></p>
-
+</div>
+</article>
 <?php if($_SESSION['auth']['admin']==true)
 {echo  <<<HTML
 <a href="{$router->url('admin_post_edit', ['id' => $post->getID()])}" class="btn btn-info" target="_blank">Modifier</a>
 HTML;
 }
 ?>
-
 </section>
-
+<br>
 <footer>
-    <div class="card card-body card-title bg-dark text-light">
-  <h2><?= require_once ELEM . DS . 'comments.php'; 
-count($comments); ?> Commentaires</h2> 
+<?php 
+require_once(CONTROLLER . DS . 'Comments.php');
+foreach($comments as $comment):
+require_once('comment.php');
+endforeach;
+$form = new Form($post, $errors);
+if (!empty($errors)):
+?>
+<div class="alert alert-danger">
+    L'article n'a pas pu être enregistré, merci de corriger vos erreurs
 </div>
-</footer>
+<?php endif ?>
+<br>
+<?php require_once('_comment_form.php') ?>

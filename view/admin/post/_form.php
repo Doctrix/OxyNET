@@ -4,7 +4,7 @@
 <br clear="all">
 <br clear="all">
 
-    <form action="#" Method="POST">
+    <form action="#" method="post">
         <?= $form->picture('picture_id', 'Image a la une'); ?>
         <?= $form->input('title', 'Titre'); ?>
         <?= $form->input('slug', 'Slug'); ?>

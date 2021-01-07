@@ -35,10 +35,9 @@ require_once ELEM . DS . 'compteur_if.php';
         <?= isset($titre_navBar) ? e($titre_navBar) : 'OxyNET'; ?>
     </title> 
 </head>
-<header>
-    <h1 class="titre text-center"><b><?= isset($titre_header) ? e($titre_header): 'Oxy'; ?></b></h1>           
-</header>        
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column">
+<header class="header mt-auto py-3">
+    <h1 class="titre text-center"><b><?= isset($titre_header) ? e($titre_header): 'Oxy'; ?></b></h1>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="<?= BASE_URL ?>"><?= isset($titre_navBar) ? e($titre_navBar) : 'Accueil'; ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerPrincipal" aria-controls="navbarTogglerPrincipal" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,11 +52,14 @@ require_once ELEM . DS . 'compteur_if.php';
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
             </form>
         </div>
-    </nav>             
-    <div class="container mt-4">
+    </nav>
+</header>
+
+    <div class="container h-100 mt-4">
         <?= $content ?>
     </div>
     <br clear="all">
+
 <footer class="bg-dark py-4 footer mt-auto">
     <div class="container">   
     <strong style="color:yellow">O</strong>xy<strong style="color:yellow">G</strong>ène<strong style="color:yellow">S</strong>tudio <a href="//oxygames.fr" target="_blank" style="color:yellow">[O.G.S]</a> en partenariat avec : <a href="//mifaconcept.fr" target="_blank" style="color:green">Mifa Concept</a> | Crée avec <a href="https://github.com/Doctrix/OxyNET" target="_blank" style="color:yellow">OxyNET</a> v1.0
@@ -65,6 +67,6 @@ require_once ELEM . DS . 'compteur_if.php';
     </div>
 </footer>
 <!-- script -->
-<?= require_once INC . DS . 'js' . DS .  'scripts.php'; ?> 
+<?php require(INC . DS . 'js' . DS .  'scripts.php'); ?> 
     </body>
 </html>

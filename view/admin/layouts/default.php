@@ -38,7 +38,7 @@
             </ul>   
         </div>
     </aside>
-    <section class="page-content h-100" id="content" >
+    <section class="page-content h-100 mt-4" id="content" >
         <article class="container mt-4">
             <h1 class="titre text-center"><b><?= isset($titre_header) ? e($titre_header): 'Oxy'; ?></b></h1>
             <?= $content ?>
@@ -47,6 +47,6 @@
             </footer>
         </article>
     </section>
-    <?= require_once INC . DS . 'js' . DS .  'scripts.php'; ?> 
+    <?php require(INC . DS . 'js' . DS .  'scripts.php'); ?> 
     </body>
 </html>

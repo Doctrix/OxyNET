@@ -62,7 +62,7 @@ if (isset($_GET['delete'])): ?>
             </form>
         </td>
     </tr>
-    <?php endforeach ?>
+    <?php endforeach; ?>
     </tbody>
 </table>
 
