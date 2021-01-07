@@ -86,6 +86,7 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'Prophecy\\' => 9,
+            'Plugins\\' => 8,
             'PhpParser\\' => 10,
         ),
         'M' => 
@@ -119,6 +120,7 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             'Core\\' => 5,
             'Controller\\' => 11,
+            'Config\\' => 7,
             'Clue\\React\\Utf8\\' => 16,
             'Clue\\React\\Term\\' => 16,
             'Clue\\React\\Stdio\\' => 17,
@@ -270,6 +272,10 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
         ),
+        'Plugins\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/core/plugins',
+        ),
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
@@ -317,6 +323,10 @@ class ComposerStaticInit9e8b1495f3cc2fa70e179a246de9c1ba
         'Controller\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app/controller',
+        ),
+        'Config\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/core/config',
         ),
         'Clue\\React\\Utf8\\' => 
         array (

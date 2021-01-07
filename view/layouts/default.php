@@ -25,11 +25,12 @@ require_once ELEM . DS . 'compteur_if.php';
     <meta name="abstract" content="Ce site présente les nouveautées developper par OGS">
     <meta name="identifier-url" content="https://serveur.oxygames.fr/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="icon" href="<?= '/inc/img/ico/favicon.ico' ?>">
-    <link rel="stylesheet" type="text/css" href="<?= '/inc/css/bootstrap.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?= '/inc/css/styles.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?= '/inc/css/zoombox.css' ?>">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link href="<?= '/inc/img/ico/favicon.ico' ?>" rel="icon">
+    <link href="/inc/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/inc/css/zoombox.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="/inc/css/styles.css" rel="stylesheet" type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
     <title>
         <?= isset($titre_navBar) ? e($titre_navBar) : 'OxyNET'; ?>
     </title> 
@@ -64,15 +65,6 @@ require_once ELEM . DS . 'compteur_if.php';
     </div>
 </footer>
 <!-- script -->
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v7.0" nonce="syZaIx9B"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script data-ad-client="ca-pub-2314966356420014" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script src="/inc/js/script.js" type="text/javascript"></script>
-<script src="/inc/js/jquery.js" type="text/javascript"></script>
-<script src="/inc/js/bootstrap.js" type="text/javascript"></script>
-<?php if(isset($script)): ?><?= $script; ?><?php endif ?>
-</body>
+<?= require_once INC . DS . 'js' . DS .  'scripts.php'; ?> 
+    </body>
 </html>

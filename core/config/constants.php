@@ -14,13 +14,18 @@ define('TESTS', ROOT . DS . 'tests');
 define('VENDOR', ROOT . DS . 'vendor');
 define('VIEWS', ROOT . DS . 'view');
 
-/** - LIBRARY */
+/** - CONFIG */
 define('CONFIG', CORE . DS . 'config');
+
+/** - PLUGINS */
+define('PLUGIN', CORE . DS . 'plugins');
 
 /** - INC */
 define('INC', PUB . DS . 'inc');
+
 /** - DATA */
 define('DATA', PUB . DS . 'data');
+
 /** - IMAGES */
 define('IMAGES', INC . DS . 'img');
 
@@ -36,10 +41,6 @@ define('TABLE', SRC . DS . 'table');
 define('VALIDATOR', SRC . DS . 'validator');
 define('WIDGET', SRC . DS . 'widgets');
 
-/** - ELEMENT */
-define('ELEM_COMM', ELEM . DS . 'commentaire');
-define('ELEM_CONN', ELEM . DS . 'connexion');
-
 /** - TEST */
 define('TESTHELP', TESTS . DS . 'Helpers');
 
@@ -53,4 +54,4 @@ define('MSG', VIEWS . DS . 'messagerie');
 define('POST', VIEWS . DS . 'post');
 define('USER', VIEWS . DS . 'user');
 
-require_once  CONFIG . DS . 'includes.php';
+require_once CONFIG . DS . 'includes.php';

@@ -1,6 +1,8 @@
 <?php
-
 use Controller\{Auth, Picture};
+
+$title = "Média";
+$titre_navBar = $titre_header = $title;
 
 if(Auth::$session['auth']) {
     Auth::check();
@@ -25,7 +27,7 @@ echo getFlash();
 
 <form action="#" method="post" enctype="multipart/form-data">
 <input type="file" name="img" id="image">
-<input type="submit" value="Envoyer">
+<input type="submit" value="Envoyer le fichier">
 </form>
 
 <?php
@@ -37,33 +39,15 @@ $allow_ext = array('jpg','png','gif');
 $ext = strtolower(substr($file, -3));
 if(in_array($ext, $allow_ext)) {
 ?>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Image</th>
-            <th>Actions </th>
-        </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>
-        <a href="<?= 'inc/img' . DS . $file; ?>" rel="zoombox[galerie]" alt="<?= 'inc/img/thumbnail'. DS. $file; ?>">
-            <img src="<?= 'inc/img/thumbnail'. DS. $file; ?>"/>
-        </a>
-        </td>
-        <td>
-        <a href="" class="btn btn-primary">
-            Modifier
-            </a>
-            <form action=""
-            method="POST" onsubmit="return confirm('Voulez vous vraiment effectuer cette action ?')" style="display:inline">
-            <button type="submit"  class="btn btn-danger">Supprimer</button>
-            </form>
-        </td>
-    </tr>
-</tbody>
-</table>
+<div class="card card-body card-title">
+    <a href="<?= 'inc/img' . DS . $file; ?>" rel="zoombox[galerie]"><img src="<?= 'inc/img/thumbnail'. DS. $file; ?>" width="100%" height="auto"/></a>
+    <h3 style="display:inline"><?= $file; ?></h3>
+    <a href="" class="btn btn-primary">Modifier</a>
+    <form action="" method="POST" onsubmit="return confirm('Voulez vous vraiment effectuer cette action ?')" style="display:inline">
+    <button type="submit"  class="btn btn-danger">Supprimer</button>
+    </form>
+</div>
+<br/>
 <?php
     }
 }

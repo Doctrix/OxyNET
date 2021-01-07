@@ -10,8 +10,10 @@
 "autoload": {
     "files":["app/element/helpers.php"],
     "psr-4": {
-        "Core\\": "core/",
         "App\\": "app/",
+        "Core\\": "core/",
+        "Config\\": "core/config/",
+        "Plugins\\": "core/plugins/",
         "Controller\\": "app/controller/",
         "Helper\\": "app/helper/",
         "Model\\": "app/model/",

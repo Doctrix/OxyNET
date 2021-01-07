@@ -40,7 +40,6 @@ $mois = [
     '12' => 'Decembre'
 ];
 ?>
-
 <h2><ul>Membres</ul></h2>
 <strong>Inscris :</strong><br/>
 <strong>Connectés :</strong><br/>  
@@ -91,7 +90,7 @@ $mois = [
 </div>
 <br/>
 <th>
-<button onclick="history.go(-1);" class="btn btn-secondary" >Retour</button>
+<button onclick="history.go(-1);" class="btn btn-secondary">Retour</button>
 <a href="<?= $router->url('admin_post') ?>" class="btn btn-info">Tous les articles</a>
 <a href="<?= $router->url('admin_post_new') ?>" class="btn btn-primary">Ajouter un nouveau article</a>
 <a href="<?= $router->url('editeur') ?>" class="btn btn-dark">Editeur</a>

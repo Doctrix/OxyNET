@@ -1,9 +1,7 @@
 <?php
-
 use Controller\Auth;
 use Server\Connection;
 use Table\CategoryTable;
-
 
 if(Auth::$session['auth']) {
     Auth::check();
