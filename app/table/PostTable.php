@@ -2,15 +2,14 @@
 namespace Table;
 
 use Controller\PaginatedQuery;
-use Exception;
 use Model\Post;
 
-final class PostTable extends Table {
-
+final class PostTable extends Table
+{
     protected $table = 'post';
     protected $class = Post::class;
 
-    public function updatePost (Post $post): void
+    public function updatePost(Post $post) : void
     {
         $this->update([
             'title' => $post->getTitle(),
@@ -20,11 +19,11 @@ final class PostTable extends Table {
             'excerpt' => $post->getExcerptContent(),
             'url' => $post->getUrl(),
             'created_at' => $post->getCreatedAt()->format('Y-m-d H:i:s')
-        ], 
-        $post->getID());
+        ]);
+        $post->getID();
     }
 
-    public function createPost (Post $post): void
+    public function createPost(Post $post) : void
     {
         $id = $this->create([
             'title' => $post->getTitle(),
@@ -38,11 +37,11 @@ final class PostTable extends Table {
         $post->getID($id);
     }
 
-    public function attachCategories (int $id, array $categories)
+    public function attachCategories(int $id, array $categories)
     {
         $this->pdo->exec('DELETE FROM post_category WHERE post_id = ' . $id);
         $query = $this->pdo->prepare('INSERT INTO post_category SET post_id = ?, category_id = ?');
-        foreach($categories as $category) {
+        foreach ($categories as $category) {
             $query->execute([$id, $category]);
         }
     }
@@ -52,13 +51,12 @@ final class PostTable extends Table {
         $query = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = ?");
         $ok = $query->execute([$id]);
         if ($ok === false) {
-            throw new Exception("Impossible de supprimer l'enregistrement $id dans la table {$this->table}");
+            throw new \Exception("Impossible de supprimer l'enregistrement $id dans la table {$this->table}");
         }
     }
 
-
-    public function findPaginated() 
-    {  
+    public function findPaginated()
+    {
         $paginatedQuery = new PaginatedQuery(
             "SELECT * FROM {$this->table} ORDER BY created_at DESC",
             "SELECT COUNT(id) FROM {$this->table}",

@@ -5,8 +5,8 @@ use Model\User;
 use Table\Exception\NotFoundException;
 use PDO;
 
-final class UserTable extends Table {
-
+final class UserTable extends Table
+{
     protected $table = "user";
     protected $tableRole = "role";
     protected $class = User::class;
@@ -30,7 +30,7 @@ final class UserTable extends Table {
         $query->setFetchMode(PDO::FETCH_CLASS, $this->class);
         $result = $query->fetch();
         $roles = array();
-        foreach($result as $r){
+        foreach ($result as $r) {
             $roles[$r->slug]=$r->level;
         }
         if ($result === false) {
@@ -38,5 +38,4 @@ final class UserTable extends Table {
         }
         return $result;
     }
-
 }

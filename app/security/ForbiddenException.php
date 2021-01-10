@@ -1,6 +1,9 @@
 <?php
 namespace Security;
 
-class ForbiddenException extends \Exception{
+use Exception;
+
+class ForbiddenException extends Exception
+{
 
 }

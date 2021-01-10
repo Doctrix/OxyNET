@@ -15,7 +15,7 @@ final class CategoryTable extends Table {
     public function hydratePosts(array $posts): void
     {
         $postsByID = [];
-        foreach($posts as $post) {
+        foreach ($posts as $post) {
             $post->setCategories([]);
             $postsByID[$post->getID()] = $post;
         }
@@ -39,7 +39,7 @@ final class CategoryTable extends Table {
     {
         $categories = $this->queryEtFetchAll("SELECT * FROM {$this->table} ORDER BY name ASC");
         $results = [];
-        foreach($categories as $category) {
+        foreach ($categories as $category) {
             $results[$category->getID()] = $category->getName();
 
         }

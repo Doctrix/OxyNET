@@ -4,8 +4,8 @@ namespace Model;
 use Helper\Text;
 use DateTime;
 
-class Post {
-
+class Post
+{
     private $id;
     private $slug;
     private $picture_id;
@@ -17,7 +17,7 @@ class Post {
     private $categories = [];
     
     // OBTENIR (get)
-    public function getID (): ?int
+    public function getID(): ?int
     {
         return $this->id;
     }
@@ -83,8 +83,6 @@ class Post {
         return $this;
     }
 
-    
-
     public function getContent(): ?string
     {
         return nl2br($this->content);
@@ -114,7 +112,7 @@ class Post {
     
     public function getExcerptContent(): ?string
     {
-        if ($this->content === null) 
+        if ($this->content === null)
         {
             return null;
         }
@@ -137,7 +135,7 @@ class Post {
     public function getCategoriesIds(): array
     {
         $ids = [];
-        foreach($this->categories as $category) {
+        foreach ($this->categories as $category) {
             $ids[] = $category->getID();
         }
         return $ids;

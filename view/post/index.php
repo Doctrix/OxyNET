@@ -14,10 +14,10 @@ $table = new PostTable($pdo);
 $link = $router->url('home');
 ?>
 
-<h1><?= e($titre_header); ?></h1>
+<h1 class="mt-1 py-5"><?= e($titre_header); ?></h1>
 
 <div class="row">
-    <?php foreach($posts as $post): ?>
+    <?php foreach ($posts as $post) : ?>
     <div class="col-md-3">
         <?php require 'card.php' ?>
     </div>

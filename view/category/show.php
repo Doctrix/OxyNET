@@ -25,7 +25,7 @@ $link = $router->url('category', ['id' => $category->getID(), 'slug' => $categor
 <div class="row">
     <?php foreach($posts as $post): ?>
     <div class="col-md-3">
-        <?php require_once(POST . DS . 'card.php'); ?>
+        <?php require_once(POST . 'card.php'); ?>
     </div>
     <?php endforeach ?>
 </div>

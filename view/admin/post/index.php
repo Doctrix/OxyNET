@@ -7,16 +7,13 @@ use Table\PostTable;
 $title = "Admin : ARTICLES";
 $titre_header = "Tous les ARTICLES";
 
-if(Auth::$session['auth']) {
-    Auth::check();
-    exit(); 
-}
+Auth::check();
 
 $pdo = Connection::getPDO();
 $link = $router->url('admin_post');
 [$posts, $pagination] = (new PostTable($pdo))->findPaginated();
 
-if (isset($_GET['delete'])): ?>
+if (isset($_GET['delete'])) : ?>
 
 <div class="alert alert-success">
     L'enregistrement à bien été supprimé
@@ -38,25 +35,25 @@ if (isset($_GET['delete'])): ?>
         </tr>
     </thead>
     <tbody>
-    <?php foreach($posts as $post): ?>
+    <?php foreach ($posts as $post) : ?>
     <tr>
         <td>
             #<?= e($post->getID()) ?>
         </td>
         <td>
-        <a href="<?= $router->url('admin_post_edit',['id'=>$post->getID()]) ?>">
+        <a href="<?= $router->url('admin_post_edit', ['id'=>$post->getID()]) ?>">
             <img src="<?= $post->getPictureID() ?>" height="100px" width="100px" /></a>
         </td>
         <td>
-            <a href="<?= $router->url('admin_post_edit',['id'=>$post->getID()]) ?>">
+            <a href="<?= $router->url('admin_post_edit', ['id'=>$post->getID()]) ?>">
             <?= e($post->getTitle()) ?>
             </a>
         </td>
         <td>
-            <a href="<?= $router->url('admin_post_edit',['id'=>$post->getID()]) ?>" class="btn btn-primary">
+            <a href="<?= $router->url('admin_post_edit', ['id'=>$post->getID()]) ?>" class="btn btn-primary">
             Modifier
             </a>
-            <form action="<?= $router->url('admin_post_delete',['id' => $post->getID()]) ?>"
+            <form action="<?= $router->url('admin_post_delete', ['id' => $post->getID()]) ?>"
             method="post" onsubmit="return confirm('Voulez vous vraiment effectuer cette action ?')" style="display:inline">
             <button type="submit" class="btn btn-danger">Supprimer</button>
             </form>

@@ -4,10 +4,10 @@ namespace Server;
 use Controller\Auth;
 use PDO;
 
-require CORE . DS . 'config/DB.php';
+require CORE . 'config/DB.php';
 
-class Connection {
-
+class Connection
+{
     public static $db;
     public static $auth;
     public static $db_user = DB_USER;
@@ -16,8 +16,7 @@ class Connection {
 
     public static function getPDO(): PDO
     {
-        if(!self::$db)
-        {
+        if (!self::$db) {
             $db_host = DB_HOST;
             $db_name = DB_NAME;
             self::$db = new PDO("mysql:host={$db_host};dbname={$db_name}", self::$db_user, self::$db_password);
@@ -29,8 +28,7 @@ class Connection {
     
     public static function getAuth(): Auth
     {
-        if(!self::$auth)
-        {
+        if (!self::$auth) {
             self::$auth = new Auth(self::getPDO());
         }
         return self::$auth;
@@ -43,7 +41,7 @@ class Connection {
      */
     public function query($query, $params = false)
     {
-        if($params){
+        if ($params) {
             $req = $this->pdo->prepare($query);
             $req->execute($params);
         } else {

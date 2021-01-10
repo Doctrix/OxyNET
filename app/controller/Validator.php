@@ -8,6 +8,12 @@ class Validator extends ValitronValidator {
 
     protected static $_lang = "fr";
 
+    private const MIME_TYPES = [
+        'jpg' => 'image/jpeg',
+        'png' => 'image/png',
+        'pdf' => 'application/pdf'
+    ];
+
     private $data;
     private $errors = [];
 
@@ -31,7 +37,7 @@ class Validator extends ValitronValidator {
 
     public function isAlpha($field, $errorMsg)
     {
-        if(!preg_match('/^[a-zA-Z0-9_]+$/', $this->getField($field))){
+        if (!preg_match('/^[a-zA-Z0-9_]+$/', $this->getField($field))) {
             $this->errors[$field] = $errorMsg;
         }
     }
@@ -46,7 +52,7 @@ class Validator extends ValitronValidator {
 
     public function isEmail($field, $errorMsg)
     {
-        if(!filter_var($this->getField($field), FILTER_VALIDATE_EMAIL)){
+        if(!filter_var($this->getField($field), FILTER_VALIDATE_EMAIL)) {
             $this->errors[$field] = $errorMsg;
         }
     }
@@ -58,7 +64,8 @@ class Validator extends ValitronValidator {
         }
     }
 
-    public function isValid(){
+    public function isValid() : bool
+    {
         return empty($this->errors);
     }
 

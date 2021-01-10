@@ -3,10 +3,7 @@ use Controller\Auth;
 use Server\Connection;
 use Table\CategoryTable;
 
-if(Auth::$session['auth']) {
-    Auth::check();
-    exit(); 
-}
+Auth::check();
 
 $pdo = Connection::getPDO();
 $link = $router->url('admin_category');

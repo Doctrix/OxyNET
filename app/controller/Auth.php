@@ -18,13 +18,13 @@ class Auth
 
     public static function check()
     {
-        if(session_status() === PHP_SESSION_NONE) {
+        if (session_status() === PHP_SESSION_NONE) {
             session_set_cookie_params(86400, dirname($_SERVER['REQUEST_URI']));
             session_start();
         }
-        if(!isset($_SESSION['auth'])) {
+        if (!isset($_SESSION['auth'])) {
             throw new ForbiddenException();
-        } 
+        }
     }
 
     public static function user(): ?User

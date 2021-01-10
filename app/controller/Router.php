@@ -7,7 +7,7 @@ use Security\ForbiddenException;
 /**
  * Register et match routes
  */
-class Router 
+class Router
 {
     /**
      * @var string
@@ -77,7 +77,7 @@ class Router
             $layout = $isEditor ? 'admin/editeur/layouts/default' : 'layouts/default';
         } elseif ($isIDE) {
             $layout = $isIDE ? 'ide/layouts/default' : 'layouts/default';
-        } 
+        }
         try {
             ob_start();
             require $this->viewPath . DS . $view . '.php';
@@ -87,7 +87,6 @@ class Router
             header('Location', $this->url('login') . '?forbidden=1');
             exit();
         }
-
         return  $this;
     }
 }

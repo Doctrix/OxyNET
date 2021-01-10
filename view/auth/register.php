@@ -34,7 +34,7 @@ if(!empty($_POST)) {
         $auth = new Auth($db,'auth');
         $auth->register($db, $_POST['username'], $_POST['password'], $_POST['email'], $_POST['created_at']);
         Session::getInstance()->setSuccess('Un email de confirmation vous a été envoyé pour valider votre compte');
-        App::redirect('login');
+        $router->redirect('login');
 
     } else {
         $errors = $validator->getErrors();

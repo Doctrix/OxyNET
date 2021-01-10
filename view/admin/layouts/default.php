@@ -27,26 +27,34 @@
     </title>
 </head>
 <body class="d-flex flex-column">
-    <header class="header mt-auto py-3 bg-dark" style="text-align:right">
-            <button id="sidebarCollapse" type="button"class="btn btn-dark bg-dark rounded-pill shadow-sm px-5 mb-3"><small class="text-uppercase font-weight-bold">...</small></button>
-    </header>
-    <aside>   
-        <div class="vertical-nav bg-dark" id="sidebar" role="group" aria-label="Button admin">     
-            <ul class="nav flex-column bg-white mb-0">
-            <a href="<?= BASE_URL ?>" class="nav-link text-light font-italic bg-dark">HOME</a>
-            <?= nav_menu_admin('nav-link text-dark font-italic bg-light'); ?>
-            </ul>   
-        </div>
-    </aside>
-    <section class="page-content h-100 mt-4" id="content" >
-        <article class="container mt-4">
-            <h1 class="titre text-center"><b><?= isset($titre_header) ? e($titre_header): 'Oxy'; ?></b></h1>
-            <?= $content ?>
-            <footer class="footer">
-                <p>Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME)) ?>ms</p>
-            </footer>
-        </article>
+<aside>   
+    <div class="vertical-nav bg-dark" id="sidebar" role="group" aria-label="Button admin">     
+        <ul class="nav flex-column bg-white mb-0">
+        <a href="<?= BASE_URL ?>" class="nav-link text-light font-italic bg-dark">HOME</a>
+        <?= nav_menu_admin('nav-link text-dark font-italic bg-light'); ?>
+        </ul>   
+    </div>
+</aside>
+
+<article class="bg-dark page-content" id="content" >         
+<header class="t" style="text-align:right">
+<button id="sidebarCollapse" type="button"class="btn btn-dark bg-dark rounded-pill shadow-sm px-5 mb-3">
+    <small class="text-uppercase font-weight-bold">|||</small></button>
+
+<h1 class="py-5 text-center">
+        <?= isset($titre_header) ? e($titre_header): 'Oxy';
+    ?></h1>
+</header>
+    <section class="container mt-4 py-2">
+    <?= $content ?>
     </section>
-    <?php require(INC . DS . 'js' . DS .  'scripts.php'); ?> 
+
+    <footer class="card-body mt-5">
+        <p>Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME)) ?>ms</p>
+    </footer>
+
+</article>
+
+    <?php require(INC . 'js' . DS . 'scripts.php'); ?> 
     </body>
 </html>

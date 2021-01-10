@@ -44,4 +44,6 @@ $router
     ->get('/profil/dashboard', 'user/index', 'user_dashboard')
     ->match('/voir_profil', 'user/voir_profil', 'user_profil')
     ->get('/live', 'user/live', 'live')
+    ->post('/blog/[*:slug]-[i:id]', 'post/add', 'add_comment')
+    ->get('/delete/[:id]', 'post/delete', 'comments.delete')
     ->run();

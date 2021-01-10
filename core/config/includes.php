@@ -1,4 +1,4 @@
 <?php
-require_once ELEM . DS . 'menu.php';
-require_once ELEM . DS . 'flash.php';
-require_once ELEM . DS . 'picture.php';
+require_once ELEM . 'menu.php';
+require_once ELEM . 'flash.php';
+require_once ELEM . 'picture.php';

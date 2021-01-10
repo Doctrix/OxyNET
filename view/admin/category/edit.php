@@ -6,10 +6,7 @@ use Validator\CategoryValidator;
 use Table\CategoryTable;
 use Server\Connection;
 
-if(Auth::$session['auth']) {
-    Auth::check();
-    exit();
-}
+Auth::check();
 
 $pdo = Connection::getPDO();
 $table = new CategoryTable($pdo);

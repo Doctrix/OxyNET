@@ -4,10 +4,7 @@ use Controller\{Auth, Picture};
 $title = "Média";
 $titre_navBar = $titre_header = $title;
 
-if(Auth::$session['auth']) {
-    Auth::check();
-    exit();
-}
+Auth::check();
 
 if(!empty($_FILES)) {
     $img = $_FILES['img'];

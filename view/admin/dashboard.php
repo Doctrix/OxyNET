@@ -3,14 +3,10 @@
 use Controller\Auth;
 use Server\Connection;
 
+Auth::check();
+
 $titre_header = $titre_navBar = 'Tableau de bord';
-
-if(Auth::$session['auth']) {
-    Auth::check();
-    exit();
-}
-
-require ELEM . DS . 'compteur.php';
+require ELEM . 'compteur.php';
 
 $pdo = Connection::getPDO();
 $user = $pdo->query("SELECT * FROM user");

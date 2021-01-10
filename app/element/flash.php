@@ -8,7 +8,7 @@ function getFlash() {
     }
 }
 
-function setFlash($message, $type = 'success'){
+function setSuccess($message, $type = 'success'){
     $_SESSION['Flash']['message'] = $message;
     $_SESSION['Flash']['type'] = $type;
 }
@@ -17,4 +17,5 @@ function setErreur($message, $type = 'danger'){
     $_SESSION['Flash']['message'] = $message;
     $_SESSION['Flash']['type'] = $type;
 }
+
 ?>

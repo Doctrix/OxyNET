@@ -1,6 +1,9 @@
 <?php
 namespace Controller;
 
-class App extends Router {}
+class App extends Router
+{
 
-require_once CONTROLLER . DS . 'Auth.php';
+}
+
+require_once CONTROLLER . 'Auth.php';

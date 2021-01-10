@@ -1,10 +1,11 @@
 <?php
 use Widget\Social;
 $widgets = new Social();
-require_once ELEM . DS . 'compteur.php';
+require_once ELEM . 'compteur.php';
 ajouter_une_vue();
 $vues = nbr_de_vues();
-require_once ELEM . DS . 'compteur_if.php';
+require_once ELEM . 'compteur_if.php';
+
 ?>
 
 <!DOCTYPE HTML>
@@ -36,6 +37,7 @@ require_once ELEM . DS . 'compteur_if.php';
     </title> 
 </head>
 <body class="d-flex flex-column">
+<article class="<?= $background ?>">   
 <header class="header mt-auto py-3">
     <h1 class="titre text-center"><b><?= isset($titre_header) ? e($titre_header): 'Oxy'; ?></b></h1>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -54,19 +56,27 @@ require_once ELEM . DS . 'compteur_if.php';
         </div>
     </nav>
 </header>
+<?= getFlash() ?>
 
-    <div class="container h-100 mt-4">
+<section>
+    <div class="container h-100">
         <?= $content ?>
-    </div>
-    <br clear="all">
+    </div>    
+</section>
 
-<footer class="bg-dark py-4 footer mt-auto">
-    <div class="container">   
-    <strong style="color:yellow">O</strong>xy<strong style="color:yellow">G</strong>ène<strong style="color:yellow">S</strong>tudio <a href="//oxygames.fr" target="_blank" style="color:yellow">[O.G.S]</a> en partenariat avec : <a href="//mifaconcept.fr" target="_blank" style="color:green">Mifa Concept</a> | Crée avec <a href="https://github.com/Doctrix/OxyNET" target="_blank" style="color:yellow">OxyNET</a> v1.0
-    <p style="color:white;">Il y a <strong style="color:green"><?= $vues ?></strong> visite<?php if ($vues > 1):?>s<?php endif; ?> sur le site</p>
+<br clear="all">
+
+<footer class="bg-dark">
+    <div class="container h-100 mt-5 py-5">
+        <strong style="color:yellow">O</strong>xy<strong style="color:yellow">G</strong>ène<strong style="color:yellow">S</strong>tudio <a href="//oxygames.fr" target="_blank" style="color:yellow">[O.G.S]</a>
+         en partenariat avec : <a href="//mifaconcept.fr" target="_blank" style="color:green">Mifa Concept</a> | Crée avec <a href="https://github.com/Doctrix/OxyNET" target="_blank" style="color:yellow">OxyNET</a> v1.0
+            <p style="color:white;">Il y a <strong style="color:green"><?= $vues ?></strong>
+             visite<?php if ($vues > 1) : ?>s<?php endif; ?> sur le site</p>
     </div>
 </footer>
+
+</article>
 <!-- script -->
-<?php require(INC . DS . 'js' . DS .  'scripts.php'); ?> 
+<?php require(INC . 'js' . DS .  'scripts.php'); ?> 
     </body>
 </html>

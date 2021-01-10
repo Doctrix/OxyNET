@@ -7,10 +7,7 @@ use Validator\CategoryValidator;
 use Model\Category;
 use Server\Connection;
 
-if(Auth::$session['auth']) {
-    Auth::check();
-    exit();
-}
+Auth::check();
 
 $errors = [];
 $item = new Category();
