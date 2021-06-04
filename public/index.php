@@ -9,3 +9,4 @@ function autoload($class)
 
 require_once VENDOR . 'autoload.php';
 require_once CONFIG . 'routes.php';
+?>

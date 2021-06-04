@@ -66,7 +66,7 @@ require_once ELEM . 'compteur_if.php';
 
 <br clear="all">
 
-<footer class="bg-dark">
+<footer class="bg-dark card-body">
     <div class="container h-100 mt-5 py-5">
         <strong style="color:yellow">O</strong>xy<strong style="color:yellow">G</strong>ène<strong style="color:yellow">S</strong>tudio <a href="//oxygames.fr" target="_blank" style="color:yellow">[O.G.S]</a>
          en partenariat avec : <a href="//mifaconcept.fr" target="_blank" style="color:green">Mifa Concept</a> | Crée avec <a href="https://github.com/Doctrix/OxyNET" target="_blank" style="color:yellow">OxyNET</a> v1.0
